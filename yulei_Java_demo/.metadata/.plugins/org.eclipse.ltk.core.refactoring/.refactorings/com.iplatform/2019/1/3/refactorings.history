@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;M_btn_downarrow&apos; in &apos;objectRepository.AppElements&apos; to &apos;Apps_btn_downarrow&apos;&#x0D;&#x0A;- Original project: &apos;com.iplatform&apos;&#x0D;&#x0A;- Original element: &apos;objectRepository.AppElements.M_btn_downarrow&apos;&#x0D;&#x0A;- Renamed element: &apos;objectRepository.AppElements.Apps_btn_downarrow&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;M_btn_downarrow&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;objectRepository{AppElements.java[AppElements^M_btn_downarrow" name="Apps_btn_downarrow" references="true" setter="false" stamp="1547457996267" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Batch_1" configfailurepolicy="continue" parallel="classes" thread-count="1">
+      <test name="test_1" preserve-order="true">
+      	<classes>
+
+      		<class name="TestCases.WFA_POTS_Dial_Tone_1" />
+      		<class name="TestCases.WFA_POTS_Dial_Tone_2" />
+      		
+      		
+      		<!--  <class name="TestCases.WFA_POTS_Dial_Tone_2" />-->
+      	</classes>
+      </test>
+
+
+</suite> <!-- Suite allow-return-values="true" -->

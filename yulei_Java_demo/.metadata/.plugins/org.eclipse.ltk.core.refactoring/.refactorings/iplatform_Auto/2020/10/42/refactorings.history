@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;tab_Error&apos; in &apos;objectRepository.AppElements&apos; to &apos;tab_Error_Cl&apos;&#x0D;&#x0A;- Original project: &apos;iplatform_Auto&apos;&#x0D;&#x0A;- Original element: &apos;objectRepository.AppElements.tab_Error&apos;&#x0D;&#x0A;- Renamed element: &apos;objectRepository.AppElements.tab_Error_Cl&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;tab_Error&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;objectRepository{AppElements.java[AppElements^tab_Error" name="tab_Error_Cl" references="true" setter="false" stamp="1602492176065" textual="false" version="1.0"/>
+</session>

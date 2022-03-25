@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 15 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Batch_1">
+              <span class="suite-name border-failed">Batch_1</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Batch_1">
+                    <span>C:\Users\yulei\AppData\Local\Temp\testng-eclipse-1411246385\testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Batch_1">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Batch_1">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Batch_1">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Batch_1">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Batch_1">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Batch_1">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">20 methods, 15 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Batch_1" class="hide-methods failed suite-Batch_1"> (hide)</a> <!-- hide-methods failed suite-Batch_1 -->
+                      <a href="#" panel-name="suite-Batch_1" class="show-methods failed suite-Batch_1"> (show)</a> <!-- show-methods failed suite-Batch_1 -->
+                    </span>
+                    <div class="method-list-content failed suite-Batch_1">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_02_app_list">APP_GUI_02_app_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_02a_app_list_fold_app_tree">APP_GUI_02a_app_list_fold_app_tree</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_04_Data_Information">APP_GUI_04_Data_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_05_Data_Menu_list">APP_GUI_05_Data_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_06_Data_folder_Information">APP_GUI_06_Data_folder_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_07_Data_folder_Menu_list">APP_GUI_07_Data_folder_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_08_app_Menu_bar">APP_GUI_08_app_Menu_bar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_09A_Data_file_Database_Menu_list">APP_GUI_09A_Data_file_Database_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_09B_Data_file_Sheet_Menu_list">APP_GUI_09B_Data_file_Sheet_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_09_Data_file_Spreadsheet_Menu_list">APP_GUI_09_Data_file_Spreadsheet_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_11_Document_Menu_list">APP_GUI_11_Document_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_13_Document_folder_Menu_list">APP_GUI_13_Document_folder_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_15_Document_file_Menu_list">APP_GUI_15_Document_file_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_20_Channel_Information">APP_GUI_20_Channel_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_21_Mattermost_Test">APP_GUI_21_Mattermost_Test</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Batch_1 -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Batch_1" class="hide-methods passed suite-Batch_1"> (hide)</a> <!-- hide-methods passed suite-Batch_1 -->
+                      <a href="#" panel-name="suite-Batch_1" class="show-methods passed suite-Batch_1"> (show)</a> <!-- show-methods passed suite-Batch_1 -->
+                    </span>
+                    <div class="method-list-content passed suite-Batch_1">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_01_app_Menu_bar">APP_GUI_01_app_Menu_bar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_09C_Data_file_HTTP_Services_Menu_list">APP_GUI_09C_Data_file_HTTP_Services_Menu_list</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_10_Document_Information">APP_GUI_10_Document_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_12_Document_folder_Information">APP_GUI_12_Document_folder_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Batch_1" title="testcases.APP_GUI" hash-for-method="APP_GUI_14_Document_file_Information">APP_GUI_14_Document_file_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Batch_1 -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Batch_1" class="panel Batch_1">
+          <div class="suite-Batch_1-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testcases.APP_GUI</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_02_app_list">
+                  </a> <!-- APP_GUI_02_app_list -->
+                  <span class="method-name">APP_GUI_02_app_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [242] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [243] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [271] line_end;gui_start org.openqa.selenium.ElementNotVisibleException: element not interactable
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.05 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5 gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_02_app_list(APP_GUI.java:360)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_02a_app_list_fold_app_tree">
+                  </a> <!-- APP_GUI_02a_app_list_fold_app_tree -->
+                  <span class="method-name">APP_GUI_02a_app_list_fold_app_tree</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [404] line_end;gui_start org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span...id=&quot;ellipsisAppIcon&quot; style=&quot;text-align: center; font-weight: normal; position:fixed;padding-top:1.5px;font-size: 14px; color: rgb(158, 158, 158);&quot; class=&quot;ico-more3&quot;&gt; &lt;/span&gt; is not clickable at point (117, 17). Other element would receive the click: &lt;div style=&quot;opacity: 0;&quot; class=&quot;modal-overlay&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.07 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5 gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_02a_app_list_fold_app_tree(APP_GUI.java:481)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_04_Data_Information">
+                  </a> <!-- APP_GUI_04_Data_Information -->
+                  <span class="method-name">APP_GUI_04_Data_Information</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [731] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;.//li[-1]&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5
+*** Element info: {Using=xpath, value=.//li[-1]} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_04_Data_Information(APP_GUI.java:772)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_05_Data_Menu_list">
+                  </a> <!-- APP_GUI_05_Data_Menu_list -->
+                  <span class="method-name">APP_GUI_05_Data_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [857] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_test_file.xlsx]]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_05_Data_Menu_list(APP_GUI.java:974)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_06_Data_folder_Information">
+                  </a> <!-- APP_GUI_06_Data_folder_Information -->
+                  <span class="method-name">APP_GUI_06_Data_folder_Information</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1009] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;.//li[-1]&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.02 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5
+*** Element info: {Using=xpath, value=.//li[-1]} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_06_Data_folder_Information(APP_GUI.java:1068)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_07_Data_folder_Menu_list">
+                  </a> <!-- APP_GUI_07_Data_folder_Menu_list -->
+                  <span class="method-name">APP_GUI_07_Data_folder_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1148] line_end; expected [Not found] but found [Training uitest_cyberobject_com_cn/ui_app_test/data/UI_Data_folder_01/UI_Data_file_employee.xlsx success]gui_start  gui_end,
+	@@line_start [1150] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_folder_01/UI_Data_file_employee.xlsx]]gui_start  gui_end,
+	@@line_start [1323] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[starts-with(@class,&apos;servicesItem sdbr menu-item&apos;)]//span[text()=&apos;New Diagram&apos;]&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.01 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5
+*** Element info: {Using=xpath, value=//div[starts-with(@class,&apos;servicesItem sdbr menu-item&apos;)]//span[text()=&apos;New Diagram&apos;]} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_07_Data_folder_Menu_list(APP_GUI.java:1520)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_08_app_Menu_bar">
+                  </a> <!-- APP_GUI_08_app_Menu_bar -->
+                  <span class="method-name">APP_GUI_08_app_Menu_bar</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1540] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_08_app_Menu_bar(APP_GUI.java:1698)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_09A_Data_file_Database_Menu_list">
+                  </a> <!-- APP_GUI_09A_Data_file_Database_Menu_list -->
+                  <span class="method-name">APP_GUI_09A_Data_file_Database_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1981] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[starts-with(@class,&apos;servicesItem sdbr menu-item&apos;)]//span[text()=&apos;New Diagram&apos;]&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.02 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5
+*** Element info: {Using=xpath, value=//div[starts-with(@class,&apos;servicesItem sdbr menu-item&apos;)]//span[text()=&apos;New Diagram&apos;]} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09A_Data_file_Database_Menu_list(APP_GUI.java:2143)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_09B_Data_file_Sheet_Menu_list">
+                  </a> <!-- APP_GUI_09B_Data_file_Sheet_Menu_list -->
+                  <span class="method-name">APP_GUI_09B_Data_file_Sheet_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [2186] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09B_Data_file_Sheet_Menu_list(APP_GUI.java:2268)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_09_Data_file_Spreadsheet_Menu_list">
+                  </a> <!-- APP_GUI_09_Data_file_Spreadsheet_Menu_list -->
+                  <span class="method-name">APP_GUI_09_Data_file_Spreadsheet_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1740] line_end; expected [Not found] but found [Training uitest_cyberobject_com_cn/ui_app_test/data/UI_Data_folder_02/UI_Data_file_termdef.xlsx]gui_start  gui_end,
+	@@line_start [1742] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_folder_02/UI_Data_file_termdef.xlsx]]gui_start  gui_end,
+	@@line_start [1750] line_end; expected [icon_unlock_excel] but found [tree-icon tree-file icon_excel]gui_start [[[[[[[[[[[[ChromeDriver: chrome on XP (30869fe267650f4957abe3c235a667b5)] -&gt; xpath: //ul[@id=&apos;fileTree&apos;]/li]] -&gt; xpath: ./ul/li]] -&gt; xpath: ./ul/li]] -&gt; xpath: ./ul/li]] -&gt; xpath: ./div]] -&gt; xpath: .//descendant::span[5]] gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09_Data_file_Spreadsheet_Menu_list(APP_GUI.java:1971)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_11_Document_Menu_list">
+                  </a> <!-- APP_GUI_11_Document_Menu_list -->
+                  <span class="method-name">APP_GUI_11_Document_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [62] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [2440] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_11_Document_Menu_list(APP_GUI.java:2572)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_13_Document_folder_Menu_list">
+                  </a> <!-- APP_GUI_13_Document_folder_Menu_list -->
+                  <span class="method-name">APP_GUI_13_Document_folder_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [62] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [2649] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end,
+	@@line_start [2652] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end,
+	@@line_start [2732] line_end; expected [Not found] but found [The destination folder is a subfolder of the source folder, folder uitest_cyberobject_com_cn/ui_app_test/Document/UI_Doc_folder_01]gui_start  gui_end,
+	@@line_start [2839] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_13_Document_folder_Menu_list(APP_GUI.java:2969)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_15_Document_file_Menu_list">
+                  </a> <!-- APP_GUI_15_Document_file_Menu_list -->
+                  <span class="method-name">APP_GUI_15_Document_file_Menu_list</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3123] line_end; expected [Not found] but found [Start training UI_Doc_file_testrex.rex]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_15_Document_file_Menu_list(APP_GUI.java:3340)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_20_Channel_Information">
+                  </a> <!-- APP_GUI_20_Channel_Information -->
+                  <span class="method-name">APP_GUI_20_Channel_Information</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;]/parent::div//label gui_end,
+	@@line_start [3868] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3869] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;] gui_end,
+	@@line_start [3870] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;]/parent::div//label gui_end,
+	@@line_start [3889] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:49965}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir5008_1704462879}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 30869fe267650f4957abe3c235a667b5
+*** Element info: {Using=xpath, value=//div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_20_Channel_Information(APP_GUI.java:3915)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_21_Mattermost_Test">
+                  </a> <!-- APP_GUI_21_Mattermost_Test -->
+                  <span class="method-name">APP_GUI_21_Mattermost_Test</span>
+                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3935] line_end; expected [UI_app_testLogic is start.
+Are you 18?
+1. Yes
+2. No] but found [A glass of wine
+] expected [true] but found [false],
+	@@line_start [3939] line_end; expected [UI_app_testLogic is start.
+Of course, will be soon.] but found [Yes!
+] expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_21_Mattermost_Test(APP_GUI.java:3954)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Batch_1-class-failed -->
+          <div class="suite-Batch_1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testcases.APP_GUI</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_01_app_Menu_bar">
+                  </a> <!-- APP_GUI_01_app_Menu_bar -->
+                  <span class="method-name">APP_GUI_01_app_Menu_bar</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_09C_Data_file_HTTP_Services_Menu_list">
+                  </a> <!-- APP_GUI_09C_Data_file_HTTP_Services_Menu_list -->
+                  <span class="method-name">APP_GUI_09C_Data_file_HTTP_Services_Menu_list</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_10_Document_Information">
+                  </a> <!-- APP_GUI_10_Document_Information -->
+                  <span class="method-name">APP_GUI_10_Document_Information</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_12_Document_folder_Information">
+                  </a> <!-- APP_GUI_12_Document_folder_Information -->
+                  <span class="method-name">APP_GUI_12_Document_folder_Information</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="APP_GUI_14_Document_file_Information">
+                  </a> <!-- APP_GUI_14_Document_file_Information -->
+                  <span class="method-name">APP_GUI_14_Document_file_Information</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Batch_1-class-passed -->
+        </div> <!-- panel Batch_1 -->
+        <div panel-name="test-xml-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\yulei\AppData\Local\Temp\testng-eclipse-1411246385\testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; configfailurepolicy=&quot;continue&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Batch_1&quot; parallel=&quot;classes&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;testcases.APP_GUI&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Batch_1 --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Batch_1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Batch_1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Batch_1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Batch_1');
+function tableData_Batch_1() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(20);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'APP_GUI_13_Document_folder_Menu_list')
+data.setCell(0, 2, 'testcases.APP_GUI')
+data.setCell(0, 3, 648492);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'APP_GUI_07_Data_folder_Menu_list')
+data.setCell(1, 2, 'testcases.APP_GUI')
+data.setCell(1, 3, 526984);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'APP_GUI_09_Data_file_Spreadsheet_Menu_list')
+data.setCell(2, 2, 'testcases.APP_GUI')
+data.setCell(2, 3, 464507);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'APP_GUI_15_Document_file_Menu_list')
+data.setCell(3, 2, 'testcases.APP_GUI')
+data.setCell(3, 3, 302376);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'APP_GUI_20_Channel_Information')
+data.setCell(4, 2, 'testcases.APP_GUI')
+data.setCell(4, 3, 257675);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'APP_GUI_05_Data_Menu_list')
+data.setCell(5, 2, 'testcases.APP_GUI')
+data.setCell(5, 3, 256637);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'APP_GUI_11_Document_Menu_list')
+data.setCell(6, 2, 'testcases.APP_GUI')
+data.setCell(6, 3, 251221);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'APP_GUI_02_app_list')
+data.setCell(7, 2, 'testcases.APP_GUI')
+data.setCell(7, 3, 149948);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'APP_GUI_09B_Data_file_Sheet_Menu_list')
+data.setCell(8, 2, 'testcases.APP_GUI')
+data.setCell(8, 3, 148131);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'APP_GUI_09C_Data_file_HTTP_Services_Menu_list')
+data.setCell(9, 2, 'testcases.APP_GUI')
+data.setCell(9, 3, 117942);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'APP_GUI_02a_app_list_fold_app_tree')
+data.setCell(10, 2, 'testcases.APP_GUI')
+data.setCell(10, 3, 104069);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'APP_GUI_06_Data_folder_Information')
+data.setCell(11, 2, 'testcases.APP_GUI')
+data.setCell(11, 3, 94779);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'APP_GUI_10_Document_Information')
+data.setCell(12, 2, 'testcases.APP_GUI')
+data.setCell(12, 3, 90042);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'APP_GUI_04_Data_Information')
+data.setCell(13, 2, 'testcases.APP_GUI')
+data.setCell(13, 3, 89943);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'APP_GUI_08_app_Menu_bar')
+data.setCell(14, 2, 'testcases.APP_GUI')
+data.setCell(14, 3, 89766);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'APP_GUI_12_Document_folder_Information')
+data.setCell(15, 2, 'testcases.APP_GUI')
+data.setCell(15, 3, 87393);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'APP_GUI_09A_Data_file_Database_Menu_list')
+data.setCell(16, 2, 'testcases.APP_GUI')
+data.setCell(16, 3, 76204);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'APP_GUI_14_Document_file_Information')
+data.setCell(17, 2, 'testcases.APP_GUI')
+data.setCell(17, 3, 66645);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'APP_GUI_21_Mattermost_Test')
+data.setCell(18, 2, 'testcases.APP_GUI')
+data.setCell(18, 3, 50098);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'APP_GUI_01_app_Menu_bar')
+data.setCell(19, 2, 'testcases.APP_GUI')
+data.setCell(19, 3, 43923);
+window.suiteTableData['Batch_1']= { tableData: data, tableDiv: 'times-div-Batch_1'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 hours</span>
+              <div id="times-div-Batch_1">
+              </div> <!-- times-div-Batch_1 -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Batch_1</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Batch_1" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">testcases.APP_GUI</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">69172 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">APP_GUI_01_app_Menu_bar</span>
+                <span class="method-start">81776 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">125709 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">125710 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_02_app_list</span>
+                <span class="method-start">137933 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">287945 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">287946 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_02a_app_list_fold_app_tree</span>
+                <span class="method-start">300175 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">404248 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">404249 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_04_Data_Information</span>
+                <span class="method-start">416446 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">506391 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">506391 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_05_Data_Menu_list</span>
+                <span class="method-start">518540 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">775178 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">775179 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_06_Data_folder_Information</span>
+                <span class="method-start">787365 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">882146 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">882146 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_07_Data_folder_Menu_list</span>
+                <span class="method-start">894312 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1421298 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">1421309 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_08_app_Menu_bar</span>
+                <span class="method-start">1433454 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1523222 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">1523223 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_09A_Data_file_Database_Menu_list</span>
+                <span class="method-start">1535385 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1611591 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">1611591 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_09B_Data_file_Sheet_Menu_list</span>
+                <span class="method-start">1623766 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1771898 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">1771903 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">APP_GUI_09C_Data_file_HTTP_Services_Menu_list</span>
+                <span class="method-start">1784105 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">1902049 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">1902049 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_09_Data_file_Spreadsheet_Menu_list</span>
+                <span class="method-start">1914344 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">2378853 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">2378853 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">APP_GUI_10_Document_Information</span>
+                <span class="method-start">2391107 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">2481150 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">2481150 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_11_Document_Menu_list</span>
+                <span class="method-start">2493335 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">2744558 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">2744560 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">APP_GUI_12_Document_folder_Information</span>
+                <span class="method-start">2756748 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">2844142 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">2844142 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_13_Document_folder_Menu_list</span>
+                <span class="method-start">2856394 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">3504905 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">3504906 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">APP_GUI_14_Document_file_Information</span>
+                <span class="method-start">3517117 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">3583763 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">3583763 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_15_Document_file_Menu_list</span>
+                <span class="method-start">3596011 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">3898390 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">3898391 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_20_Channel_Information</span>
+                <span class="method-start">3910599 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">4168277 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">4168277 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">APP_GUI_21_Mattermost_Test</span>
+                <span class="method-start">4180466 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">4230566 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">4230566 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

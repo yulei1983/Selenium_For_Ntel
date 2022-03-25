@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;RIGHTCLICK_appRoot_Menu_Build&apos; in &apos;objectRepository.AppElements&apos; to &apos;appRoot_Menu_Build&apos;&#x0D;&#x0A;- Original project: &apos;iplatform_Auto&apos;&#x0D;&#x0A;- Original element: &apos;objectRepository.AppElements.RIGHTCLICK_appRoot_Menu_Build&apos;&#x0D;&#x0A;- Renamed element: &apos;objectRepository.AppElements.appRoot_Menu_Build&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;RIGHTCLICK_appRoot_Menu_Build&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;objectRepository{AppElements.java[AppElements^RIGHTCLICK_appRoot_Menu_Build" name="appRoot_Menu_Build" references="true" setter="false" stamp="1579232628483" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,2 @@
+			Lib.mouseMoveToElement(driver, AppElements.Menu_bar_UserName("uitest"));	
+			Lib.chkIsDisplayed(driver, AppElements.Red_tag_Text_CustomObj("uitest"), true);

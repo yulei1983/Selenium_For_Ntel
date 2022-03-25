@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="testng_group4" configfailurepolicy="continue">
+	<test name="Test">
+		<classes>
+			<class name="prepare.Begin" />
+			<class name="testcases_mm.Mm_enrollmentChat_Engage_Demo">
+				<methods>
+					<include name="Engage_01_Engagement"></include>
+					<include name="Engage_02_Engagement"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

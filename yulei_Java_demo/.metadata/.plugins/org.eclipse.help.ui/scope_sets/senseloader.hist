@@ -1,0 +1,4 @@
+#Tue Jan 09 03:21:45 EST 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=senseloader

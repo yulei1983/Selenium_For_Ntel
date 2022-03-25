@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Batch_1]" parallel="classes">
+  <test name="Default test(failed)" parallel="classes">
+    <classes>
+      <class name="testcases.UI_Data_file_termdef">
+        <methods>
+          <include name="IntelliSense_06_Term_Highlight_SingleMulti_use_Rex"/>
+          <include name="IntelliSense_14_Term_Highlight_Realtime_Ucx"/>
+          <include name="IntelliSense_10_Term_Filter_Ucx"/>
+          <include name="afterClass"/>
+          <include name="IntelliSense_01_Term_Filter_Rex"/>
+          <include name="beforeClass"/>
+          <include name="IntelliSense_03_Term_Triggers_Rex"/>
+          <include name="IntelliSense_04_Term_Orange_Rex"/>
+          <include name="IntelliSense_38_Resource_Filter_Ucx"/>
+          <include name="IntelliSense_07_Term_Highlight_EditEffects_Rex"/>
+          <include name="IntelliSense_33_Resource_Filter_Rex"/>
+          <include name="IntelliSense_32_Term_TopLevelTerm_TableTerm"/>
+          <include name="IntelliSense_17_Term_Replace_Ucx"/>
+          <include name="IntelliSense_39_Resource_Operations_Ucx"/>
+          <include name="IntelliSense_13_Term_Orange_Ucx"/>
+          <include name="IntelliSense_12_Term_Triggers_Ucx"/>
+          <include name="IntelliSense_34_Resource_Operations_Rex"/>
+          <include name="beforeMethod"/>
+          <include name="IntelliSense_08_Term_Replace_Rex"/>
+          <include name="IntelliSense_09_Term_Nest_Rex"/>
+          <include name="afterMethod"/>
+          <include name="IntelliSense_37_Resource_Highlight_EditEffects_Rex"/>
+          <include name="IntelliSense_02_Term_Oprations_Rex"/>
+          <include name="IntelliSense_40_Resource_Triggers_Ucx"/>
+          <include name="IntelliSense_18_Term_Nest_Ucx"/>
+          <include name="IntelliSense_15_Term_Highlight_Single_Multi_use_Ucx"/>
+        </methods>
+      </class> <!-- testcases.UI_Data_file_termdef -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Batch_1] -->

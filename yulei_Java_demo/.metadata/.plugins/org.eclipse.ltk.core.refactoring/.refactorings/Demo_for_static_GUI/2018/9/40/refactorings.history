@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Convert local variable &apos;TestCases.test.main().TableExpectedValue&apos; in &apos;TestCases.test.main()&apos; to field&#x0D;&#x0A;- Original project: &apos;Demo_for_static_GUI&apos;&#x0D;&#x0A;- Original element: &apos;TestCases.test.main().TableExpectedValue&apos;&#x0D;&#x0A;- Field name: &apos;tableExpectedValue&apos;&#x0D;&#x0A;- Initialize field in method&#x0D;&#x0A;- Declared visibility: &apos;private&apos;&#x0D;&#x0A;- Declare field &apos;static&apos;" description="Convert local variable &apos;TableExpectedValue&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;TestCases{test.java" name="tableExpectedValue" selection="137 25" stamp="1538275968474" static="true" version="1.0" visibility="2"/>
+</session>

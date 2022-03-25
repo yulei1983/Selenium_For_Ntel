@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PropertiesDataProvider.java&apos; to &apos;com.webntel/src/Function_Libary&apos;&#x0D;&#x0A;- Original project: &apos;iplatform_Auto&apos;&#x0D;&#x0A;- Destination element: &apos;com.webntel/src/Function_Libary&apos;&#x0D;&#x0A;- Original element: &apos;utils.PropertiesDataProvider.java&apos;" description="Copy compilation unit" destination="=com.webntel/src&lt;Function_Libary" element1="/src&lt;utils{PropertiesDataProvider.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1646620504282" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;objectRepository.AppElements.Console_Window_Msg(...)&apos; to &apos;GetConsole_Window_Msg&apos;&#x0D;&#x0A;- Original project: &apos;com.iplatform&apos;&#x0D;&#x0A;- Original element: &apos;objectRepository.AppElements.Console_Window_Msg(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;objectRepository.AppElements.GetConsole_Window_Msg(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;Console_Window_Msg&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;objectRepository{AppElements.java[AppElements~Console_Window_Msg~I" name="GetConsole_Window_Msg" references="true" stamp="1542098133081" version="1.0"/>
+</session>

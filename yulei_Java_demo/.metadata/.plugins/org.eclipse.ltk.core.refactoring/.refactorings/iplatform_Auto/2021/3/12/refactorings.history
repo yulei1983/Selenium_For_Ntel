@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 8 elements from project &apos;iplatform_Auto&apos;&#x0D;&#x0A;- Original project: &apos;iplatform_Auto&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     hs_err_pid10476.log&#x0D;&#x0A;     hs_err_pid13016.log&#x0D;&#x0A;     hs_err_pid3036.log&#x0D;&#x0A;     hs_err_pid3196.log&#x0D;&#x0A;     hs_err_pid3416.log&#x0D;&#x0A;     hs_err_pid3448.log&#x0D;&#x0A;     hs_err_pid5136.log&#x0D;&#x0A;     hs_err_pid9432.log" description="Delete elements" element1="hs_err_pid5136.log" element2="hs_err_pid9432.log" element3="hs_err_pid10476.log" element4="hs_err_pid3036.log" element5="hs_err_pid3448.log" element6="hs_err_pid13016.log" element7="hs_err_pid3196.log" element8="hs_err_pid3416.log" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="8" stamp="1615769392706" subPackages="false" version="1.0"/>
+</session>

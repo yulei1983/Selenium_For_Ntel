@@ -1,0 +1,25 @@
+package com.myproject1.jase;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
+import com.myproject1.jase.Browser;
+
+
+public class baidu {
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://192.168.0.23:8180/ntelagent/");
+		
+		//WebElement txtbox = driver.findElement(By.id("kw"));
+		//txtbox.sendKeys("123java");
+
+		//WebElement btn = driver.findElement(By.id("su"));
+		//btn.click();
+       Browser.LoginPage.EditBox_ATTUID(driver).sendKeys("jt0005");
+       String AUID = Browser.LoginPage.EditBox_ATTUID(driver).getAttribute("value");
+       Browser.LoginPage.EditBox_PSW(driver).click();
+       Browser.LoginPage.EditBox_PSW(driver).sendKeys("12345678");
+       Browser.LoginPage.BTN_Login_OK(driver).click();
+	}
+	
+}

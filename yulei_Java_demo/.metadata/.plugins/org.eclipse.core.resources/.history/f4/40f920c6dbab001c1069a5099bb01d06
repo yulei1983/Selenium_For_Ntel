@@ -1,0 +1,609 @@
+package TestCases;
+import org.openqa.selenium.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.asserts.SoftAssert;
+
+import Function_Libary.WebDriver_Setup;
+import Function_Libary.functions;
+import Object_Repository.ChooseBox;
+import Object_Repository.QTP_CheckList;
+import Object_Repository.Browser_GUI;
+import Object_Repository.CheckPoints;
+
+public class WFA_POTS_Dial_Tone_1{
+//	SoftAssert softAt = null;
+	WebDriver driver = null;
+	functions funs = null;
+	String declaringClassNameReg = "TestCases";
+	
+	@BeforeClass
+	public void beforeClass()  {
+		try {
+			this.driver = WebDriver_Setup.init();
+			this.funs= new functions(driver);
+			funs.loginNtel("jt0005");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	@BeforeMethod
+	public void beforeMethod(){		
+		try {
+			Thread.sleep(200);
+			SoftAssert softAt = new SoftAssert();
+			functions.softassert = softAt;
+			funs.ClearNtel(driver);
+		} catch (Exception e) {
+			funs.ClearNtel(driver);
+		}finally {
+		}
+	}
+	
+	@AfterMethod
+	public void afterMethod() throws Exception{
+
+	}
+	
+	@AfterClass
+	public void AfterClass() throws Exception{
+//		driver.close();
+	}
+	
+	
+	@Test
+	public void DT_01(){
+	    try {	
+	    ChooseBox chooseBox;
+	    chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9991852584");
+	    Thread.sleep(3000);
+	    
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD");
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Service_Order_Activity_is_present$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		chooseBox.ChooseBoxBtn("Dial Tone").click();
+		                
+		Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+		
+		Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+		Browser_GUI.MainPage.Tree_value(driver, "NO TT SERVICE ORDER PENDING");
+		Browser_GUI.MainPage.Tree_value(driver, "TT ON BILLING ACCOUNT");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+				CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "TROUBLE NOT ON ALL PHONES");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT SP/AC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Has_customer_checked_CPE_and$or_NID$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER HAS NOT CHECKED CPE AND/OR NID");
+		funs.CheckPorperty(Browser_GUI.MainPage.Information_MSG_JTextPane(driver), "innerText",
+				CheckPoints.information_I_would_like_to_assist_you_in_determining$$$If_the_customer_is_interested_select_Willing_to_check);
+		funs.CheckPorperty(Browser_GUI.MainPage.Information_OK(driver), "innerText",CheckPoints.Information_OK);
+		Browser_GUI.MainPage.Information_OK(driver).click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Willing_To_Check);
+		chooseBox.ChooseBoxBtn("Not willing to check").click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE_Isolation_Cats);
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT SP/AC HOLD FOR SUB"); 
+		Browser_GUI.MainPage.Tree_value(driver, "NOT WILLING TO CHECK");
+		chooseBox.ChooseBoxBtn("Call Tree").click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+				CheckPoints.AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$);
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_OK(driver), "innerText",CheckPoints.AM_OK);
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA SVC ORD CBDT PAYING 4 TT SP/AC HOLD FOR SUB CL TREE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","ICATS"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+		Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void DT_02() throws Exception{	
+	    try {
+			ChooseBox chooseBox;
+			chooseBox = new ChooseBox(driver);
+	    	funs.Enter_TN("9991172632");
+			Thread.sleep(2000);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+	    	
+	    	Thread.sleep(1000);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Service_Order_Activity_is_present$);
+	    	Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_No(driver).click();
+
+	    	funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+	    	chooseBox.ChooseBoxBtn("Dial Tone").click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+
+	    	funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+	    	chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+	    	Browser_GUI.MainPage.Tree_value(driver, "TT SERVICE ORDER PENDING");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+	    	Browser_GUI.MainPage.Tree_value(driver, "TT ON SWITCH");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT OK IN XLTNS");
+	    	 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    	       CheckPoints.Ask_Is_the_customer_calling_from_the_line_and_are_they_able_to_press_one_of_the_buttons_on_the_phone_that_is_not_working$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER ABLE TO PRESS BUTTONS");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Did_you_hear_a_tone_when_the_customer_pressed_the_button$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT OK IN XLTNS TT TEST W/CUST OK");
+	    	Browser_GUI.MainPage.Tree_value(driver, "AGENT HEARD TONE");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","SCREEN"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+	    	Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+	    	Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+	    	Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+	    	Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+	    	 
+	    	Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+	    	Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+
+		    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();	
+	}
+	
+	@Test
+	public void DT_03() throws Exception{
+	    try {
+			ChooseBox chooseBox;
+			chooseBox = new ChooseBox(driver);
+	    	funs.Enter_TN("9973012360");
+			Thread.sleep(2000);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Service_Order_Activity_is_present$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_No(driver).click();
+
+	    	funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_SW);
+	    	chooseBox.ChooseBoxBtn("Dial Tone").click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+
+	    	funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+	    	chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+	    	Browser_GUI.MainPage.Tree_value(driver, "NO TT SERVICE ORDER PENDING");
+	    	Browser_GUI.MainPage.Tree_value(driver, "TT ON BILLING ACCOUNT");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+	    	Browser_GUI.MainPage.Tree_value(driver, "TT ON SWITCH");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT OK IN XLTNS"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+	    			CheckPoints.Ask_Is_the_customer_calling_from_the_line_and_are_they_able_to_press_one_of_the_buttons_on_the_phone_that_is_not_working$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER ABLE TO PRESS BUTTONS");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Did_you_hear_a_tone_when_the_customer_pressed_the_button$);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+	    	Browser_GUI.MainPage.Ask_No(driver).click();
+
+	    	Browser_GUI.MainPage.Tree_value(driver, "AGENT DID NOT HEAR TONE");
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT OK IN XLTNS TT TST FAILED, CHK 4 RVRSD PRS"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FRAME"); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+	    	Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+	    	Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+	    	Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+	    	Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+	    	 
+	    	Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+	    	funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+	    	Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+		    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();
+   	    	
+	}
+	
+	@Test
+	public void DT_04() throws Exception{
+	 try {
+		ChooseBox chooseBox;
+		chooseBox = new ChooseBox(driver);
+    	funs.Enter_TN("9973012360");
+		Thread.sleep(2000);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Service_Order_Activity_is_present$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_SW);
+		chooseBox.ChooseBoxBtn("Dial Tone").click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+		Browser_GUI.MainPage.Tree_value(driver, "NO TT SERVICE ORDER PENDING");
+		Browser_GUI.MainPage.Tree_value(driver, "TT ON BILLING ACCOUNT");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Is_the_customer_calling_from_the_line_and_are_they_able_to_press_one_of_the_buttons_on_the_phone_that_is_not_working$);
+		Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+		Browser_GUI.MainPage.Tree_value(driver, "TT ON SWITCH");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT OK IN XLTNS"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT OK IN XLTNS TT IN XLATIONS");
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","SCREEN");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT");
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER NOT ABLE TO PRESS BUTTONS");
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON");
+		Browser_GUI.MainPage.BTN_Submit(driver).click();
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes);
+		Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click();
+		 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click();
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+	    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();
+   	    	
+	}
+	
+	@Test
+	public void DT_05(){
+	 try {
+		ChooseBox chooseBox;
+		chooseBox = new ChooseBox(driver);
+    	funs.Enter_TN("9991852584");
+		Thread.sleep(2000);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Service_Order_Activity_is_present$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_No(driver).click();
+
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		 chooseBox.ChooseBoxBtn("Dial Tone").click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		 chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+		 Browser_GUI.MainPage.Tree_value(driver, "NO TT SERVICE ORDER PENDING");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT ON BILLING ACCOUNT");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT NOT ON SWITCH");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT FIXED IN SWITCH VIA QVF");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT NOT IN XLTNS"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",CheckPoints.AM_TT_has_been_added_to_the_customer$s_line_in_the_switch$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_OK(driver), "innerText",CheckPoints.AM_OK);
+		 Browser_GUI.MainPage.AM_OK(driver).click();
+
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT PAYING 4 TT NOT IN XLTNS TT FIXED VIA QVF"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		 Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		 Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+		 Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		  
+		 Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+		 Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+	    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();
+   	    	
+	}
+	
+	@Test
+	public void DT_06(){
+	 try {
+		ChooseBox chooseBox;
+		chooseBox = new ChooseBox(driver);
+		funs.Enter_TN("9991852585");
+		Thread.sleep(2000);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Service_Order_Activity_is_present$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_No(driver).click();
+		 
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		 chooseBox.ChooseBoxBtn("Dial Tone").click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		 chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT SERVICE ORDER PENDING");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",CheckPoints.AM_TT_has_been_added_to_the_customer$s_line_in_the_switch$);
+		 Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT NOT ON SWITCH");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT FIXED IN SWITCH VIA QVF");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT NOT IN XLTNS"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 Browser_GUI.MainPage.AM_OK(driver).click();
+
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT NOT IN XLTNS TT FIXED VIA QVF"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		 Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		 Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+		 Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		  
+		 Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+		 Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+
+	    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();
+	}
+	
+	@Test
+	public void DT_07(){
+	 try {
+		 
+		 clear_ntel()
+		 Enter_TN("9991853164")
+
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_CUSTOMER'S ADDRESS IS CORRECT.").CheckProperty("rows",1,10)
+		 RunAction "ChooseBox_MainMenu_MW [QTP-CheckList]", oneIteration
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("CBTN_Dial Tone").Click
+
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_DIAL TONE").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("TYPE").CheckProperty("value","NDT",10) 
+
+		 RunAction "ChooseBox_DialTone [QTP-CheckList]", oneIteration
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("CBTN_Can't Break Dial Tone").Click
+
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_CAN'T BREAK DIAL TONE").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_NO TT SERVICE ORDER PENDING").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_TT ON BILLING ACCOUNT").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT").CheckProperty("value","CBDT PAYING 4 TT",10) 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Ask_JTextPane").Check CheckPoint("Ask_Ask the customer if the trouble is on all Phones?")
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Ask_Yes").Check CheckPoint("Ask_Yes")
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Ask_No").Check CheckPoint("Ask_No")
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Ask_Yes").Click
+
+		 Wait(5)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_TROUBLE ON ALL PHONES").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_TT NOT ON SWITCH").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebTable("TREE_TT FIX NOT SUCCESSFUL").CheckProperty("rows",1,10)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT").CheckProperty("value","CBDT PAYING 4 TT NOT IN XLTNS QVF FAILED",10) 
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("ACTION").CheckProperty("value","RCMAC",10) 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("AM_OK").Check CheckPoint("AM_OK")
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("AM_OK").Click
+
+		 Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT").RefreshObject
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT").WaitProperty("value","CBDT PAYING 4 TT NOT IN XLTNS QVF FAILED",4000)
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT").CheckProperty("value","CBDT PAYING 4 TT NOT IN XLTNS QVF FAILED",10) 
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("ACTION").CheckProperty("value","RCMAC",10) 
+		 Y = Browser("Web_Ntel").Page("Web_Ntel").WebEdit("TYPE").CheckProperty("value","NDT",10) 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REACH NUMBER").Set "9999999999" 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebEdit("REPORT BY").Set "COC-RON" 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("BTN_SUBMIT").Click 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Submit_AgMsg_Yes").Check CheckPoint("Submit_AgMsg_Yes") 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Submit_AgMsg_Yes").Click 
+		  
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Submit_APRO_OK").Click 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Submit_TankYou_OK").Check CheckPoint("Submit_TankYou_OK") 
+		 Browser("Web_Ntel").Page("Web_Ntel").WebElement("Submit_TankYou_OK").Click
+
+		ChooseBox chooseBox;
+		chooseBox = new ChooseBox(driver);
+		funs.Enter_TN("9991853164");
+		Thread.sleep(2000);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Please_verify_the_customer_name_and_address$$$address_correct$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+
+		 
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		 chooseBox.ChooseBoxBtn("Dial Tone").click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		 chooseBox.ChooseBoxBtn("Can't Break Dial Tone").click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "CAN'T BREAK DIAL TONE");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT SERVICE ORDER PENDING");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes);
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No);
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",CheckPoints.AM_TT_has_been_added_to_the_customer$s_line_in_the_switch$);
+		 Browser_GUI.MainPage.Tree_value(driver, "TROUBLE ON ALL PHONES");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT NOT ON SWITCH");
+		 Browser_GUI.MainPage.Tree_value(driver, "TT FIXED IN SWITCH VIA QVF");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT NOT IN XLTNS"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 Browser_GUI.MainPage.AM_OK(driver).click();
+
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CBDT NOT IN XLTNS TT FIXED VIA QVF"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","FIXFEASO"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		 Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		 Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes); 
+		 Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		  
+		 Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK); 
+		 Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+
+	    }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+          functions.softassert.assertAll();
+	}
+	
+
+		
+}

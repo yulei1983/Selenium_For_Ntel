@@ -1,0 +1,497 @@
+package Object_Repository;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
+
+import javax.swing.tree.ExpandVetoException;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
+
+import Function_Libary.functions;
+//import TestCases.Transfer_PrimaryDriver;
+import bsh.This;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
+
+import java.awt.datatransfer.Transferable;
+import java.lang.String;
+import java.time.Duration;
+
+//import net.bytebuddy.asm.Advice.AllArguments;
+//import net.bytebuddy.jar.asm.commons.StaticInitMerger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+
+public class Browser_GUI {
+	private static WebElement element = null;    
+	private static FluentWait<WebDriver> wait;
+	public Browser_GUI() {
+	}
+	private static void SetWait(WebDriver driver) {
+		try {
+			FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
+			Browser_GUI.wait = wait;
+            wait.withTimeout(Duration.ofSeconds(5));
+			wait.pollingEvery(Duration.ofSeconds(1));		
+			wait.ignoring(NoSuchElementException.class);
+		} catch (Exception e) {
+
+		}
+	}
+	
+	private static void SetWait(WebDriver driver,int vTimeout, int PollingTime ) {
+		try {
+			FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
+			Browser_GUI.wait = wait;
+            wait.withTimeout(Duration.ofSeconds(vTimeout));
+			wait.pollingEvery(Duration.ofSeconds(PollingTime));		
+			wait.ignoring(NoSuchElementException.class);
+		} catch (Exception e) {
+
+		}
+	}
+	
+	
+    public static class MainPage {
+    	public MainPage() {
+		}
+		 public static WebElement EditBox_ATTUID(WebDriver driver){
+			 element = driver.findElement(By.id("x-auto-17-input"));
+			 return element;
+			}
+		 
+		 public static WebElement EditBox_PSW(WebDriver driver){
+			 element = driver.findElement(By.id("x-auto-18-input"));
+			 return element;
+			}
+		 
+//		 public static WebElement CHKBox_Change_WFAC_Passwd(WebDriver driver){
+//			 element = driver.findElement(By.xpath("//input[@type='checkbox']//td[@valign='middle']//font[text()='OK']"));
+//			 return element;
+//			} 
+
+		 
+		 
+		 public static WebElement Information_OK(WebDriver driver){ 
+				 element = driver.findElement(By.cssSelector(".hotKey"));
+
+			 return element;
+			 
+			} 
+		 
+		 public static WebElement Information_MSG_JTextPane(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			} 
+		 
+		 public static WebElement AM_Title(WebDriver driver){
+		     element = driver.findElement(By.xpath("//div[@nid='messagedialog_U']//div[text()='Agent Message']"));
+			 return element;
+			} 
+		 
+		 public static WebElement AM_OK(WebDriver driver){	 
+			 try {
+				 List<WebElement> elements = new ArrayList<WebElement>();
+				  elements = driver.findElements(By.cssSelector("#flowlayoutcontainer > div > table > tbody > tr:nth-child(3) > td > div > div > div > div > table > tbody > tr:nth-child(2) > td > div > div > table > tbody > tr > td > div > div"));
+				  
+				  for (int i = 0; i < elements.size(); i++) {
+					if(elements.get(i).getText().equals("OK"))
+					{
+						functions funs = new functions(driver);
+						funs.fWait.until(ExpectedConditions.visibilityOf(elements.get(i)));
+						return elements.get(i);
+					}
+				}
+			} catch (Exception e) {
+
+			}
+			 return null; 
+			} 
+		 
+		 public static WebElement BTN_Login_OK(WebDriver driver) throws NoSuchElementException{
+		     element = driver.findElement(By.xpath("//font[text()='OK']"));
+			 return element;
+			} 
+		 public static WebElement BTN_Login_Reset(WebDriver driver) throws NoSuchElementException{
+			 element = driver.findElement(By.xpath("//font[text()='Reset']"));
+			 return element;
+			}  
+		 public static WebElement Title_Error_MessageBox(WebDriver driver) throws NoSuchElementException{
+			 element = driver.findElement(By.xpath("//div[text()='Error Message Box']"));
+			 return element;
+			}  
+		 public static WebElement Error_MessageBox_Text(WebDriver driver) throws NoSuchElementException{
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			} 		 
+		 public static WebElement Error_MessageBox_OK(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[@class='hotKey'][text()='O']"));
+			 return element;
+			}		 
+
+		 public static WebElement WebEdit_TNTR(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='tnText']/div/input[@type='text']"));
+			 
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_Report(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='reportText']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_AccessAfter(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='accessAfterText']/div/input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_AccessBefore(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='accessBeforeText']/div/input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_AccessNumber(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='altReachNumText']/div/input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_ReachNumber(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='reachNumText']/div/input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_ReportBy(WebDriver driver) {
+			 element = driver.findElement(By.xpath("//div[@nid='reportByText']/div/input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_TYPE(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='typeDrop']//input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_ACTION(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='actionDrop']//input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement WebEdit_Commitment(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='commitDatePicker']//input[@type='text']"));
+			 return element;
+			}
+		 
+		 public static WebElement ACTION_value(WebDriver driver,String vType){
+			 element = driver.findElement(By.xpath("//div[text()='"+vType+"']"));
+			 return element;
+			}
+		 
+		 public static WebElement TYPE_value(WebDriver driver,String vType){
+			 element = driver.findElement(By.xpath("//div[contains(@class,'x-ignore')]//div[text()='"+vType+"']"));
+			 return element;
+			}
+		 
+		 public static WebElement CheckBox_MR(WebDriver driver){
+			 element = driver.findElement(By.xpath("//label[text()='MR']/preceding-sibling::input[@type='checkbox']"));
+			 return element;
+			}	
+		 
+		 public static WebElement MenuBar_System(WebDriver driver){
+			 element = driver.findElement(By.xpath("//td[@valign='middle']/descendant::div[text()='System']"));
+			 return element;
+			}	
+		 
+		 public static WebElement MenuBar_System_Demo(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[contains(text(),'Demo')]"));
+			 return element;
+			}	
+		
+		 public static WebElement MenuBar_System_CTIDemo(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[contains(text(),'CTIDemo')]"));
+			 return element;
+			}
+
+		 public static WebElement Title_Ask(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='askdialog_U']//div[contains(text(),'Ask')]"));
+			 return element;
+			}
+
+		 public static WebElement Ask_JTextPane(WebDriver driver) throws Exception{
+			 
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement Information_JTextPane(WebDriver driver) throws Exception{
+			 
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement AM_JTextPane(WebDriver driver){
+//			 functions func = new functions(driver);
+//			 func.fWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='askdialog-message']")));
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOf(element));
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement Ask_Yes(WebDriver driver){
+				 element = driver.findElement(By.xpath("//div[contains(text(),'es')]"));
+				 return element;
+			}
+		 
+		 public static WebElement Ask_No(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[@class = 'hotKey'][contains(text(),'N')]"));
+			 element = element.findElement(By.xpath("./parent::div"));
+			 return element;
+			}
+		
+		 public static WebElement Submit_AgMsg_Yes(WebDriver driver){
+			 try {
+					 Thread.sleep(300);
+					 Browser_GUI.SetWait(driver);
+					 
+					 List<WebElement> eles;			
+					 eles = driver.findElements(By.xpath(
+							 "//*[@id=\"flowlayoutcontainer\"]/div/table//tr[3]//div[1]/div/table//table//span[contains(text(),'Y')]"));
+						 if (eles.size()>1) {
+							 return eles.get(1);
+						 }
+						 else {
+							 return eles.get(0);
+						 }
+						} catch (Exception e) {
+
+						}
+					 return null;			 
+		 }
+			 
+			  
+		 public static WebElement Submit_AgMsg_No(WebDriver driver) throws Exception{
+			 Thread.sleep(300);
+			 List<WebElement> eles;
+			 eles = driver.findElements(By.cssSelector(
+			"#flowlayoutcontainer > div > table > tbody > tr:nth-child(3) > td > div > div > div:nth-child(2) > div > table > tbody > tr:nth-child(2) > td div table"));
+			 if (eles.size()>1) {
+				 return eles.get(1);
+			 }
+			 else {
+				 return eles.get(0);
+			 }
+		  }
+		 
+		 public static WebElement Submit_APRO_OK(WebDriver driver){
+			 try {
+				 Thread.sleep(300);
+				 List<WebElement> eles = driver.findElements(By.xpath("//*[@id='flowlayoutcontainer']/div/table//table//table//div"));    
+				 for(WebElement element : eles) {
+					 functions func = new functions(driver);
+					 func.fWait.until(ExpectedConditions.elementToBeClickable(element));
+						  if(element.getText().equals("OK")) {
+							 return element;
+						   }
+				    } 
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+			 return null;
+		 }	
+		 
+		 public static WebElement Submit_TankYou_OK(WebDriver driver){
+			 try {
+				 Thread.sleep(300);
+				 List<WebElement> eles = driver.findElements(By.cssSelector(
+			     "#flowlayoutcontainer > div > table > tbody > tr:nth-child(3) > td > div > div > div > div > table > tbody > tr:nth-child(2) > td > div > div > table > tbody > tr > td > div > div"));
+				 for(WebElement element : eles) {
+						  if(element.getText().equals("OK")) {
+							 return element;
+						   }
+				    }
+				
+			} catch (Exception e) {
+				return null;
+			}
+			    return null;
+			}
+		 
+/*		 public static WebElement table(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[contains(@qtip,'TN')]/parent::td/parent::tr/parent::tbody/parent::table/parent::div/parent::div/following-sibling::div[1]//table"));
+			//div[contains(@qtip,'TN')]/parent::td/parent::tr/parent::tbody/parent::table/parent::div/parent::div/following-sibling::div[1]//table
+			 return element;
+			}*/
+		 
+		 public static WebElement Table_Journal(WebDriver driver) {
+			 String s = "//div[contains(@qtip,'TN')]/parent::td/parent::tr/parent::tbody/parent::table/parent::div/parent::div/following-sibling::div[1]//table";
+			 element = driver.findElement(By.xpath(s));
+			 return element;
+		 }
+		 
+		 public static String Table_QueueView_SQ() {
+			 String s = "//span[contains(text(),'TN or MR/Z ticket')]/parent::div/parent::td/parent::tr/parent::tbody/parent::table/parent::div/parent::div/following-sibling::div[1]//table";
+			 return s;
+		 } 
+		 
+		 public static WebElement Tree_WFA_CTR_SBCMICHPOTS(WebDriver driver){
+			 element =driver.findElement(By.xpath("//span[text()='WFA CTR SBCMICHPOTS']"));
+			 return element;
+			}
+		  
+		 public static WebElement BTN_Journal(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='Journal']"));
+			 return element;
+			}
+		 
+		 public static WebElement BTN_Submit(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='SUBMIT']"));
+			 return element;
+			}
+		 
+		 public static WebElement BTN_Queue(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='QUEUE']"));
+			 return element;
+			}
+		 
+		 public static WebElement MenuBar_Table(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='Table']"));
+			 return element;
+			}
+		 
+		 public static WebElement Personalization_Admin(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[text()='Personalization Admin']"));
+			 return element;
+			}
+		 
+		 public static WebElement CheckBox_QueueView_AUTO(WebDriver driver){
+			 element = driver.findElement(By.xpath("//label[text()='AUTO']"));
+			 return element;
+			}
+		
+		 public static WebElement Cancel(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 element = driver.findElement(By.xpath("//div[text()='Cancel']"));
+			 wait.until(ExpectedConditions.elementToBeClickable(element));
+
+			 return element;
+			}
+		 
+		 public static WebElement Cancel_Message_Yes(WebDriver driver) throws Exception{	
+			Browser_GUI.SetWait(driver);	
+			WebElement Cancel_Title = driver.findElement(By.xpath("//div[text() = 'Cancel']/parent::div/parent::div/parent::div/parent::div"));
+			WebElement element =Cancel_Title.findElement(By.xpath("./following-sibling::div//span[contains(text() , 'Y')]"));
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+			 return element;
+			}
+		 
+		 public static WebElement Cancel_Message_No(WebDriver driver) throws Exception{	
+			Browser_GUI.SetWait(driver);	
+			WebElement Cancel_Title = driver.findElement(By.xpath("//div[text() = 'Cancel']/parent::div/parent::div/parent::div/parent::div"));
+			WebElement element =Cancel_Title.findElement(By.xpath("./following-sibling::div//span[contains(text() , 'N')]"));
+			functions funs = new functions(driver);
+			funs.fWait.until(ExpectedConditions.elementToBeClickable(element));
+			 return element;
+			}
+		 
+		 public static WebElement Cancel_Customer_Error(WebDriver driver){
+			 
+				 element =driver.findElement(By.xpath("//span[text()='Customer Error']"));
+
+			 return element;
+			}
+		 
+		 
+		 
+		 
+		 
+		 public static WebElement Tree_value(WebDriver driver,String vTree){
+			 try {
+				 Boolean Isdiplayed = false;
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ui[text()=\""+vTree+"\"]")));
+				 element = driver.findElement(By.xpath("//ui[text()=\""+vTree+"\"]"));
+				 Isdiplayed = wait.until(ExpectedConditions.attributeToBe(element, "outerText", vTree));
+				 
+				 if (Isdiplayed) {
+					    functions.softassert.assertTrue(Isdiplayed, vTree+" PASS");
+				} else {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception()  ,  vTree   , "The Tree no display1!"));
+				}
+			 } catch (NoSuchElementException e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception()  ,  vTree   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+
+		 
+		 
+		 
+		 
+		 
+		 public static WebElement topLocalTime(WebDriver driver) throws NoSuchElementException{
+			 try {
+				 element = driver.findElement(By.cssSelector(".topLocalTimeLabel > label"));
+			} catch (NoSuchElementException e) {
+					try {
+						functions.softassert.fail("topLocalTime not found!");
+					} catch (Exception e2) {
+	
+					}
+			}
+			 return element;
+			}	 
+    } 
+    
+    public static class PersonalizationAdmin {
+		 public static WebElement PersonalizationAdmin_Edit(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='Edit']"));
+			 return element;
+			}
+		 
+		 public static WebElement PersonalizationAdmin_Rollback(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[text()='Rollback']"));
+			 return element;
+			}
+		 
+//		 public static WebElement PersonalizationAdmin_Rollback_list(WebDriver driver){
+//			 element = driver.findElement(By.xpath("//div[@class = 'GMRNFO4CNN GMRNFO4CDN']"));
+//			 return element;
+//			}
+		 public static WebElement PersonalizationAdmin_Rollback_list(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@class = 'GMRNFO4CNN GMRNFO4CDN']/.."));
+			 return element;
+			}
+		 
+		 public static WebElement PersonalizationAdmin_Rollback_all(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[text()='Rollback All']"));
+			 return element;
+			}
+		 
+		 public static WebElement Ask_Yes(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[contains(text(),'YES')]"));
+			 return element;
+		}
+
+    }
+    
+   }
+
+
+
+
+
+
+
+
+
+

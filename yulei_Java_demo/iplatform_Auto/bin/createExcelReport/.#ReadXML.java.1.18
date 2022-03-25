@@ -1,0 +1,278 @@
+/**
+ * @author WangMingxun
+ *
+ */
+
+package createExcelReport;
+
+import java.util.regex.Pattern;
+
+import static org.testng.Assert.assertFalse;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+//import org.apache.bcel.generic.RETURN;
+//import org.apache.xpath.operations.Mod;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+public class ReadXML {
+	private String testPoint = "";
+	private String actValue = "";
+	private String comments = "";
+	private String ieVersion = "";
+	private Boolean flag = false;
+	private List<ResultObject> rList = null;
+
+	public List<ResultObject> getrList() {
+		return rList;
+	}
+
+	public String ReadXML() {
+		String testngNm = "";
+		rList = new ArrayList<ResultObject>();
+
+		Map map = new HashMap<>();
+
+		String methodNamePool = "beforeSuite,afterSuite,beforeTest;beforeClass;afterTest;afterClass";
+		String allMethodNamePool = "beforeSuite,afterSuite,beforeTest;beforeClass;afterTest;afterClass,beforeMethod,afterMethod";
+		SAXReader reader = new SAXReader();
+		File file = new File("test-output/testng-results.xml");
+		Document document;
+		try {
+			document = reader.read(file);
+
+			Element root = document.getRootElement();
+
+			List<Element> suiteList = root.elements("suite");
+			for (Element child : suiteList) {
+				testngNm = child.attributeValue("name");
+				List<Element> testList = child.elements("test");
+				for (Element ele : testList) {
+					List<Element> classList = ele.elements("class");
+					for (Element classElement : classList) {
+
+						String className = classElement.attributeValue("name");
+
+						List<Element> methodList = classElement.elements("test-method");
+
+						String methodName = "";
+						// String finalStatus = "";
+						String testNm = "";
+
+						for (int m = 0; m < methodList.size(); m++) {
+
+							methodName = methodList.get(m).attributeValue("name");
+							String tempStatus = methodList.get(m).attributeValue("status");
+							testNm = className + "." + methodName;
+							String finalStatus = "";
+
+							if (allMethodNamePool.indexOf(methodName) != -1) {
+								if (!tempStatus.equals("PASS"))
+									analyzeStatus(methodList.get(m), testNm, className);
+							}
+
+							if (allMethodNamePool.indexOf(methodName) == -1)
+								analyzeStatus(methodList.get(m), testNm, className);
+
+						}
+
+					}
+				}
+
+			}
+
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+		}
+		return testngNm;
+	}
+
+	private void analyzeStatus(Element methodElement, String testNm, String className) {
+		ResultObject rowResult = null;
+		System.out.println("test case name: " + testNm);
+		String expValue = "";
+		String lineNum = "";
+		testPoint = "";
+		actValue = "";
+		comments = "";
+		String stacktrace = "";
+		String ieException = "(WARNING: The server did not provide any stacktrace information)";
+
+		String status = methodElement.attributeValue("status");
+		String tempNm = methodElement.attributeValue("name");
+
+		if (status.equals("FAIL"))
+			stacktrace = methodElement.element("exception").elementText("full-stacktrace");
+
+		// Parse the failed case.
+		if (status.equals("FAIL")) {
+			String temp = "The following asserts failed:";
+
+			if (stacktrace.indexOf(temp) != -1)
+				stacktrace = stacktrace.substring(stacktrace.indexOf(temp) + temp.length());
+
+			int exp_stat_comm, exp_stat, exp_end, act_end;
+
+			if (stacktrace.indexOf("@@\n") != -1) {
+				String[] stacktraceArray = stacktrace.split("@@\n");
+
+				for (int i = 0; i < stacktraceArray.length - 1; i++) {
+					System.out.println("-loop number: " + i);
+					lineNum = "";
+					testPoint = "";
+					expValue = "";
+					actValue = "";
+					comments = "";
+					String temp_v = "";
+					String temp_stacktraceArray = "";
+
+					// lineNum
+					if (stacktraceArray[i].indexOf("line_start [") != -1) {
+						lineNum = stacktraceArray[i].substring(stacktraceArray[i].indexOf("line_start [") + 12,
+								stacktraceArray[i].indexOf("] line_end;"));
+						System.out.println("--line number: " + lineNum);
+						temp_stacktraceArray = stacktraceArray[i].replace("line_start [" + lineNum + "] line_end;", "");
+
+					} else
+						temp_stacktraceArray = stacktraceArray[i];
+
+					exp_stat = temp_stacktraceArray.indexOf("expected [");
+					if (exp_stat != -1) {
+						exp_end = temp_stacktraceArray.indexOf("] but found [");
+						expValue = temp_stacktraceArray.substring(exp_stat + 10, exp_end).trim();
+						System.out.println("--expected value: " + exp_stat + " " + exp_end + " " + expValue);
+
+						// actValue
+						String act_temp = temp_stacktraceArray.substring(exp_end + 13);
+						actValue = act_temp.substring(0, act_temp.length() - 1).trim();
+						System.out.println("--actual value: " + act_temp);
+						// testPoint
+						testPoint = temp_stacktraceArray.substring(0, exp_stat).trim();
+						if (testPoint.indexOf("-> xpath:") != -1) {
+							testPoint = testPoint.substring(testPoint.indexOf("-> xpath:")).trim();
+
+						}
+
+					}
+
+					else {
+						// testPoint
+						testPoint = temp_stacktraceArray.trim();
+						String act_temp = "";
+
+						int temp_V_s = testPoint.indexOf("(Session info:");
+
+						if (temp_V_s != -1) {
+							int temp_V_e = testPoint.indexOf(ieException);
+							String temp_ieVersion = testPoint.substring(temp_V_s, temp_V_e);
+
+							act_temp = testPoint.substring(0, temp_V_s);
+							if (!temp_ieVersion.equals(ieVersion)) {
+								ieVersion = temp_ieVersion;
+								flag = true;
+							}
+						} else
+							act_temp = testPoint;
+
+						String NoSuchElementException = "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: ";
+
+						// analyze actValue.
+						if (act_temp.indexOf(NoSuchElementException) != -1) {
+							actValue = "Unable to found this element";
+						}
+
+						if (testPoint.indexOf("{\"method\":") != -1)
+							testPoint = testPoint.substring(testPoint.indexOf("{"), testPoint.indexOf("}") + 1);
+
+						// Enhance report for testPoint=","
+
+						testPoint = Pattern.compile("[^a-zA-Z{(]").matcher(testPoint).replaceFirst("").trim();
+
+						testPoint = testPoint.replace("org.openqa.selenium.", "");
+						actValue = Pattern.compile("[^a-zA-Z{]").matcher(testPoint).replaceFirst("").trim();
+
+						if (flag) {
+							actValue = actValue + ieVersion;
+							flag = false;
+						}
+
+					}
+
+					if (i != 0)
+						testNm = "";
+					comments = "";
+
+					rowResult = new ResultObject();
+					rowResult.setCells(testNm, lineNum, testPoint, expValue, actValue, status, comments);
+					rList.add(rowResult);
+
+				}
+			} else {
+
+				String temp_v = "";
+				String temp_testP = "";
+
+				if (stacktrace.indexOf("The line number is ") != -1) {
+					lineNum = stacktrace.substring(stacktrace.indexOf("The line number is ") + 19,
+							stacktrace.indexOf(";"));
+					stacktrace = stacktrace.replace("The line number is " + lineNum + ";", "");
+				}
+
+				// actValue
+				if (stacktrace.indexOf("at org.testng.asserts.SoftAssert.assertAll") != -1)
+					comments = stacktrace.substring(0,
+							stacktrace.indexOf("at org.testng.asserts.SoftAssert.assertAll"));
+				if ((stacktrace.indexOf("at " + testNm) != -1))
+					comments = stacktrace.substring(0, stacktrace.indexOf("at " + testNm));
+				if (stacktrace.indexOf("at sun.reflect") != -1)
+					comments = stacktrace.substring(0, stacktrace.indexOf("at sun.reflect"));
+				else
+					comments = stacktrace;
+
+				// For "Restart IE", Save the version before "(WARNING:
+				// The server did not provide any stacktrace
+				// information)"
+				int temp_V_s = comments.indexOf("(Session info:");
+				temp_v = comments.substring(0, comments.indexOf("(Session info:"));
+				if (temp_V_s != -1) {
+					int temp_V_e = comments.indexOf(ieException);
+					String temp_ieVersion = comments.substring(temp_V_s, temp_V_e);
+					temp_v = comments.substring(0, temp_V_s);
+					if (!temp_ieVersion.equals(ieVersion)) {
+						ieVersion = temp_ieVersion;
+						flag = true;
+					}
+
+				}
+
+				if (flag) {
+					actValue = temp_v + ieVersion;
+					flag = false;
+				} else
+					actValue = temp_v;
+
+				actValue = actValue.replace("org.openqa.selenium.", "");
+				actValue = Pattern.compile("[^a-zA-Z{]").matcher(actValue).replaceFirst("").trim();
+				comments = "";
+
+				rowResult = new ResultObject();
+				rowResult.setCells(testNm, lineNum, testPoint, expValue, actValue, status, comments);
+				rList.add(rowResult);
+
+			}
+		} else {
+			rowResult = new ResultObject();
+			rowResult.setCells(testNm, "", "", "", "", status, "");
+			rList.add(rowResult);
+		}
+	}
+}

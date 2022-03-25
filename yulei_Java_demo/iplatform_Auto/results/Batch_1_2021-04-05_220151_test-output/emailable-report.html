@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body><table><tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr><tr><th colspan="7">Batch_1</th></tr><tr><td><a href="#t0">Default test</a></td><td class="num">6</td><td class="num">0</td><td class="num attn">14</td><td class="num">4,492,645</td><td></td><td></td></tr></table><table><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Batch_1</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="14">testcases.APP_GUI</td><td><a href="#m0">APP_GUI_02_app_list</a></td><td rowspan="1">1617669889830</td><td rowspan="1">146181</td></tr><tr class="failedeven"><td><a href="#m1">APP_GUI_02a_app_list_fold_app_tree</a></td><td rowspan="1">1617670048230</td><td rowspan="1">84808</td></tr><tr class="failedeven"><td><a href="#m2">APP_GUI_04_Data_Information</a></td><td rowspan="1">1617670145246</td><td rowspan="1">43958</td></tr><tr class="failedeven"><td><a href="#m3">APP_GUI_05_Data_Menu_list</a></td><td rowspan="1">1617670201404</td><td rowspan="1">255236</td></tr><tr class="failedeven"><td><a href="#m4">APP_GUI_06_Data_folder_Information</a></td><td rowspan="1">1617670468806</td><td rowspan="1">114732</td></tr><tr class="failedeven"><td><a href="#m5">APP_GUI_07_Data_folder_Menu_list</a></td><td rowspan="1">1617670595754</td><td rowspan="1">472226</td></tr><tr class="failedeven"><td><a href="#m6">APP_GUI_09A_Data_file_Database_Menu_list</a></td><td rowspan="1">1617671208252</td><td rowspan="1">482287</td></tr><tr class="failedeven"><td><a href="#m7">APP_GUI_09B_Data_file_Sheet_Menu_list</a></td><td rowspan="1">1617671702735</td><td rowspan="1">146380</td></tr><tr class="failedeven"><td><a href="#m8">APP_GUI_09_Data_file_Spreadsheet_Menu_list</a></td><td rowspan="1">1617671990463</td><td rowspan="1">461977</td></tr><tr class="failedeven"><td><a href="#m9">APP_GUI_11_Document_Menu_list</a></td><td rowspan="1">1617672566651</td><td rowspan="1">250391</td></tr><tr class="failedeven"><td><a href="#m10">APP_GUI_13_Document_folder_Menu_list</a></td><td rowspan="1">1617672928704</td><td rowspan="1">589914</td></tr><tr class="failedeven"><td><a href="#m11">APP_GUI_15_Document_file_Menu_list</a></td><td rowspan="1">1617673609539</td><td rowspan="1">300183</td></tr><tr class="failedeven"><td><a href="#m12">APP_GUI_20_Channel_Information</a></td><td rowspan="1">1617673921879</td><td rowspan="1">257799</td></tr><tr class="failedeven"><td><a href="#m13">APP_GUI_21_Mattermost_Test</a></td><td rowspan="1">1617674191854</td><td rowspan="1">52024</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">testcases.APP_GUI</td><td><a href="#m14">APP_GUI_01_app_Menu_bar</a></td><td rowspan="1">1617669833742</td><td rowspan="1">43837</td></tr><tr class="passedeven"><td><a href="#m15">APP_GUI_08_app_Menu_bar</a></td><td rowspan="1">1617671080187</td><td rowspan="1">115885</td></tr><tr class="passedeven"><td><a href="#m16">APP_GUI_09C_Data_file_HTTP_Services_Menu_list</a></td><td rowspan="1">1617671861286</td><td rowspan="1">116970</td></tr><tr class="passedeven"><td><a href="#m17">APP_GUI_10_Document_Information</a></td><td rowspan="1">1617672464677</td><td rowspan="1">89799</td></tr><tr class="passedeven"><td><a href="#m18">APP_GUI_12_Document_folder_Information</a></td><td rowspan="1">1617672829242</td><td rowspan="1">87252</td></tr><tr class="passedeven"><td><a href="#m19">APP_GUI_14_Document_file_Information</a></td><td rowspan="1">1617673530797</td><td rowspan="1">66528</td></tr></tbody></table><h2>Default test</h2><h3 id="m0">testcases.APP_GUI#APP_GUI_02_app_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [242] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [243] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [271] line_end;gui_start org.openqa.selenium.ElementNotVisibleException: element not interactable
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.03 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_02_app_list(APP_GUI.java:360)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">testcases.APP_GUI#APP_GUI_02a_app_list_fold_app_tree</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [478] line_end; expected [] but found [Clear MainGui is failed!],
+	@@line_start [404] line_end;gui_start org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span...id=&quot;ellipsisAppIcon&quot; style=&quot;text-align: center; font-weight: normal; position:fixed;padding-top:1.5px;font-size: 14px; color: rgb(158, 158, 158);&quot; class=&quot;ico-more3&quot;&gt; &lt;/span&gt; is not clickable at point (117, 17). Other element would receive the click: &lt;div style=&quot;opacity: 0;&quot; class=&quot;modal-overlay&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.09 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_02a_app_list_fold_app_tree(APP_GUI.java:481)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m2">testcases.APP_GUI#APP_GUI_04_Data_Information</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [769] line_end; expected [] but found [Clear MainGui is failed!],
+	@@line_start [705] line_end;gui_start org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;div id=&quot;_easyui_tree_2&quot; class=&quot;tree-node droppable&quot;&gt;...&lt;/div&gt; is not clickable at point (143, 51). Other element would receive the click: &lt;div style=&quot;opacity: 0;&quot; class=&quot;modal-overlay&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.07 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_04_Data_Information(APP_GUI.java:772)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m3">testcases.APP_GUI#APP_GUI_05_Data_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [857] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_test_file.xlsx]]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_05_Data_Menu_list(APP_GUI.java:974)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m4">testcases.APP_GUI#APP_GUI_06_Data_folder_Information</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1010] line_end; expected [uitest] but found [migrate],
+	@@line_start [1021] line_end; expected [uitest] but found [migrate],
+	@@line_start [1050] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;.//li[-1]&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.02 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b
+*** Element info: {Using=xpath, value=.//li[-1]} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_06_Data_folder_Information(APP_GUI.java:1078)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m5">testcases.APP_GUI#APP_GUI_07_Data_folder_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1158] line_end; expected [Not found] but found [Training uitest_cyberobject_com_cn/ui_app_test/data/UI_Data_folder_01/UI_Data_file_employee.xlsx success]gui_start  gui_end,
+	@@line_start [1160] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_folder_01/UI_Data_file_employee.xlsx]]gui_start  gui_end,
+	@@line_start [1179] line_end; expected [2] but found [3] expected [2] but found [3],
+	@@line_start [62] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [1278] line_end;gui_start org.openqa.selenium.ElementNotVisibleException: element not interactable
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.05 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_07_Data_folder_Menu_list(APP_GUI.java:1530)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m6">testcases.APP_GUI#APP_GUI_09A_Data_file_Database_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [2066] line_end; expected [Not found] but found [Training uitest_cyberobject_com_cn/ui_app_test/Service/Database/Testing/QHIST]gui_start  gui_end,
+	@@line_start [2067] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Service/Database/Testing/QHIST]]gui_start  gui_end,
+	@@line_start [2121] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@id=&apos;history_div&apos;]//span[text()=&apos;Version History&apos;] gui_end,
+	@@line_start [2122] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@id=&apos;history_div&apos;]//div[@class=&apos;title_close&apos;]/img[2] gui_end,
+	@@line_start [2129] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //table[@class=&apos;hi_table&apos;]//td[text()=&apos;Id&apos;] gui_end,
+	@@line_start [2141] line_end;gui_start org.openqa.selenium.ElementNotVisibleException: element not interactable
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.05 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09A_Data_file_Database_Menu_list(APP_GUI.java:2159)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m7">testcases.APP_GUI#APP_GUI_09B_Data_file_Sheet_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [2202] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09B_Data_file_Sheet_Menu_list(APP_GUI.java:2284)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m8">testcases.APP_GUI#APP_GUI_09_Data_file_Spreadsheet_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [1755] line_end; expected [Not found] but found [Training uitest_cyberobject_com_cn/ui_app_test/data/UI_Data_folder_02/UI_Data_file_termdef.xlsx]gui_start  gui_end,
+	@@line_start [1757] line_end; expected [Not found] but found [trained spreadsheet doc [uitest_cyberobject_com_cn/ui_app_test/Data/UI_Data_folder_02/UI_Data_file_termdef.xlsx]]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_09_Data_file_Spreadsheet_Menu_list(APP_GUI.java:1986)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m9">testcases.APP_GUI#APP_GUI_11_Document_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [62] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [2456] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_11_Document_Menu_list(APP_GUI.java:2588)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m10">testcases.APP_GUI#APP_GUI_13_Document_folder_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [62] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [2665] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end,
+	@@line_start [2668] line_end; expected [Not found] but found [Start training doc UI_Doc_folder_01/UI_Doc_file_JumpFlowOne.rex]gui_start  gui_end,
+	@@line_start [2856] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_13_Document_folder_Menu_list(APP_GUI.java:2986)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m11">testcases.APP_GUI#APP_GUI_15_Document_file_Menu_list</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3140] line_end; expected [Not found] but found [Start training UI_Doc_file_testrex.rex]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_15_Document_file_Menu_list(APP_GUI.java:3357)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m12">testcases.APP_GUI#APP_GUI_20_Channel_Information</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Amazon Alexa Voice&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Facebook Messenger&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Mattermost&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Microsoft Skype&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo SMS&apos;]/parent::div//label gui_end,
+	@@line_start [3885] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;]/parent::div/preceding-sibling::img gui_end,
+	@@line_start [3886] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;] gui_end,
+	@@line_start [3887] line_end; expected [Displayed] but found [NotFound]gui_start By.xpath: //div[@class=&apos;text-center ng-binding&apos;][text()=&apos;Tropo Voice&apos;]/parent::div//label gui_end,
+	@@line_start [3906] line_end;gui_start org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label&quot;}
+  (Session info: chrome=88.0.4324.96)
+  (Driver info: chromedriver=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 5.06 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;FTR3COF93BK8A76&apos;, ip: &apos;192.168.0.201&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_144&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50156}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}), userDataDir=C:\Users\yulei\AppData\Local\Temp\scoped_dir7996_876316333}, takesHeapSnapshot=true, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=88.0.4324.96, browserConnectionEnabled=false, proxy={}, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: 342e27968fbe578c07a832fd5458ba8b
+*** Element info: {Using=xpath, value=//div[@class=&apos;text-center ng-binding&apos;][text()=&apos;iOS&apos;]/parent::div//label} gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_20_Channel_Information(APP_GUI.java:3932)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m13">testcases.APP_GUI#APP_GUI_21_Mattermost_Test</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	@@line_start [3952] line_end; expected [UI_app_testLogic is start.
+Are you 18?
+1. Yes
+2. No] but found [A glass of wine
+] expected [true] but found [false],
+	@@line_start [3956] line_end; expected [UI_app_testLogic is start.
+Of course, will be soon.] but found [Yes!
+] expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.APP_GUI.APP_GUI_21_Mattermost_Test(APP_GUI.java:3971)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m14">testcases.APP_GUI#APP_GUI_01_app_Menu_bar</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m15">testcases.APP_GUI#APP_GUI_08_app_Menu_bar</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m16">testcases.APP_GUI#APP_GUI_09C_Data_file_HTTP_Services_Menu_list</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m17">testcases.APP_GUI#APP_GUI_10_Document_Information</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m18">testcases.APP_GUI#APP_GUI_12_Document_folder_Information</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m19">testcases.APP_GUI#APP_GUI_14_Document_file_Information</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>

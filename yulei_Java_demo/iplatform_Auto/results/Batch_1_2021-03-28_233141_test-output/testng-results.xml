@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="21" total="26" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Batch_1" duration-ms="6161221" started-at="2021-03-29T01:44:44Z" finished-at="2021-03-29T03:27:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="6161221" started-at="2021-03-29T01:44:44Z" finished-at="2021-03-29T03:27:25Z">
+      <class name="testcases.UI_Data_file_termdef">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeClass" is-config="true" duration-ms="66313" started-at="2021-03-28T21:44:44Z" finished-at="2021-03-28T21:45:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20268" started-at="2021-03-28T21:45:50Z" finished-at="2021-03-28T21:46:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_01_Term_Filter_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_01_Term_Filter_Rex" duration-ms="259598" started-at="2021-03-28T21:46:10Z" finished-at="2021-03-28T21:50:30Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [201] line_end; expected [Use] but found [User]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [202] line_end; expected [use] but found [user]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [203] line_end; expected [use] but found [user]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [207] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [208] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [209] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [210] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [211] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [201] line_end; expected [Use] but found [User]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [202] line_end; expected [use] but found [user]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [203] line_end; expected [use] but found [user]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [207] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [208] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [209] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [210] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [211] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_01_Term_Filter_Rex(UI_Data_file_termdef.java:272)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_01_Term_Filter_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T21:50:30Z" finished-at="2021-03-28T21:50:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20265" started-at="2021-03-28T21:50:30Z" finished-at="2021-03-28T21:50:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_02_Term_Oprations_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_02_Term_Oprations_Rex" duration-ms="144049" started-at="2021-03-28T21:50:50Z" finished-at="2021-03-28T21:53:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_02_Term_Oprations_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T21:53:14Z" finished-at="2021-03-28T21:53:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20169" started-at="2021-03-28T21:53:14Z" finished-at="2021-03-28T21:53:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_03_Term_Triggers_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_03_Term_Triggers_Rex" duration-ms="218056" started-at="2021-03-28T21:53:34Z" finished-at="2021-03-28T21:57:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_03_Term_Triggers_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T21:57:12Z" finished-at="2021-03-28T21:57:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20235" started-at="2021-03-28T21:57:12Z" finished-at="2021-03-28T21:57:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_04_Term_Orange_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_04_Term_Orange_Rex" duration-ms="210365" started-at="2021-03-28T21:57:33Z" finished-at="2021-03-28T22:01:03Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [515] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [516] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [537] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [515] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [516] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [537] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_04_Term_Orange_Rex(UI_Data_file_termdef.java:642)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_04_Term_Orange_Rex -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20209" started-at="2021-03-28T22:01:03Z" finished-at="2021-03-28T22:01:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:01:03Z" finished-at="2021-03-28T22:01:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="FAIL" signature="IntelliSense_06_Term_Highlight_SingleMulti_use_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_06_Term_Highlight_SingleMulti_use_Rex" duration-ms="97770" started-at="2021-03-28T22:01:23Z" finished-at="2021-03-28T22:03:01Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [788] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [788] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_06_Term_Highlight_SingleMulti_use_Rex(UI_Data_file_termdef.java:808)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_06_Term_Highlight_SingleMulti_use_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:03:01Z" finished-at="2021-03-28T22:03:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20229" started-at="2021-03-28T22:03:01Z" finished-at="2021-03-28T22:03:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_07_Term_Highlight_EditEffects_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_07_Term_Highlight_EditEffects_Rex" duration-ms="154296" started-at="2021-03-28T22:03:21Z" finished-at="2021-03-28T22:05:56Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [846] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [847] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [848] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [849] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [846] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [847] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [848] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [849] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_07_Term_Highlight_EditEffects_Rex(UI_Data_file_termdef.java:951)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_07_Term_Highlight_EditEffects_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T22:05:56Z" finished-at="2021-03-28T22:05:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20281" started-at="2021-03-28T22:05:56Z" finished-at="2021-03-28T22:06:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_08_Term_Replace_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_08_Term_Replace_Rex" duration-ms="196007" started-at="2021-03-28T22:06:16Z" finished-at="2021-03-28T22:09:32Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [986] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [986] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_08_Term_Replace_Rex(UI_Data_file_termdef.java:1169)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_08_Term_Replace_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:09:32Z" finished-at="2021-03-28T22:09:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20278" started-at="2021-03-28T22:09:32Z" finished-at="2021-03-28T22:09:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_09_Term_Nest_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_09_Term_Nest_Rex" duration-ms="240881" started-at="2021-03-28T22:09:52Z" finished-at="2021-03-28T22:13:53Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1192] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1193] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1195] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1197] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1200] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1192] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1193] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1195] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1197] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1200] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_09_Term_Nest_Rex(UI_Data_file_termdef.java:1301)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_09_Term_Nest_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T22:13:53Z" finished-at="2021-03-28T22:13:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20200" started-at="2021-03-28T22:13:53Z" finished-at="2021-03-28T22:14:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_10_Term_Filter_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_10_Term_Filter_Ucx" duration-ms="175939" started-at="2021-03-28T22:14:13Z" finished-at="2021-03-28T22:17:09Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1344] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1345] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1375] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1344] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1345] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1375] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_10_Term_Filter_Ucx(UI_Data_file_termdef.java:1419)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_10_Term_Filter_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:17:09Z" finished-at="2021-03-28T22:17:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20200" started-at="2021-03-28T22:17:09Z" finished-at="2021-03-28T22:17:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_11_Term_Operations_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_11_Term_Operations_Ucx" duration-ms="239898" started-at="2021-03-28T22:17:29Z" finished-at="2021-03-28T22:21:29Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1455] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1456] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1457] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1458] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1459] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1462] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1455] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1456] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1457] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1458] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1459] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1462] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_11_Term_Operations_Ucx(UI_Data_file_termdef.java:1554)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_11_Term_Operations_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:21:29Z" finished-at="2021-03-28T22:21:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20185" started-at="2021-03-28T22:21:29Z" finished-at="2021-03-28T22:21:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_12_Term_Triggers_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_12_Term_Triggers_Ucx" duration-ms="145669" started-at="2021-03-28T22:21:49Z" finished-at="2021-03-28T22:24:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_12_Term_Triggers_Ucx -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20223" started-at="2021-03-28T22:24:15Z" finished-at="2021-03-28T22:24:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:24:15Z" finished-at="2021-03-28T22:24:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="FAIL" signature="IntelliSense_13_Term_Orange_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_13_Term_Orange_Ucx" duration-ms="172802" started-at="2021-03-28T22:24:35Z" finished-at="2021-03-28T22:27:28Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1688] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1689] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1703] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1688] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1689] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [1703] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_13_Term_Orange_Ucx(UI_Data_file_termdef.java:1768)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_13_Term_Orange_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:27:28Z" finished-at="2021-03-28T22:27:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20248" started-at="2021-03-28T22:27:28Z" finished-at="2021-03-28T22:27:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_14_Term_Highlight_Realtime_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_14_Term_Highlight_Realtime_Ucx" duration-ms="543168" started-at="2021-03-28T22:27:48Z" finished-at="2021-03-28T22:36:52Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1785] line_end; expected [rgba(0, 128, 0, 1)] but found [rgba(255, 0, 0, 1)],
+	@@line_start [1786] line_end; expected [rgba(255, 165, 0, 1)] but found [rgba(0, 128, 0, 1)],
+	@@line_start [1803] line_end; expected [Not found] but found [Training cyberobject/uitest_cyberobject_com_cn/intellisensetest/data/IntelliSense/termhighlight_domain.xlsx success !]gui_start  gui_end,
+	@@line_start [1832] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1785] line_end; expected [rgba(0, 128, 0, 1)] but found [rgba(255, 0, 0, 1)],
+	@@line_start [1786] line_end; expected [rgba(255, 165, 0, 1)] but found [rgba(0, 128, 0, 1)],
+	@@line_start [1803] line_end; expected [Not found] but found [Training cyberobject/uitest_cyberobject_com_cn/intellisensetest/data/IntelliSense/termhighlight_domain.xlsx success !]gui_start  gui_end,
+	@@line_start [1832] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_14_Term_Highlight_Realtime_Ucx(UI_Data_file_termdef.java:1910)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_14_Term_Highlight_Realtime_Ucx -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20240" started-at="2021-03-28T22:36:52Z" finished-at="2021-03-28T22:37:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:36:52Z" finished-at="2021-03-28T22:36:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="FAIL" signature="IntelliSense_15_Term_Highlight_Single_Multi_use_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_15_Term_Highlight_Single_Multi_use_Ucx" duration-ms="170269" started-at="2021-03-28T22:37:12Z" finished-at="2021-03-28T22:40:02Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [1973] line_end; expected [rgba(0, 0, 0, 1)] but found [rgba(255, 0, 0, 1)]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [1973] line_end; expected [rgba(0, 0, 0, 1)] but found [rgba(255, 0, 0, 1)]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_15_Term_Highlight_Single_Multi_use_Ucx(UI_Data_file_termdef.java:2001)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_15_Term_Highlight_Single_Multi_use_Ucx -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20271" started-at="2021-03-28T22:40:02Z" finished-at="2021-03-28T22:40:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:40:02Z" finished-at="2021-03-28T22:40:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="FAIL" signature="IntelliSense_17_Term_Replace_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_17_Term_Replace_Ucx" duration-ms="237001" started-at="2021-03-28T22:40:22Z" finished-at="2021-03-28T22:44:19Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2164] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2164] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_17_Term_Replace_Ucx(UI_Data_file_termdef.java:2249)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_17_Term_Replace_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:44:19Z" finished-at="2021-03-28T22:44:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20172" started-at="2021-03-28T22:44:19Z" finished-at="2021-03-28T22:44:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_18_Term_Nest_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_18_Term_Nest_Ucx" duration-ms="222599" started-at="2021-03-28T22:44:39Z" finished-at="2021-03-28T22:48:22Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2279] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2279] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_18_Term_Nest_Ucx(UI_Data_file_termdef.java:2337)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_18_Term_Nest_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T22:48:22Z" finished-at="2021-03-28T22:48:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20189" started-at="2021-03-28T22:48:22Z" finished-at="2021-03-28T22:48:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_32_Term_TopLevelTerm_TableTerm()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_32_Term_TopLevelTerm_TableTerm" duration-ms="284712" started-at="2021-03-28T22:48:42Z" finished-at="2021-03-28T22:53:27Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2397] line_end; expected [NotFound] but found [Displayed]gui_start By.xpath: //ul[@id='AutoCompleteMenu' and contains(@style,'display: block')] gui_end,
+	@@line_start [2401] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2410] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2411] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2412] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2432] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2433] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2456] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2465] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2466] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2397] line_end; expected [NotFound] but found [Displayed]gui_start By.xpath: //ul[@id='AutoCompleteMenu' and contains(@style,'display: block')] gui_end,
+	@@line_start [2401] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2410] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2411] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2412] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2432] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2433] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2456] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2465] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2466] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_32_Term_TopLevelTerm_TableTerm(UI_Data_file_termdef.java:2491)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_32_Term_TopLevelTerm_TableTerm -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T22:53:27Z" finished-at="2021-03-28T22:53:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20226" started-at="2021-03-28T22:53:27Z" finished-at="2021-03-28T22:53:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_33_Resource_Filter_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_33_Resource_Filter_Rex" duration-ms="109285" started-at="2021-03-28T22:53:47Z" finished-at="2021-03-28T22:55:36Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2554] line_end; expected [File/User ] but found [Fi]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li[1]//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [2562] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2563] line_end; expected [File/User] but found [File/User ]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [2564] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [2571] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2554] line_end; expected [File/User ] but found [Fi]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li[1]//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [2562] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2563] line_end; expected [File/User] but found [File/User ]gui_start [[[[ChromeDriver: chrome on XP (aa8b00c2be41d7ad3ed8a045461ba8b8)] -> xpath: //ul[@id='AutoCompleteMenu']/li//strong]] -> xpath: .//span[@style='color:red;']] gui_end,
+	@@line_start [2564] line_end; expected [Displayed] but found [NoSuchElement]gui_start element is null gui_end,
+	@@line_start [2571] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_33_Resource_Filter_Rex(UI_Data_file_termdef.java:2583)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_33_Resource_Filter_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T22:55:36Z" finished-at="2021-03-28T22:55:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20305" started-at="2021-03-28T22:55:36Z" finished-at="2021-03-28T22:55:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_34_Resource_Operations_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_34_Resource_Operations_Rex" duration-ms="127424" started-at="2021-03-28T22:55:57Z" finished-at="2021-03-28T22:58:04Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2668] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2669] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2670] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2668] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2669] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2670] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_34_Resource_Operations_Rex(UI_Data_file_termdef.java:2698)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_34_Resource_Operations_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T22:58:04Z" finished-at="2021-03-28T22:58:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20237" started-at="2021-03-28T22:58:04Z" finished-at="2021-03-28T22:58:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_35_Resource_Triggers_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_35_Resource_Triggers_Rex" duration-ms="169500" started-at="2021-03-28T22:58:24Z" finished-at="2021-03-28T23:01:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_35_Resource_Triggers_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-03-28T23:01:14Z" finished-at="2021-03-28T23:01:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20318" started-at="2021-03-28T23:01:14Z" finished-at="2021-03-28T23:01:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_36_Resource_Highlight_Realtime_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_36_Resource_Highlight_Realtime_Rex" duration-ms="519108" started-at="2021-03-28T23:01:34Z" finished-at="2021-03-28T23:10:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_36_Resource_Highlight_Realtime_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:10:13Z" finished-at="2021-03-28T23:10:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20155" started-at="2021-03-28T23:10:13Z" finished-at="2021-03-28T23:10:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_37_Resource_Highlight_EditEffects_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_37_Resource_Highlight_EditEffects_Rex" duration-ms="151180" started-at="2021-03-28T23:10:34Z" finished-at="2021-03-28T23:13:05Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2989] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2990] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2989] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [2990] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_37_Resource_Highlight_EditEffects_Rex(UI_Data_file_termdef.java:3034)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_37_Resource_Highlight_EditEffects_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:13:05Z" finished-at="2021-03-28T23:13:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20248" started-at="2021-03-28T23:13:05Z" finished-at="2021-03-28T23:13:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_38_Resource_Filter_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_38_Resource_Filter_Ucx" duration-ms="204967" started-at="2021-03-28T23:13:25Z" finished-at="2021-03-28T23:16:50Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [3071] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3072] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3073] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3074] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3121] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3122] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3123] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3124] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3138] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [3071] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3072] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3073] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3074] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3121] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3122] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3123] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3124] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3138] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_38_Resource_Filter_Ucx(UI_Data_file_termdef.java:3148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_38_Resource_Filter_Ucx -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20229" started-at="2021-03-28T23:16:50Z" finished-at="2021-03-28T23:17:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:16:50Z" finished-at="2021-03-28T23:16:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="FAIL" signature="IntelliSense_39_Resource_Operations_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_39_Resource_Operations_Ucx" duration-ms="157962" started-at="2021-03-28T23:17:10Z" finished-at="2021-03-28T23:19:48Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [3201] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3233] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [3201] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3233] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_39_Resource_Operations_Ucx(UI_Data_file_termdef.java:3301)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_39_Resource_Operations_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:19:48Z" finished-at="2021-03-28T23:19:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20251" started-at="2021-03-28T23:19:48Z" finished-at="2021-03-28T23:20:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_40_Resource_Triggers_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_40_Resource_Triggers_Ucx" duration-ms="288032" started-at="2021-03-28T23:20:08Z" finished-at="2021-03-28T23:24:56Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [3345] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3346] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3347] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3348] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3354] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3366] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3367] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3368] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3380] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3386] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [3345] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3346] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3347] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3348] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3354] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3366] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3367] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3368] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3380] line_end; expected [NotFound] but found [Displayed]gui_start  gui_end,
+	@@line_start [3386] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_40_Resource_Triggers_Ucx(UI_Data_file_termdef.java:3397)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_40_Resource_Triggers_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:24:56Z" finished-at="2021-03-28T23:24:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="beforeMethod" is-config="true" duration-ms="20146" started-at="2021-03-28T23:24:56Z" finished-at="2021-03-28T23:25:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="IntelliSense_41_Resource_Highlight_Realtime_Ucx()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="IntelliSense_41_Resource_Highlight_Realtime_Ucx" duration-ms="128104" started-at="2021-03-28T23:25:17Z" finished-at="2021-03-28T23:27:25Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+	@@line_start [2557] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [3404] line_end;gui_start java.lang.NullPointerException gui_end]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+	@@line_start [2557] line_end; expected [] but found [MouseRightClick failed!]gui_start  gui_end,
+	@@line_start [3404] line_end;gui_start java.lang.NullPointerException gui_end
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.UI_Data_file_termdef.IntelliSense_41_Resource_Highlight_Realtime_Ucx(UI_Data_file_termdef.java:3423)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_41_Resource_Highlight_Realtime_Ucx -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-28T23:27:25Z" finished-at="2021-03-28T23:27:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.UI_Data_file_termdef@2ef5e5e3]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-03-28T23:27:25Z" finished-at="2021-03-28T23:27:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcases.UI_Data_file_termdef -->
+    </test> <!-- Default test -->
+  </suite> <!-- Batch_1 -->
+</testng-results>

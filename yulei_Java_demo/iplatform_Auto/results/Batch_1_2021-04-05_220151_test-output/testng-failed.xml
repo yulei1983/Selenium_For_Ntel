@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Batch_1]" parallel="classes">
+  <test name="Default test(failed)" parallel="classes">
+    <classes>
+      <class name="testcases.APP_GUI">
+        <methods>
+          <include name="APP_GUI_07_Data_folder_Menu_list"/>
+          <include name="APP_GUI_11_Document_Menu_list"/>
+          <include name="APP_GUI_02a_app_list_fold_app_tree"/>
+          <include name="APP_GUI_04_Data_Information"/>
+          <include name="APP_GUI_20_Channel_Information"/>
+          <include name="afterMethod"/>
+          <include name="APP_GUI_06_Data_folder_Information"/>
+          <include name="APP_GUI_09_Data_file_Spreadsheet_Menu_list"/>
+          <include name="APP_GUI_02_app_list"/>
+          <include name="APP_GUI_15_Document_file_Menu_list"/>
+          <include name="APP_GUI_09B_Data_file_Sheet_Menu_list"/>
+          <include name="APP_GUI_13_Document_folder_Menu_list"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="APP_GUI_05_Data_Menu_list"/>
+          <include name="afterClass"/>
+          <include name="APP_GUI_09A_Data_file_Database_Menu_list"/>
+          <include name="APP_GUI_21_Mattermost_Test"/>
+        </methods>
+      </class> <!-- testcases.APP_GUI -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Batch_1] -->

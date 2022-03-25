@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Batch_1" duration-ms="331767" started-at="2021-03-26T06:18:09Z" finished-at="2021-03-26T06:23:40Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="331767" started-at="2021-03-26T06:18:09Z" finished-at="2021-03-26T06:23:40Z">
+      <class name="testcases.UI_Data_file_termdef">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.UI_Data_file_termdef@5034c75a]" name="beforeClass" is-config="true" duration-ms="164094" started-at="2021-03-26T02:18:09Z" finished-at="2021-03-26T02:20:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.UI_Data_file_termdef@5034c75a]" name="beforeMethod" is-config="true" duration-ms="20267" started-at="2021-03-26T02:20:53Z" finished-at="2021-03-26T02:21:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="IntelliSense_02_Term_Oprations_Rex()[pri:0, instance:testcases.UI_Data_file_termdef@5034c75a]" name="IntelliSense_02_Term_Oprations_Rex" duration-ms="147341" started-at="2021-03-26T02:21:13Z" finished-at="2021-03-26T02:23:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IntelliSense_02_Term_Oprations_Rex -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.UI_Data_file_termdef@5034c75a]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-03-26T02:23:40Z" finished-at="2021-03-26T02:23:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testcases.UI_Data_file_termdef@5034c75a]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-03-26T02:23:40Z" finished-at="2021-03-26T02:23:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testcases.UI_Data_file_termdef -->
+    </test> <!-- Default test -->
+  </suite> <!-- Batch_1 -->
+</testng-results>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="465"/>
+		<item key="DIALOG_Y_ORIGIN" value="357"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="login_AppBuilder"/>
+		<item key="casesensitive" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="wholeword" value="false"/>
+		<list key="findhistory">
+			<item value="login_AppBuilder"/>
+			<item value="new File"/>
+			<item value="new File()"/>
+			<item value="./"/>
+			<item value="F:"/>
+			<item value="webdvdir"/>
+			<item value="post_textbox"/>
+			<item value="img"/>
+			<item value="changeWindow"/>
+			<item value="_checkoutlistfiles_empty"/>
+			<item value="Message_content"/>
+			<item value="trainingItemSpan"/>
+			<item value="ellipsisAppIcon"/>
+			<item value="treeContextMenu"/>
+			<item value="&quot;gui_start &quot;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Lib.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg);"/>
+			<item value="GetExcptionMessageFromExcptionRejector"/>
+			<item value="Data Service"/>
+			<item value="IntelliSense"/>
+			<item value="Test_IntelliSense.rex"/>
+			<item value="ucx_file_iframe"/>
+			<item value="!Lib.isExist(driver, AppElements.Console_expand)"/>
+			<item value="&#x09;&#x09;&#x09;MMDriver.softAssert.fail(Lib.ExcptioinMessageRejector(e,declaringClassNameReg) + &quot;;&quot; + e.toString() + &quot;@@\n&quot;);"/>
+			<item value=""/>
+			<item value="Tree_value(driver"/>
+			<item value="softAt "/>
+			<item value="Tree_value(softAt,driver"/>
+			<item value="Tree_value(,driver"/>
+			<item value="driver"/>
+			<item value="Prepare.driver"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_WIDTH" value="636"/>
+		<item key="DIALOG_FONT_NAME" value="1|宋体|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|宋体"/>
+		<item key="DIALOG_HEIGHT" value="389"/>
+		<item key="DIALOG_X_ORIGIN" value="718"/>
+		<item key="DIALOG_Y_ORIGIN" value="626"/>
+	</section>
+</section>

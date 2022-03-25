@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.team.ccvs.ui.RepositoriesView">
+		<item key="selectedSortingOrder" value="true"/>
+		<item key="selectedOrderBy" value="0"/>
+	</section>
+	<section name="org.eclipse.team.internal.ccvs.ui.CVSHistoryPage">
+		<item key="SASH_WEIGHTS" value="650;200;150;"/>
+		<item key="SORT_ORDER" value="true"/>
+		<item key="INNER_SASH_WEIGHTS" value="500;500;"/>
+	</section>
+	<section name="RefreshRemoteProjectWizard">
+		<item key="UseWorkingSet" value="false"/>
+	</section>
+	<section name="CommitWizard">
+		<item key="VWeight2" value="544"/>
+		<item key="HWeight1" value="350"/>
+		<item key="HWeight2" value="650"/>
+		<item key="VWeight1" value="455"/>
+		<item key="width" value="849"/>
+		<item key="ShowCompare" value="true"/>
+		<item key="height" value="1912"/>
+	</section>
+	<section name="SharingWizard">
+		<item key="SyncPageWidth" value="562"/>
+		<item key="SyncPageHeight" value="538"/>
+	</section>
+	<section name="CheckoutAsWizard">
+	</section>
+	<section name="TagConfigurationDialog">
+		<item key="AllowRefreshWidth" value="489"/>
+		<item key="AllowRefreshHeight" value="527"/>
+	</section>
+	<section name="org.eclipse.team.internal.ccvs.ui.CVSHistoryTableProvider">
+		<item key="COL_REVISIONID" value="196"/>
+		<item key="COL_TAGS" value="195"/>
+		<item key="COL_COMMENT" value="195"/>
+		<item key="SORT_COL_DIRECTION" value="1024"/>
+		<item key="COL_DATE" value="195"/>
+		<item key="COL_BRANCHES" value="195"/>
+		<item key="COL_AUTHOR" value="195"/>
+		<item key="SORT_COL_NAME" value="COL_DATE"/>
+	</section>
+	<section name="NewLocationWizard">
+		<item key="ConfigurationWizardMainPage.STORE_DONT_VALIDATE_ID" value="false"/>
+		<list key="ConfigurationWizardMainPage.STORE_USERNAME_ID">
+			<item value="yulei"/>
+		</list>
+		<list key="ConfigurationWizardMainPage.STORE_PATH_ID">
+			<item value="/CVSRoot"/>
+		</list>
+		<list key="ConfigurationWizardMainPage.STORE_HOSTNAME_ID">
+			<item value="192.168.0.82"/>
+		</list>
+	</section>
+</section>

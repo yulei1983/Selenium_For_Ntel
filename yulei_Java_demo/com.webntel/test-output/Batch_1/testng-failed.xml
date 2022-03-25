@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Batch_1]" parallel="classes">
+  <test thread-count="1" name="Default test(failed)" parallel="classes">
+    <classes>
+      <class name="TestCases.WFA_POTS_Dial_Tone_1">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="DT_07"/>
+          <include name="AfterClass"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- TestCases.WFA_POTS_Dial_Tone_1 -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Batch_1] -->

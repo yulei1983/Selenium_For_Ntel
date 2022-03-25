@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>031722</CommitComment>
+	<CommitComment>031622</CommitComment>
+	<CommitComment>Voice_test</CommitComment>
+	<CommitComment>update exception message</CommitComment>
+	<CommitComment>Add Class ImgChecker.
+Update UI_Data_file_tremdef scripts.</CommitComment>
+	<CommitComment>Add UI_Data_file_termdef scripts.
+Add related class and functions.</CommitComment>
+	<CommitComment>Add new class Flowunit and lib functions for UI_data_file_termdef scripts.</CommitComment>
+	<CommitComment>08072020</CommitComment>
+	<CommitComment>before insert function checkPageIsReady()</CommitComment>
+	<CommitComment>07222020</CommitComment>
+</CommitComments>

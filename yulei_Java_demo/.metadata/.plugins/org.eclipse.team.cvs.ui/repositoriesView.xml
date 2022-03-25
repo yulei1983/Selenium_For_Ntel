@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories-view>
+	<repository id=":pserver:yulei@192.168.0.82:/CVSRoot">
+		<module path="com.iplatform">
+		</module>
+		<module path="/" lastAcessTime="1648102446040">
+		</module>
+	</repository>
+</repositories-view>

@@ -1,0 +1,1464 @@
+/**
+ * 
+ */
+package utils;
+
+import prepare.MMDriver;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Driver;
+import java.text.SimpleDateFormat;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.fail;
+
+import java.awt.AWTException;
+import java.awt.Event;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.Date;
+import java.util.Properties;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ById;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.os.WindowsUtils;
+import org.openqa.selenium.remote.UnreachableBrowserException;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.commons.io.FileUtils;
+import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.stdDSA;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.Reporter;
+import org.testng.log4testng.Logger;
+
+import objectRepository.AppElements;
+import objectRepository.MatterMost;
+import checkpoints.AppBChkPoint;
+import checkpoints.EnrollChat;
+
+import org.testng.Assert;
+
+/**
+ * @author WangMingxun
+ *
+ */
+public class Lib {
+	// private WebDriver driver = null;
+	public WebDriver window = null;
+	protected static String webUrl = "";
+	public String current_handles = "";
+	private static Robot robot = null;
+
+	/**
+	 * 启动Driver
+	 */
+	public static WebDriver launchBrowser() {
+		String webdv = PropertiesDataProvider.getTestData("config/config.properties", "webdv");
+		String webdvdir = PropertiesDataProvider.getTestData("config/config.properties", "webdvdir");
+		System.setProperty(webdv, webdvdir);
+		return new ChromeDriver();
+	}
+
+	/**
+	 * 登录MatterMost
+	 */
+	public static void login_Mm(WebDriver driver, String user, String password) {
+
+		webUrl = PropertiesDataProvider.getTestData("config/config.properties", "url");
+		driver.manage().window().maximize();
+		driver.get(webUrl);
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		driver.findElement(MatterMost.Login_ID).clear();
+		driver.findElement(MatterMost.Login_ID).sendKeys(user);
+		driver.findElement(MatterMost.Login_PW).clear();
+		driver.findElement(MatterMost.Login_PW).sendKeys(password);
+		driver.findElement(MatterMost.SIGN_IN).click();
+
+		if (isDisplayed(driver, MatterMost.Dialog_Status_Title, true, 2))
+			driver.findElement(MatterMost.Dialog_Status_Yes).click();
+
+	}
+
+	/**
+	 * Logout MatterMost
+	 */
+	public static void logout_Mm(WebDriver driver) {
+
+		if (Lib.isDisplayed(driver, MatterMost.SYS_Setting, true, 2)) {
+			driver.findElement(MatterMost.SYS_Setting).click();
+			driver.findElement(MatterMost.Logout).click();
+		} else {
+			driver.findElement(MatterMost.SYS_Setting_narrowDisplay).click();
+			driver.findElement(MatterMost.Logout_narrowDisplay).click();
+		}
+	}
+
+	/**
+	 * 登录
+	 */
+	public static void login_AppBuilder(WebDriver driver, String user, String password) {
+		try {
+			webUrl = PropertiesDataProvider.getTestData("config/config.properties", "urlappbuilder");
+			
+//			Boolean yBoolean = Lib.isExist(driver, AppElements.APP_ID_Tip);
+//			if(!yBoolean) {
+//			  driver.switchTo().frame("moduleFrame");
+//			}
+			    driver.switchTo().defaultContent();
+				if(Lib.isExist(driver, AppElements.SIGNOUT)) {
+				
+					driver.findElement(AppElements.SIGNOUT).click();
+				}
+
+				Lib.wait_Sleep(3000);
+			driver.manage().window().maximize();
+			driver.get(webUrl);
+			driver.findElement(AppElements.LOGIN_NAME).clear();
+			driver.findElement(AppElements.LOGIN_NAME).sendKeys(user);
+			driver.findElement(AppElements.LOGIN_PASSWORD).clear();
+			driver.findElement(AppElements.LOGIN_PASSWORD).sendKeys(password);
+			driver.findElement(AppElements.LOGIN_SINGNIN).click();
+			driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+
+		} catch (UnreachableBrowserException e) {
+			// TODO: handle exception
+			System.out.println("" + e.toString());
+		}
+	}
+	
+	/**
+	 * 登出
+	 */
+	public static void Switch_loginUser_AppBuilder(WebDriver driver, String user, String password) {
+		try {
+			if(Lib.isExist(driver, AppElements.SIGNOUT)) {
+				driver.findElement(AppElements.SIGNOUT).click();
+			}
+			else {
+				driver.switchTo().defaultContent();
+				driver.findElement(AppElements.SIGNOUT).click();
+			}
+            Lib.wait_Sleep(3000);
+			driver.findElement(AppElements.LOGIN_NAME).clear();
+			driver.findElement(AppElements.LOGIN_NAME).sendKeys(user);
+			driver.findElement(AppElements.LOGIN_PASSWORD).clear();
+			driver.findElement(AppElements.LOGIN_PASSWORD).sendKeys(password);
+			driver.findElement(AppElements.LOGIN_SINGNIN).click();   
+			Lib.wait_Sleep(3000);
+			driver.switchTo().frame("moduleFrame");
+			
+		} catch (UnreachableBrowserException e) {
+			// TODO: handle exception
+			System.out.println("" + e.toString());
+		}
+	}
+	
+	public static void SwitchApp(WebDriver driver) {
+		Boolean flag = false;	
+	    if (!isExist(driver, AppElements.Apps_btn_downarrow)) {
+	    	flag = true;
+	    	driver.switchTo().defaultContent();
+		}
+		driver.findElement(AppElements.Apps_btn_downarrow).click();
+		driver.findElement(AppElements.Menu_bar_Switch).click();
+		if (flag) {
+			driver.switchTo().frame("moduleFrame");
+		}
+	}
+	
+	public static boolean isExist(WebDriver driver,By by) {
+		try {
+			driver.findElement(by);
+	        return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * 选择APP.
+	 */
+	public static void selectMMApp(WebDriver driver, String appName) {
+		if (Lib.isDisplayed(driver, MatterMost.navbar, true, 1))
+			driver.findElement(MatterMost.navbar).click();
+
+		// boolean flag = true;
+		// int j = 0;
+		// mouseMoveToElement(driver, MatterMost.orgName);
+		// wait_Sleep(100);
+		// do {
+		//
+		// try {
+		// flag = driver.findElement(MatterMost.APP(appName)).isDisplayed();
+		//
+		// } catch (Exception e) {
+		// // TODO: handle exception
+		// try {
+		// robot = new Robot();
+		// robot.mouseWheel(5);
+		// wait_Sleep(100);
+		// } catch (AWTException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		// flag = false;
+		// j++;
+		// }
+		//
+		// } while (j < 4 && flag == false);
+
+		// if (flag = true)
+		driver.findElement(MatterMost.APP(appName)).click();
+		// else
+		// Assert.fail("selectMMApp fail expected [ Select APP ] but found
+		// [selectMMApp" + appName + " fail!]@@\n\t,");
+	}
+
+	
+	public static void SelectApp(WebDriver driver, String appName) {
+		String CurrappTitle = "";
+
+		Lib.SwitchToFrame(driver, "moduleFrame");
+		CurrappTitle = driver.findElement(AppElements.APP_ID_Tip).getText();
+	
+		if(!CurrappTitle.equals(appName)) {
+			driver.switchTo().defaultContent();
+            driver.findElement(AppElements.Apps_btn_downarrow).click();
+			driver.findElement(AppElements.Menu_bar_Switch).click();
+			Lib.wait_Sleep(1000);
+			driver.findElement(AppElements.Display_OrgID_CustomObj(appName)).click();
+			Lib.wait_Sleep(1000);
+			String appTitle = driver.findElement(AppElements.APP_ID_Tip).getText();
+			Lib.assertEquals(appTitle, appName,"Switch app");
+			Lib.SwitchToFrame(driver, "moduleFrame");
+		}
+	}
+	
+	public static void SelectApp(WebDriver driver, String appName, String ListOrTempList) {	
+		String CurrappTitle = "";
+		if (Lib.isExist(driver, AppElements.APP_ID_Tip)) {
+			 CurrappTitle = driver.findElement(AppElements.APP_ID_Tip).getText();
+		}else {
+			Lib.SwitchToFrame(driver, "moduleFrame");
+			 CurrappTitle = driver.findElement(AppElements.APP_ID_Tip).getText();
+		}
+	
+		if(!CurrappTitle.equals(appName)) {
+			driver.findElement(AppElements.Menu_bar_Switch).click();	
+			Lib.wait_Sleep(2000);
+			driver.findElement(AppElements.Display_AppID_CustomObj(appName,ListOrTempList)).click();
+			Lib.wait_Sleep(2000);
+			String appTitle = driver.findElement(AppElements.APP_ID_Tip).getText();
+			MMDriver.softAssert.assertEquals(appTitle, appName, "The line number is " + new Exception().getStackTrace()[1].getLineNumber()+". Switch app "+ appName +" is failed!"+"\n,");
+		}
+	}
+	
+	
+	/**
+	 * 获取Login ID的User Name.
+	 */
+
+	public static String getUserName(WebDriver driver) {
+		driver.findElement(MatterMost.SYS_Setting).click();
+		driver.findElement(MatterMost.Account_Settings).click();
+		wait_Sleep(100);
+		String userName = driver.findElement(MatterMost.Account_Settings_UserNameDesc).getText();
+		driver.findElement(MatterMost.Account_Settings_Close).click();
+		wait_Sleep(100);
+		return userName;
+	}
+
+	/**
+	 * 选择Choose Session
+	 */
+	public static void selectChose(WebDriver driver, String choseValue) {
+
+		try {
+			driver.findElement(By.id(getLastMsgID(driver)))
+					.findElement(By.xpath("//li[@class='select'][text()='" + choseValue + "']")).click();
+		} catch (Exception e) {
+			// TODO: handle exception
+			try {
+				driver.findElement(By.id(getLastMsgID(driver))).findElement(By.partialLinkText(choseValue)).click();
+			} catch (Exception e1) {
+				// TODO: handle exception
+				Assert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber()+ ". " + choseValue + "Choose can't find out.", e1);
+			}
+		}
+
+	}
+
+	/**
+	 * 
+	 * @return 最后一个message ID。
+	 */
+	public static String getLastMsgID(WebDriver driver) {
+		return driver.findElement(MatterMost.Post_Last).getAttribute("id");
+	}
+
+	/**
+	 *
+	 * @return 最后一个message 内容
+	 */
+	private static String getLastMsgContent(WebDriver driver) {
+		return driver.findElement(MatterMost.Post_Last).findElement(By.className("post__body")).getText();
+	}
+
+	/**
+	 * 
+	 * @return 谁的message
+	 */
+	private static String getLastMsgOwner(WebDriver driver) {
+		return driver.findElement(MatterMost.Post_Last).findElement(By.className("user-popover")).getText();
+	}
+
+	/**
+	 *
+	 * @param expected
+	 */
+
+	public static void chkMsg(WebDriver driver, String expected) {
+		String actual = null;
+		String lostID = null;
+		int j = 0, n = 6;
+
+		do {
+			actual = getMsg(driver);
+			lostID = getLastMsgID(driver);
+			if (actual.equals(expected)) {
+				break;
+			} else {
+				++j;
+				wait_Sleep(400);
+
+			}
+		} while (j < n);
+
+		if (j >= n) {
+			System.out.println("The line number is " + new Exception().getStackTrace()[1].getLineNumber());
+			fail("Actual MsgID: " + lostID + " expected [" + expected + "] but found [" + actual + "]@@\n,");
+		}
+	}
+
+	/**
+	 * Check the owner and content
+	 * 
+	 * @param expected
+	 */
+
+	public static void chkMsg(WebDriver driver, String owner, String expected) {
+		String userNm = null;
+		String actual = null;
+		String lostID = null;
+		int j = 0;
+
+		do {
+			actual = getMsg(driver);
+			lostID = getLastMsgID(driver);
+			userNm = getLastMsgOwner(driver);
+			if ((userNm + ":" + actual).equals(owner + ":" + expected)) {
+				break;
+			} else {
+				++j;
+				wait_Sleep(500);
+
+			}
+		} while (j < 6);
+
+		if (j >= 6) {
+			sendMsg(driver, "Cancel and close the session");
+			System.out.println("The line number is " + new Exception().getStackTrace()[1].getLineNumber());
+			Assert.fail("Actual MsgID: " + lostID + " expected [" + owner + ":" + expected + "] but found [" + userNm
+					+ ":" + actual + "]@@\n,");
+		}
+
+	}
+
+	/**
+	 *
+	 * @param expected
+	 */
+
+	public static void chkMsgRegEx(WebDriver driver, String expected) {
+		String actual = null;
+		String lostID = null;
+		int j = 0;
+		do {
+			actual = getMsg(driver);
+			lostID = getLastMsgID(driver);
+			boolean result = Pattern.compile(expected).matcher(actual).find();
+
+			// Pattern.compile(expected).matcher(actual).find();
+
+			if (result) {
+				break;
+			} else {
+				++j;
+				wait_Sleep(500);
+			}
+
+		} while (j < 6);
+
+		if (j >= 6) {
+			if (actual.equals(EnrollChat.I_am_checking_for_a_couple_of_things))
+				fail("Actual MsgID: " + lostID + " expected [" + expected + "] but found [" + actual + "]@@\n\t,");
+			else
+				MMDriver.softAssert.fail(
+						"The line number is " + new Exception().getStackTrace()[1].getLineNumber() + ". Actual MsgID: " + lostID + " expected [" + expected + "] but found [" + actual + "]@@\n,");
+		}
+
+	}
+
+	/**
+	 *
+	 * @param expected
+	 */
+
+	public static void chkMsgRegEx(WebDriver driver, String owner, String expected) {
+		String userNm = null;
+		String actual = null;
+		String lostID = null;
+		int j = 0;
+		do {
+			actual = getMsg(driver);
+			lostID = getLastMsgID(driver);
+			userNm = getLastMsgOwner(driver);
+			// boolean result = (userNm + ":" +
+			// actual).matches(Pattern.compile(owner + ":" + expected));
+
+			boolean result = Pattern.compile(owner + ":" + expected).matcher(userNm + ":" + actual).find();
+
+			if (result) {
+				break;
+			} else {
+				++j;
+				wait_Sleep(500);
+			}
+
+		} while (j < 6);
+
+		if (j >= 6) {
+			sendMsg(driver, "Cancel and close the session");
+			Assert.fail("Actual MsgID: " + lostID + " expected [" + owner + ":" + expected + "] but found [" + userNm
+					+ ":" + actual + "]@@\n\t,");
+		}
+
+	}
+
+	/**
+	 * 
+	 * @return 获取message 内容
+	 */
+	private static String getMsg(WebDriver driver) {
+		String tempID = null;
+		String msgContent = "";
+		int j = 0;
+		String tempMsg = "";
+		WebElement element = null;
+
+		// 如果一次返回多个message，需要循环获取。
+		do {
+			tempID = getMsgId(driver, j);
+			element = driver.findElement(By.id(tempID));
+
+			tempMsg = element.findElement(By.className("post__body")).getText();
+			// 判断是否一次返回多个message
+			// 如果只有一个message
+			if (j == 0 && !element.getAttribute("class").trim().equals("post same--user same--root"))
+				msgContent = tempMsg + msgContent;
+			else
+				// 如果多个message，除了最后一个message后面添加\n.
+				msgContent = tempMsg + "\n" + msgContent;
+			++j;
+
+		} while (element.getAttribute("class").trim().equals("post same--user same--root"));
+		// System.out.println("Actual: " + msgContent);
+		return msgContent;
+	}
+
+	/**
+	 * 
+	 * @param String[]
+	 *            args - init Step.
+	 * @Queue，发送"Clear the history and close".
+	 */
+	public static void initStart(WebDriver driver, String[] args) {
+		String tempMsg = null;
+		// 初始化
+		sendMsg(driver, "clear session");
+
+		// ???? 可能clear session没有任何反应，重试quit.
+		wait_Sleep(500);
+		if (getMsg(driver).equals("clear session")) {
+			sendMsg(driver, "quit");
+		}
+		wait_Sleep(500);
+		tempMsg = getMsg(driver);
+		// 如果得到Goodbye或者Session is terminated，发送 "hello" 开始flow。
+		if (tempMsg.equals("Goodbye.") | tempMsg.equals("Session is terminated"))
+			sendMsg(driver, "hello");
+		for (int i = 0; i < args.length; i++) {
+			sendMsg(driver, args[i]);
+			int j = 0;
+			while (getLastMsgContent(driver).equals(args[i]) && j < 3) {
+				wait_Sleep(200);
+				j++;
+			}
+		}
+		chkMsg(driver, "Goodbye.");
+
+	}
+
+	/**
+	 * 
+	 * @param actNum
+	 * @return 获取message ID
+	 */
+	private static String getMsgId(WebDriver driver, int actNum) {
+		String tempID = null;
+		// String msgContent = null;
+		tempID = driver.findElement(By.xpath("//div[@class='post-list__content']/div[last()-" + actNum
+				+ "][not(@class='date-separator')][not(@class='new-separator')]/div")).getAttribute("id");
+
+		return tempID;
+	}
+
+	public static void sendMsg(WebDriver driver, String sendInfo) {
+		driver.findElement(MatterMost.Send_Box).sendKeys(sendInfo);
+		wait_Sleep(300);
+		driver.findElement(MatterMost.Send_Box).sendKeys(Keys.ENTER);
+		wait_Sleep(500);
+	}
+
+	/**
+	 * 获取engagement session By.
+	 */
+
+	public static void isEngageSuccess(WebDriver driver, String appName, String custName) {
+
+		By engagementSession = By.xpath("//span[@class='sidebar-item__name'][text()='" + appName
+				+ "']/parent::*/following-sibling::ul/li/a[@class='sidebar-channel'][text()='" + custName
+				+ "']/parent::*");
+
+		WebElement element = null;
+		int j = 0;
+		Boolean flag = false, isSelected = false;
+		do {
+
+			try {
+				flag = driver.findElement(engagementSession).isDisplayed();
+			} catch (Exception e) {
+				// TODO: handle exception
+				++j;
+				wait_Sleep(500);
+				continue;
+			}
+
+			if (flag == true) {
+				isSelected = driver.findElement(engagementSession).getAttribute("class").equals("active");
+				break;
+			}
+
+		} while (j < 10);
+
+		if (flag == false || isSelected == false) {
+			sendMsg(driver, "Cancel and close the session");
+			Assert.fail(engagementSession.toString() + " expected [" + "Engage successfuly!" + "] but found ["
+					+ "Engage successfuly: " + flag + " isSelected: " + isSelected + "]@@\n,");
+		}
+	}
+
+	/**
+	 * 退出
+	 */
+	public static void quit(WebDriver driver) {
+
+		try {
+			if (driver != null) {
+				driver.quit();
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 退出
+	 */
+	public static void close(WebDriver driver) {
+
+		driver.findElement(MatterMost.Logout).click();
+		try {
+			driver.close();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 最大化浏览器操作
+	 */
+	public static void maxWindow(WebDriver driver) {
+		driver.manage().window().maximize();
+	}
+
+	/**
+	 * 根据preleveId查找下一级 ID.
+	 */
+	public static By findSubTree(WebDriver driver, By parentTree, String subTree) {
+		String tempId = "";
+		String id = driver.findElement(parentTree).getAttribute("id");
+		
+		List<WebElement> elements = driver.findElement(By.xpath("//div[@id='" + id + "']/following-sibling::ul"))
+				.findElements(By.className("tree-node"));
+		Iterator iterator = elements.iterator();
+
+		while (iterator.hasNext()) {
+			WebElement element = (WebElement) iterator.next();
+			if (element.findElement(By.className("tree-title")).getText().equals(subTree)) {
+				tempId = element.getAttribute("id");
+				break;
+			}
+
+		}
+		return By.id(tempId);
+	}
+
+	/**
+	 * @see find app from Switch.
+	 * @param appName
+	 */
+	public static By findAppFromSwitch(String appName) {
+
+		return By.xpath("//div[@id='newOrg_info_p']//a[@class='newOrg_appId'][@title='" + appName + "']");
+
+	}
+
+	/**
+	 * @see find template app.
+	 * @param appName
+	 */
+	public static By findAppTemplate(String appName) {
+
+		return By.xpath(
+				"//div[@id='select_app_template_p']//span[@class='newOrg_templateid'][@title='" + appName + "']");
+
+	}
+
+	/**
+	 * 查找tree hit.
+	 */
+	public static WebElement findTreeHit(WebDriver driver, By by) {
+		return driver.findElement(by).findElement(By.className("tree-hit"));
+	}
+	
+/**
+ * 模拟键盘按键操作
+ * @param driver
+ * @param key
+ */
+	public static void simulate_Key(WebDriver driver, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(key).perform(); 
+	}
+	
+	/**
+	 * 模拟鼠标操作 - 鼠标移动到指定元素
+	 */
+	public static void mouseMoveToElement(WebDriver driver, By by) {
+		Actions actions = new Actions(driver);
+		Actions mouse = actions.moveToElement(driver.findElement(by));
+		mouse.perform();
+	}
+
+	/**
+	 * 模拟鼠标操作 - 鼠标移动到指定元素
+	 */
+	public static void mouseMoveToElement(WebDriver driver, WebElement element) {
+		Actions actions = new Actions(driver);
+		Actions mouse = actions.moveToElement(element);
+		mouse.perform();
+	}
+	
+	/**
+	 * 模拟鼠标操作 - 鼠标右击
+	 */
+	public static void mouseRightClick(WebDriver driver, By by) {
+		try {
+//			driver.findElement(by).click();
+//			Lib.wait_Sleep(500);
+			Actions actions = new Actions(driver);
+			actions.moveToElement(driver.findElement(by));
+			Actions mouse = actions.contextClick(driver.findElement(by));
+			mouse.perform();
+		} catch (Exception e) {
+			MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber()+"."+"MouseRightClick failed!@@\n,");
+		}
+	}
+
+	public static Boolean isDisplayed(WebElement element, boolean boolExp, int loopTimes) {
+
+		boolean flag = true;
+		int j = 0;
+
+		do {
+
+			try {
+				flag = element.isDisplayed();
+				if (flag == boolExp) {
+					break;
+				} else {
+					wait_Sleep(500);
+					flag = false;
+					j++;
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				wait_Sleep(500);
+				flag = false;
+				j++;
+			}
+
+		} while (j < loopTimes);
+
+		return flag;
+
+	}
+	
+	/**
+	 * 检查是否displayed。
+	 */
+	public static Boolean isDisplayed(WebDriver driver, By by, boolean boolExp, int loopTimes) {
+
+		boolean flag = true;
+		int j = 0;
+
+		do {
+
+			try {
+				flag = driver.findElement(by).isDisplayed();
+				if (flag == boolExp) {
+					break;
+				} else {
+					wait_Sleep(500);
+					flag = false;
+					j++;
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				wait_Sleep(500);
+				flag = false;
+				j++;
+			}
+
+		} while (j < loopTimes);
+
+		return flag;
+
+	}
+	
+	/**
+	 * 检查是否displayed。
+	 */
+	public static void chkIsDisplayed(WebDriver driver, By by, boolean boolExp) {
+		boolean flag = isDisplayed(driver, by, boolExp, 3);
+		
+		if (boolExp == true) {
+			if (flag == false)
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() +"; " + by.toString() + " Expected: [Display] Actual: [NotFound]@@\n,");
+		} else {
+			if (flag == true)
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " Expected: [NotFound] Actual: [Display]@@\n,");
+		}
+
+	}
+	
+	/**
+	 * 检查是否displayed。
+	 */
+	public static void chkIsDisplayed(WebDriver driver, WebElement element, boolean boolExp) {
+		boolean flag = true;
+		int j = 0;
+
+		do {
+
+			try {
+				flag = element.isDisplayed();
+				if (flag == boolExp) {
+					break;
+				} else {
+					wait_Sleep(500);
+					flag = false;
+					j++;
+				}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				wait_Sleep(500);
+				flag = false;
+				j++;
+			}
+
+		} while (j < 3);
+
+		if (boolExp == true) {
+			if (flag == false)
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() +"; " + element.toString() + " Expected: [Display] Actual: [NotFound]@@\n,");
+		} else {
+			if (flag == true)
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + element.toString() + " Expected: [NotFound] Actual: [Display]@@\n,");
+		}
+
+	}
+	
+
+	/**
+	 * 检查是否enabled。
+	 */
+	public static void chkIsEnabled(WebDriver driver, By by, boolean boolExp) {
+		boolean flag = true;
+
+		try {
+			flag = (boolean) driver.findElement(by).isEnabled();
+			Assert.assertEquals(flag, boolExp);
+		} catch (Exception e) {
+			// TODO: handle exception
+			flag = false;
+			MMDriver.softAssert.fail(
+					"The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " is Enabled" + " Expected: [" + boolExp + "] Actual: [" + flag + "]@@\n,");
+		}
+
+	}
+
+	/**
+	 * 检查是否Selected。
+	 */
+	public static void chkIsSelected(WebDriver driver, By by, boolean boolExp) {
+		boolean flag = true;
+		WebElement element = driver.findElement(by);
+		// Assert.assertEquals((Boolean) element.isSelected(), expected,
+		// element.toString() + " (" + by.toString() + ") is Selected");
+
+		try {
+			flag = (boolean) element.isSelected();
+			Assert.assertEquals(flag, boolExp,"The line number is " + new Exception().getStackTrace()[1].getLineNumber());
+		} catch (Exception e) {
+			// TODO: handle exception
+			MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + element.toString() + " (" + by.toString() + ") is Selected" + " expected ["
+					+ boolExp + "] but found [" + flag + "]@@\n,");
+		}
+
+	}
+
+	/**
+	 * 检查Text。
+	 */
+	public static void chkTextContent(WebDriver driver, By by, String expected) {
+		String actualValue = "";
+		WebElement element = null;
+		if (isDisplayed(driver, by, true, 4))
+			element = driver.findElement(by);
+		   if (element.getAttribute("class").equals("input"))
+			// 检查Input Text
+			actualValue = getInputValue(driver,
+					"return document.getElementById('" + element.getAttribute("id") + "').value;");
+		else
+			actualValue = element.getText();
+		if (!actualValue.equals(expected))
+			MMDriver.softAssert
+			    .fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [" + expected + "] but found [" + actualValue + "]@@\n,");
+	}
+
+	/**
+	 * 检查通用方法
+	 */
+	public static void chkIsStatus(WebDriver driver, By by, String expected) {
+
+		Assert.assertEquals(driver.findElement(by).getAttribute("class"), expected, "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString());
+	}
+
+	/**
+	 * 模拟键盘操作。
+	 */
+	public static void simulateKeyBoard(int event) {
+
+		try {
+			robot = new Robot();
+			robot.keyPress(event);
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * 模拟组合键盘操作。
+	 */
+	public static void simulateKeyBoard(int[] events) {
+
+		try {
+			robot = new Robot();
+			for (int i = 0; i < events.length; i++) {
+				robot.keyPress(events[i]);
+			}
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for (int i = 0; i < events.length; i++) {
+			robot.keyRelease(events[i]);
+
+		}
+		robot.delay(100);
+		robot.mouseWheel(5);
+	}
+
+	/**
+	 * 暂停当前用例的执行，暂停的时间为：sleepTime
+	 */
+	public static void wait_Sleep(long sleepTime) {
+		try {
+			Thread.sleep(sleepTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * 暂停当前用例的执行，暂停的时间为：sleepTime
+	 */
+	public static void wait_Pause(int sleepTime) {
+		if (sleepTime <= 0) {
+			return;
+		}
+		try {
+			TimeUnit.SECONDS.sleep(sleepTime);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/** 停止页面加载 */
+	public static void stopLoad() {
+
+		try {
+			robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ESCAPE);
+			robot.keyRelease(KeyEvent.VK_ESCAPE);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * 在给定的时间内去查找元素，如果没找到则超时，抛出异常
+	 */
+	public static boolean wait_Condition(WebDriver driver, int timeOut, final By By) {
+		boolean flag = true;
+		try {
+			(new WebDriverWait(driver, timeOut)).until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver driver) {
+					WebElement element = driver.findElement(By);
+					return element.isDisplayed();
+				}
+			});
+		} catch (TimeoutException e) {
+			flag = false;
+			
+
+		}
+		return flag;
+	}
+
+	/**
+	 * 选择下拉选项 -根据value
+	 */
+	public static void selectByValue(WebDriver driver, By by, String value) {
+		Select s = new Select(driver.findElement(by));
+		s.selectByValue(value);
+	}
+
+	/**
+	 * 选择下拉选项 -根据index角标
+	 */
+	public static void selectByIndex(WebDriver driver, By by, int index) {
+		Select s = new Select(driver.findElement(by));
+		s.selectByIndex(index);
+	}
+
+	/** 检查checkbox是不是勾选 */
+	public static boolean doesCheckboxSelected(WebDriver driver, By elementLocator) {
+		if (driver.findElement(elementLocator).isSelected() == true) {
+			return true;
+		} else
+			return false;
+
+	}
+
+	/**
+	 * 选择下拉选项 -根据文本内容
+	 */
+	public static void selectByText(WebDriver driver, By by, String text) {
+		Select s = new Select(driver.findElement(by));
+		s.selectByVisibleText(text);
+	}
+
+	/**
+	 * 获得当前select选择的值
+	 */
+	public static String getCurrentSelectValue(WebDriver driver, By by) {
+
+		Select s = new Select(driver.findElement(by));
+		WebElement e = s.getFirstSelectedOption();
+		return e.getText().trim();
+	}
+
+	/**
+	 * 获取下拉列表的所有选项
+	 * 
+	 * @param By：By元素对象
+	 * @return 返回所有下拉列表中的选项，如option1,option2,……
+	 */
+	public static String getSelectOption(WebDriver driver, By by) {
+		String value = null;
+		Select s = new Select(driver.findElement(by));
+		List<WebElement> options = s.getOptions();
+		for (int i = 0; i < options.size(); i++) {
+			value = value + "," + options.get(i).getText();
+		}
+		return value.replace("null,", "");
+	}
+
+	/** 页面过长时候滑动页面 window.scrollTo(); */
+	public static void scrollPage(WebDriver driver, int x, int y) {
+		String js = "window.scrollTo(" + x + "," + y + ");";
+		((JavascriptExecutor) driver).executeScript(js);
+	}
+
+	/**
+	 * 获得输入框的值 这个方法 是针对某些input输入框 没有value属性，
+	 */
+	public static String getInputValue(WebDriver driver, String js) {
+		return (String) ((JavascriptExecutor) driver).executeScript(js);
+
+	}
+
+	/**
+	 * 获得输入框的值 这个方法 是针对某些input输入框 没有value属性，
+	 */
+	public static void executeJs(WebDriver driver, String js) {
+		((JavascriptExecutor) driver).executeScript(js);
+
+	}
+
+	/*
+	 * 抓图
+	 */
+
+	public String getScreenshot(WebDriver driver) {
+		// TODO Auto-generated method stub
+		SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		String dateString = format.format(new Date());
+
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String ssPath = "./test-output/img/" + dateString + ".png";
+		try {
+
+			File screenShot = new File(ssPath);
+			FileUtils.copyFile(srcFile, screenShot);
+			System.out.println("截图保存在: " + ssPath);
+
+			// Link
+			Reporter.log("<a href=" + ssPath.replace("/test-output", "") + " target=_blank>Failed Screen Shot</a>",
+					true);
+
+			// Img
+			Reporter.log("<img src=" + ssPath.replace("/test-output", "") + " /img>", true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// Link
+
+		return ssPath.replace("/test-output", "");
+	}
+	
+	
+	public static void ChkProperty_Reg(WebDriver driver, WebElement element, String PropertyName, String vExpected) throws NoSuchElementException {
+		String actualValue = "";
+		try {
+			element.isDisplayed();
+		} catch (Exception e) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + element.toString() + " expected [Displayed] but found [NoSuchElement]@@\n,");
+		}
+		actualValue = element.getAttribute(PropertyName);
+		actualValue = actualValue.trim();
+		if (!actualValue.contains(vExpected)) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + element.toString() + " expected [" + vExpected + "] but found [" + actualValue + "]@@\n,");
+		}
+	}
+	
+	public static void ChkProperty_Reg(WebDriver driver, By by, String PropertyName, String vExpected) throws NoSuchElementException {
+		String actualValue = "";
+		WebElement element = null;
+		try {
+			element = driver.findElement(by);
+		} catch (Exception e) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [Displayed] but found [NoSuchElement]@@\n,");
+		}
+		actualValue = element.getAttribute(PropertyName);
+		actualValue = actualValue.trim();
+		if (!actualValue.contains(vExpected)) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [" + vExpected + "] but found [" + actualValue + "]@@\n,");
+		}
+	}
+
+//	public static void ChkProperty(WebDriver driver, By by, String PropertyName, String vExpected) throws NoSuchElementException {
+//		String actualValue = "";
+//		WebElement element = null;
+//		try {
+//			element = driver.findElement(by);
+//		    actualValue = element.getAttribute(PropertyName);
+//		    actualValue = actualValue.trim();
+//		if (!actualValue.equals(vExpected)) {
+//			MMDriver.softAssert
+//			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [" + vExpected + "] but found [" + actualValue + "]@@\n\t,");
+//		}
+//		} catch (Exception e) {
+//			MMDriver.softAssert
+//			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [Displayed] but found [NoSuchElement]@@\n\t,");
+//		}
+//	}
+	
+	public static Boolean ChkProperty(WebDriver driver, By by, String PropertyName, String vExpected) throws NoSuchElementException {
+		String actualValue = "";
+		WebElement element = null;
+		try {
+			element = driver.findElement(by);
+		    actualValue = element.getAttribute(PropertyName);
+		    actualValue = actualValue.trim();
+		if (!actualValue.equals(vExpected)) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [" + vExpected + "] but found [" + actualValue + "]@@\n,");
+		    return false;
+		}
+		} catch (Exception e) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + by.toString() + " expected [Displayed] but found [NoSuchElement]@@\n,");
+			return false;
+		}
+		return true;
+	}
+	
+	public static void ChkProperty(WebDriver driver, WebElement webElement, String PropertyName, String vExpected) throws NoSuchElementException {
+		String actualValue = "";
+
+		try {
+			webElement.isDisplayed();
+		} catch (Exception e) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + webElement.toString() + " expected [Displayed] but found [NoSuchElement]@@\n,");
+		}
+		actualValue = webElement.getAttribute(PropertyName);
+		if (!actualValue.equals(vExpected)) {
+			MMDriver.softAssert
+			.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + webElement.toString() + " expected [" + vExpected + "] but found [" + actualValue + "]@@\n,");
+		}
+	}
+	
+	public static WebElement GetObjFromArray(WebDriver driver,By by,int index) {
+		List<WebElement> ements = driver.findElements(by);
+		WebElement ement = ements.get(index);
+		return ement;
+	}
+	
+	public static boolean isFileDownloaded(String downloadPath, String fileName) {
+        boolean flag = false;
+        File dir = new File(downloadPath);
+        File[] dir_contents = dir.listFiles();
+              
+        for (int i = 0; i < dir_contents.length; i++) {
+            if (dir_contents[i].getName().equals(fileName))
+                return flag=true;
+                }
+        Lib.assertTrue("Is download resume.rex", flag);
+        return flag;
+    }
+	
+	/**
+	 * 获取标准table表格中的数据
+	 * @param TableObject table对象
+	 * @param row  行 1起始
+	 * @param column 列 1起始
+	 * @return String
+	 */
+	public static String GetTableCellData(WebElement TableObject, int row, int column)
+    {
+        String text = null;
+        String xpath="./tbody/tr["+row+"]/td["+column+"]";
+        WebElement CellObj = TableObject.findElement(By.xpath(xpath));
+        text=CellObj.getText();
+        return text;
+    }
+	/**
+	 * 获取总行数
+	 * @param TableObject table对象
+	 * @return int 总行数
+	 */
+	public static int GetTableRows(WebElement TableObject)
+    {
+        int row = 0;
+        String xpath="./tbody/tr";
+        List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
+        row = eles.size();
+        return row;
+    }
+	
+	/**
+	 * 获取总列数
+	 * @param TableObject table对象
+	 * @return int 总列数
+	 */
+	public static int GetTableColumns(WebElement TableObject)
+    {
+        int column = 0;
+        String xpath="./tbody/tr[1]/td";
+        List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
+        column = eles.size();
+        return column;
+    }
+	
+	public static List<String> GetTableActuals(WebElement TableObject) {
+		int Rowcount = Lib.GetTableRows(TableObject);
+		int Columncount = Lib.GetTableColumns(TableObject);
+		List<String> Actuals = new ArrayList<>();
+
+		for (int r = 0; r < Rowcount ; r++) {
+			for (int c = 0; c < Columncount ; c++) {
+				Actuals.add(Lib.GetTableCellData(TableObject, r+1, c+1));
+			}
+		}
+		return Actuals;
+	}
+	
+	public static void CompareTableDatas(List<String> TableActuals, List<String> TableExpecteds) {
+			MMDriver.softAssert.assertEquals(TableActuals, TableExpecteds, "The line number is " + new Exception().getStackTrace()[1].getLineNumber() +"; expected [Display] but found [NotFound]@@\n,");	
+	}
+	
+	public static void name() {
+		
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * @param TableObject table对象
+	 * @param row
+	 * @param column
+	 * @return WebElement cell对象
+	 */
+	public static WebElement GetTableCellObj(WebElement TableObject, int row, int column)
+    {
+		WebElement CellObj = null;
+        String xpath=".//tbody/tr["+row+"]/td["+column+"]";
+        CellObj = TableObject.findElement(By.xpath(xpath));
+        return CellObj;
+    }
+	
+	
+	/**
+	 * 切换窗口（当前窗口为2个）
+	 * @param driver
+	 */
+	public static void changeWindow(WebDriver driver) { 		
+		String currentWindow = driver.getWindowHandle();// 获取当前窗口句柄
+		Set<String> handles = driver.getWindowHandles();// 获取所有窗口句柄
+
+		Iterator<String> it = handles.iterator();
+		while (it.hasNext()) {
+			if (currentWindow == it.next()) {
+				continue;// 跳出本次循环，继续下个循环
+			}
+			try {
+				WebDriver window = driver.switchTo().window(it.next());// 切换到新窗口
+			    System.out.println("New page title is:" + window.getTitle());
+			} catch (Exception e) {
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + "无法切换至新打开的窗口"+";\n");
+			}
+			// window.close();//关闭当前焦点所在的窗口
+		}
+		// driver.switchTo().window(currentWindow);//回到原来页面
+	}
+
+	public static void SwitchToFrame(WebDriver driver,String FrameId) {
+		 Boolean yBoolean = Lib.isDisplayed(driver,By.xpath("//div[@id='page-logo-header']"), true, 3);
+		//如果不是top window，则跳出到top window，然后再定位frame
+			if (yBoolean) {
+				driver.switchTo().frame(FrameId);
+			} else {
+				driver.switchTo().defaultContent();
+				Lib.wait_Sleep(2000);
+	            if(FrameId.equals("moduleFrame")) {
+	            	driver.switchTo().frame("moduleFrame");
+	            }
+	            else {
+	            	driver.switchTo().frame("moduleFrame");
+                	driver.switchTo().frame(FrameId);
+	            }
+			}
+	}
+	
+	public static void ChkImportDataBase(WebDriver driver, String[][] TableExpected) {
+		int TablesNum = TableExpected.length;
+		int RowNum = TableExpected[0].length;
+
+        for (int itar = 0 ; itar<=TablesNum-1 ; itar++) {
+            WebElement Import_DataTable = driver.findElement(AppElements.ImportDataBaseWindow).findElement(By.xpath(".//div[starts-with(@class,'dbinfo')][@dborder='"+itar+"']"));
+          	List<String> TableActedValue = new ArrayList();
+          	for(int i= 0 ; i<=RowNum-1 ; i++) {
+          		String divindex =  String.valueOf(i+1);
+	            	String ColName = Import_DataTable.findElement(By.xpath(".//div[@class='dbitem']["+divindex+"]/label")).getText();
+	            	String ColValue = Import_DataTable.findElement(By.xpath(".//div[@class='dbitem']["+divindex+"]/input")).getAttribute("value");
+	            	ColName = ColName.trim();
+	            	ColValue = ColValue.trim();
+	            	String colNameColvalue =ColName.concat(ColValue);
+	            	TableActedValue.add(colNameColvalue);
+          	}
+          	//检查期望值
+          	for(int i= 0;i<= 6;i++) {       	
+          		MMDriver.softAssert.assertTrue(TableActedValue.contains(TableExpected[itar][i]), "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + '\n'+"Expected is:"+TableExpected[itar][i]+'\n'+"Actualed is:"+TableActedValue.get(i));
+          	}
+          	
+			}
+	}
+	
+	/**
+	 * 
+	 * @param Data_table  
+	 * @param row 从1开始
+	 * @param ExpectedValue 期望值列的顺序不能错
+	 */
+	public static void ChkFileTableDataByRow(FileListTable Data_table, int row, String [] ExpectedValue) {
+		MMDriver.softAssert.assertEquals(Data_table.getCellData(row, 2) , ExpectedValue[0] , "The line number is " + new Exception().getStackTrace()[1].getLineNumber()+". Acualed:" + Data_table.getCellData(row, 1)+"; Expected:"+ExpectedValue[0]+"@@\n,");
+		MMDriver.softAssert.assertEquals(Data_table.getCellData(row, 4) , ExpectedValue[1] , "The line number is " + new Exception().getStackTrace()[1].getLineNumber()+". Acualed:" + Data_table.getCellData(row, 3)+"; Expected:"+ExpectedValue[1]+"@@\n,");
+		MMDriver.softAssert.assertEquals(Data_table.getCellData(row, 5) , ExpectedValue[2] , "The line number is " + new Exception().getStackTrace()[1].getLineNumber()+". Acualed:" + Data_table.getCellData(row, 4)+"; Expected:"+ExpectedValue[2]+"@@\n,");
+		MMDriver.softAssert.assertEquals(Data_table.getCellData(row, 6) , ExpectedValue[3] , "The line number is " + new Exception().getStackTrace()[1].getLineNumber()+". Acualed:" + Data_table.getCellData(row, 5)+"; Expected:"+ExpectedValue[3]+"@@\n,");		
+	}
+
+	public static void ChkSearchResults(WebDriver driver,List<String> expecteds) {
+		List<WebElement> results = null;
+		Boolean Y = true;
+	    results = driver.findElements(AppElements.Label_Content_resultView_s);
+		List<String> Actualeds = new ArrayList<>();
+		for (WebElement result : results) {
+			Actualeds.add(result.getAttribute("textContent"));
+		}
+	    
+		for (String expected : expecteds) {
+			Y = Actualeds.contains(expected);
+			if (!Y) {
+				MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; " + expected+" not exist in the Search list!@@\n,");
+			}
+		}
+
+	}
+	
+	public static Boolean IsExpanded(WebDriver driver,By ArrowObj) {
+		Boolean Y = false;
+		try {
+			String s = driver.findElement(ArrowObj).getAttribute("class");
+			if (s.contains("expanded")) {
+				Y = true;
+			}
+			
+		} catch (Exception e) {
+			MMDriver.softAssert.fail("The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; Arrow is not exist in the Page!@@\n,");
+		}
+		return Y;
+	}
+	
+	public static void assertSame(Object actual , Object exp) {
+		MMDriver.softAssert.assertSame(actual , exp , "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; Expected object is not exist!@@\n,");		
+	}
+	
+	public static void assertEquals(String actual , String exp) {
+		MMDriver.softAssert.assertEquals(actual , exp , 
+				"The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; Expected ["+exp+"] but found ["+actual +"]@@\n\t,");			
+	}
+	
+	public static void assertEquals(String actual , String exp ,String Checkpoint) {
+		MMDriver.softAssert.assertEquals(actual , exp , "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + ";"+ Checkpoint +" Expected ["+exp+"] but found ["+actual +"]@@\n,");			
+	}
+	
+	public static void assertTrue(boolean condition) {
+		MMDriver.softAssert.assertTrue(condition, "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; Expected: True ; Actual: False @@\n,");			
+	}
+	
+	public static void assertTrue(String checkpoint , boolean condition) {
+		MMDriver.softAssert.assertTrue(condition, "The line number is " + new Exception().getStackTrace()[1].getLineNumber() + ";"+ checkpoint +" Expected: True ; Actual: False @@\n,");			
+	}
+
+	public static void assertEquals(Object actual , Object exp) {
+		MMDriver.softAssert.assertEquals(actual, exp ,
+				"The line number is " + new Exception().getStackTrace()[1].getLineNumber() + "; Expected ["+exp.toString()+"] but found ["+actual.toString() +"]@@\n,"
+				);			
+	}
+	
+    public static void highlight(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("element = arguments[0];" +
+        "original_style = element.getAttribute('style');" +
+        "element.setAttribute('style', original_style + \";" +
+        " border: 2px solid red;\");" +
+        "setTimeout(function(){element.setAttribute('style', original_style);}, 60000);", element);
+    }
+	
+	
+	
+	
+}
+
+

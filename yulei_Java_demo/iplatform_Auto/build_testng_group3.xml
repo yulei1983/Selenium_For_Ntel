@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestNG" default="testoutput" basedir=".">
+
+	<!-- Define <testng> task -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<pathelement location="./lib/selenium-server-standalone-2.39.0.jar" />
+		</classpath>
+	</taskdef>
+
+	<property name="srcdir" location="${basedir}/src" />
+	<property name="libdir" location="${basedir}/lib" />
+	<property name="testng.output.dir" location="${basedir}/test-output" />
+	<property name="testng.file" value="testng_group3" />
+
+	<path id="classpath">
+		<fileset dir="${libdir}" includes="*jar" />
+		<fileset dir="${libdir}" includes="*zip" />
+		<pathelement location="${basedir}/bin" />
+	</path>
+
+	<!-- Before compile,delete the previous folder -->
+	<target name="clean">
+		<delete dir="${basedir}/bin" />
+	</target>
+
+	<!-- Compile file in 'srcdir' to 'destdir' -->
+	<target name="compile" depends="clean">
+		<mkdir dir="${basedir}/bin" />
+		<javac srcdir="${srcdir}" encoding="UTF-8" destdir="${basedir}/bin" classpathref="classpath" includeantruntime="off" debug="on" debuglevel="lines,vars,source" />
+	</target>
+
+	<!-- use testng.xml to run the test -->
+	<target name="runtest" depends="compile">
+		<testng outputdir="${testng.output.dir}" classpathref="classpath">
+			<xmlfileset dir="${basedir}" includes="${testng.file}.xml" />
+		</testng>
+
+		<!--此目录下的所有TestNG的XML文件，使用*号表示此目录下所有 <xmlfileset dir="${suite.dir}"> <include 
+			name="*.xml"/> </xmlfileset> -->
+	</target>
+
+	<target name="testoutput" depends="runtest">
+		<java classname="createExcelReport.CreateReport">
+			<!--类名,包名不能漏-->
+			<classpath>
+				<path location="${basedir}/bin">
+				</path>
+				<!--类文件路径，不能加包名-->
+			</classpath>
+			<classpath>
+				<fileset dir="${libdir}">
+					<include name="dom4j-1.6.1.jar"/>
+					<include name="dom4j-1.6.1-hudson-3.jar"/>
+					<include name="jxl-2.6.12.jar"/>
+				</fileset>
+				<!--依赖包,多个同理-->
+			</classpath>
+		</java>
+	</target>
+
+</project>

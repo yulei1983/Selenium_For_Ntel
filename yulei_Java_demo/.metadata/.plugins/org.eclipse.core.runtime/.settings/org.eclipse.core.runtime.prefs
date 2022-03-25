@@ -1,0 +1,8 @@
+content-types/org.eclipse.egit.contenttype.gitignore/charset=UTF-8
+content-types/org.eclipse.egit.patch/charset=UTF-8
+content-types/org.eclipse.jdt.core.javaProperties/charset=UTF-8
+content-types/org.eclipse.jdt.core.javaSource/charset=UTF-8
+content-types/org.eclipse.mylyn.wikitext/charset=UTF-8
+content-types/org.eclipse.team.genericeditor.diff.extension.patch/charset=UTF-8
+content-types/org.eclipse.ui.views.log.log/charset=UTF-8
+eclipse.preferences.version=1

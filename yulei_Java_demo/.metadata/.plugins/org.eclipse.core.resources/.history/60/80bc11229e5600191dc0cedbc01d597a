@@ -1,0 +1,12 @@
+webdv=webdriver.chrome.driver
+webdvdir=F:\\yulei_Java_demo\\test\\res\\chromedriver.exe
+#url=https://www.cyberobject.com:4000/login
+url=https://www.cyberobject.com.cn:8084/login
+urlappbuilder=http://192.168.0.51:17091/iplatform-developer/
+#yulei@cyberobject.com.cn   123456
+WaitTime = 500
+Downloadpath = C:/Users/yulei/Downloads
+AutoXDll = AutoIt/jacob-1.19-x64.dll
+#UploadFilePath必须此路径格式适用于windows
+UploadFilePath = F:\\yulei_Java_demo\\iplatform_Auto\\
+   

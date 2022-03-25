@@ -1,0 +1,174 @@
+package testcases;
+
+import static org.testng.Assert.assertEquals;
+
+import java.io.File;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.internal.seleniumemulation.Highlight;
+import org.openqa.selenium.internal.seleniumemulation.SeleneseCommand;
+import org.openqa.selenium.internal.seleniumemulation.WaitForPopup;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+import com.jacob.com.LibraryLoader;
+import com.opera.core.systems.scope.protos.EcmascriptProtos.Runtime;
+import com.opera.core.systems.scope.protos.ExecProtos.ActionList.Action;
+import com.thoughtworks.selenium.Selenium;
+
+import autoitx4java.AutoItX;
+import checkpoints.AppBChkPoint;
+import objectRepository.AppElements;
+import objectRepository.MatterMost;
+import prepare.MMDriver;
+import utils.DatabaseTables;
+import utils.FileListTable;
+import utils.FlowUnit;
+import utils.Lib;
+import utils.PropertiesDataProvider;
+import utils.WebList;
+
+public class UI_Data_file_termdef {
+	WebDriver driver = null;
+	int WaitTime = 0;
+	String currentWindow = "";//主页面
+	AutoItX AutoWin = null;
+	String downloadpath = "";
+	String UploadFilePath = "";
+	String UserName = PropertiesDataProvider.getTestData("config/config.properties", "AppBuilderUserName");  
+	String Password = PropertiesDataProvider.getTestData("config/config.properties", "AppBuilderPassword");
+	String declaringClassNameReg = "testcases";
+
+	@BeforeClass
+	public void beforeClass() {
+		//初始化windows COM插件
+		String jacobDllVersionToUse = PropertiesDataProvider.getTestData("config/config.properties", "AutoXDll");
+		File file = new File("lib", jacobDllVersionToUse);
+		System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
+		this.AutoWin = new AutoItX();
+		//初始化webdriver及测试环境变量
+		this.driver = MMDriver.init();
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		Lib.login_AppBuilder(driver, UserName, Password);
+		String sWaitTime = PropertiesDataProvider.getTestData("config/config.properties", "WaitTime");
+		downloadpath = PropertiesDataProvider.getTestData("config/config.properties", "Downloadpath");
+		UploadFilePath = PropertiesDataProvider.getTestData("config/config.properties", "UploadFilePath");
+		WaitTime = Integer.parseInt(sWaitTime);
+		Lib.wait_Sleep(3000);
+//		Lib.SwitchToFrame(driver, "workspacesFrame");
+//        if (!Lib.isExist(driver, AppElements.Switch_App_Window_Title)) {
+//    		driver.switchTo().defaultContent();
+//    		driver.findElement(AppElements.Menu_bar_Apps).click();
+//    		driver.switchTo().frame("moduleFrame");
+//        }
+//		if (Lib.isExist(driver, AppElements.SwitchAppMenu_CustomObj("ui_app_test"))) {
+//			driver.findElement(AppElements.SwitchAppMenu_CustomObj("ui_app_test")).click();
+//		}
+		
+	}
+
+	@AfterClass
+	public void afterClass() {
+		//Debug 请注释以下
+		if (Integer.parseInt(PropertiesDataProvider.getTestData("config/config.properties", "Debug")) == 0) {
+			driver.switchTo().defaultContent();
+			Lib.wait_Sleep(WaitTime);
+			driver.findElement(AppElements.SIGNOUT_arrow).click();
+	        Lib.wait_Sleep(WaitTime);
+			driver.findElement(AppElements.SIGNOUT).click();
+		}
+	}
+
+	@BeforeMethod
+	public void beforeMethod() {
+		MMDriver.softAssert = new SoftAssert();
+		driver.switchTo().defaultContent();
+		Lib.wait_Sleep(2000);
+		Lib.SwitchToFrame(driver, "moduleFrame");
+		//ClearMainGui
+		int i = driver.findElements(AppElements.Window_masks).size();
+		if(i != 0) {
+//			List<WebElement> Close_btns = driver.findElements(By.xpath("//a[@class='panel-tool-close']"));
+//			for (WebElement Close_btn : Close_btns) {
+//				Close_btn.click();
+//			}
+			List<WebElement> No_btns = driver.findElements(By.xpath("//div[@id='new_pop_stream']//span[text()='Cancel']"));
+			for (WebElement No_btn : No_btns) {
+				No_btn.click();
+			}
+		}
+		
+		this.currentWindow = driver.getWindowHandle();	
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+//		MMDriver.softAssert.assertAll();	
+	}
+	
+	@Test
+	public void IntelliSense_01_Term_Filter_Rex(){
+		try {
+			int UnitsSize = 0;
+			List<WebElement> Units = null;
+			WebElement Unit = null;
+			
+			Lib.checkPageIsReady(driver);
+			Lib.DirFile(driver, "Document/Intellisense/Test_Intellisense.rex").click();
+			Lib.SwitchToFrame(driver, "visio_file_iframe");
+		    driver.findElement(AppElements.ToolbarUnit).click();
+			
+			Units = driver.findElements(By.xpath("//*[@id=\"rexDiv\"]/div[4]/*[local-name()='svg']/*[local-name()='g']/*[local-name()='g'][2]/*[local-name()='g' and contains(@transform,'translate')]"));
+			UnitsSize = Units.size();
+			Unit = Units.get(UnitsSize-1);
+		    
+			Actions actionbuilder = new Actions(driver);
+			actionbuilder.doubleClick(Unit);
+			actionbuilder.sendKeys("<use");
+			actionbuilder.perform();
+			
+			Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 1), "innerText", "use criteria");
+			Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 2), "innerText", "user");
+			Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 3), "innerText", "user input");
+			
+		    Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 1).findElement(By.xpath("./span[@style='color:red;']")), "innerText", "use");	
+		    Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 2).findElement(By.xpath("./span[@style='color:red;']")), "innerText", "use");	
+		    Lib.ChkProperty(driver, Lib.GetAutoCompleteObj(driver, 3).findElement(By.xpath("./span[@style='color:red;']")), "innerText", "use");	
+
+		    actionbuilder.sendKeys(Keys.ESCAPE);
+		    actionbuilder.perform();
+		    
+		    actionbuilder.doubleClick(Unit);
+			actionbuilder.sendKeys("jump-1<<<*Use");
+		    actionbuilder.sendKeys(Keys.ESCAPE);
+			actionbuilder.perform();
+			
+			FlowUnit fut = new FlowUnit(driver);
+			fut.ReleaseObjs();
+
+
+		} catch (Exception e) {
+			FlowUnit fut = new FlowUnit(driver);
+			fut.ReleaseObjs();
+			//ClearMainGui
+			Lib.clear_page(driver, UserName, Password);
+			
+			MMDriver.softAssert.fail(Lib.ExcptioinMessageRejector(e,declaringClassNameReg) + ";" + e.toString() + "@@\n");
+		}
+		MMDriver.softAssert.assertAll();
+	}
+	
+  
+}
