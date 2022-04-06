@@ -87,10 +87,13 @@ public class Browser_GUI {
 		 
 		 public static WebElement Information_OK(WebDriver driver){ 
 				 element = driver.findElement(By.cssSelector(".hotKey"));
-
 			 return element;
-			 
 			} 
+		 
+		 public static WebElement information_CLOSE(WebDriver driver){ 
+			 element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//table//td[@valign='middle' and normalize-space(text()='CLOSE')]"));
+		 return element;
+		} 
 		 
 		 public static WebElement Information_MSG_JTextPane(WebDriver driver){
 			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));

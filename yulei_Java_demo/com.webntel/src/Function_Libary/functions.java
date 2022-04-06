@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.sql.*;
@@ -284,6 +286,39 @@ public class functions {
 				functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , "null"));
 			}
 	}
+	
+	public  void CheckPorpertyWithRegex(WebElement webelement,String porperty,String vExpected, int Exoffset, int actoffset){
+        try {
+			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
+			fwait.withTimeout(Duration.ofSeconds(6));
+			fwait.pollingEvery(Duration.ofSeconds(2));		
+			fwait.ignoring(NoSuchElementException.class);
+			fwait.until(ExpectedConditions.visibilityOf(webelement));
+ 			String vActualed = webelement.getAttribute(porperty);
+ 		    // <p>�����滻Ϊ���� 
+             vActualed = vActualed.replaceAll("<p .*?>", "\r\n"); 
+ 		    // <br><br/>�滻Ϊ���� 
+ 			vActualed = vActualed.replaceAll("<br\\s*/?>", "\r\n"); 
+ 		    // ȥ��������<>֮��Ķ��� 
+ 			vActualed = vActualed.replaceAll("\\<.*?>", ""); 
+ 			//ȥ��\r
+ 			vActualed = vActualed.replaceAll("\r", ""); 
+ 			//ȥ��\n
+ 			vActualed = vActualed.replaceAll("\n", "");
+ 			//ȥ��amp;
+ 			vActualed = vActualed.replaceAll("amp;", "");
+// 		    // ȥ���ո� 
+// 	        vActualed = vActualed.replaceAll(" ", ""); 
+   		    boolean IsPass = vExpected.regionMatches(Exoffset, vActualed, actoffset, vExpected.length());
+ 			if (!IsPass) {
+			    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , vActualed));
+			}
+// 			functions.softassert.assertEquals(vActualed, vExpected," expected [" + vExpected + "] but found [" + vActualed + "]@@\n\t");
+ 			
+		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , "null"));
+		}
+}
 	
 //	public void CheckPorperty(WebElement webelement,String porperty,String vExpected) throws Exception{
 //		fWait.until(ExpectedConditions.visibilityOf(webelement));
