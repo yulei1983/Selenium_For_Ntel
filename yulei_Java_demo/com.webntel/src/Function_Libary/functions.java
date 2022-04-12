@@ -22,6 +22,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.interactions.Actions;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,8 +41,10 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 import org.testng.asserts.SoftAssert;
 
+import Object_Repository.AdminGui;
 import Object_Repository.Browser_GUI;
 import Object_Repository.ChooseBox;
+import Object_Repository.WebTable;
 
 import java.lang.String;
 import java.text.ParseException;
@@ -50,7 +54,10 @@ import java.time.Duration;
 public class functions {
 	public static int Threaddely = 2000;
 	public static final String vNtelClientURL = PropertiesDataProvider.getTestData("config/config.properties", "vNtelClientURL");
-    public static StringBuffer verificationErrors= new StringBuffer();
+	public static final String IcareURL = PropertiesDataProvider.getTestData("config/config.properties", "IcareURL");
+	public static final String MetricsURL = PropertiesDataProvider.getTestData("config/config.properties", "MetricsURL");
+	
+	public static StringBuffer verificationErrors= new StringBuffer();
     public static final String MySQLDBdriver = PropertiesDataProvider.getTestData("config/config.properties", "MySQLDBdriver");
     public static final String MySQLDBurl =  PropertiesDataProvider.getTestData("config/config.properties", "MySQLDBurl");
     public static final String MySQLDBuser = PropertiesDataProvider.getTestData("config/config.properties", "MySQLDBuser");
@@ -254,7 +261,7 @@ public class functions {
 		}
 }
 	
-	public  void CheckPorperty(WebElement webelement,String porperty,String vExpected){
+	public  Boolean CheckPorperty(WebElement webelement,String porperty,String vExpected){
 	        try {
 				FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
 				fwait.withTimeout(Duration.ofSeconds(6));
@@ -279,11 +286,12 @@ public class functions {
 //	 	        vActualed = vActualed.replaceAll(" ", ""); 
 	 			if (vExpected.compareTo(vActualed)!=0) {
 				    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , vActualed));
+				    return false;
 				}
-//	 			functions.softassert.assertEquals(vActualed, vExpected," expected [" + vExpected + "] but found [" + vActualed + "]@@\n\t");
-	 			
+	 			return true;
 			} catch (Exception e) {
-				functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , "null"));
+				functions.softassert.fail(ExceptionMessageFormat(e ,  vExpected   , "null"));
+				return false;
 			}
 	}
 	
@@ -657,11 +665,11 @@ public class functions {
 
 	}
 	
-	
-	
-	
-	
-	
+
+	public String get_commitment_time() {
+		String get_commitment_time = Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value");
+        return get_commitment_time;
+	}
 	
 	public String get_localtime_maingui() {
 		assertNotNull(Browser_GUI.MainPage.topLocalTime(driver),"Not found localtimeGUI!");
@@ -740,15 +748,126 @@ public class functions {
 		
 		if(Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value").equals(get_commitment)) {
 			bool = true;
-		}
-		
+		}	
 		return bool;
+	}
+	
+//	'####################################################
+//	'# Login_AG
+//	'# Function: Login to Admin GUI.
+	// return: WebDriver
+//	'#  By yulei, on 04072022
+//	'####################################################
+	public static WebDriver Login_AG(String UserName, String PassWord, String BaseName) {
+	WebDriver adminGUIDriver = WebDriver_Setup.launchBrowser();	
+	adminGUIDriver.get(IcareURL);
+	AdminGui.LoginPage.UserID(adminGUIDriver).sendKeys(UserName);
+	AdminGui.LoginPage.PassWord(adminGUIDriver).sendKeys(PassWord);
+	AdminGui.LoginPage.database(adminGUIDriver, BaseName);
+	AdminGui.LoginPage.Btn_Login(adminGUIDriver).click();
+	return adminGUIDriver;
+	}
+	
+//	'####################################################
+//	'# Open_EMS_LOG()
+//	'# Function: Goto demo EMS Issues Log to check TR all fields’ value
+//	'#  By yulei, on 04072022
+//	'####################################################
+	public static WebDriver Open_EMS_LOG() {
+		WebDriver adminGUIDriver = Login_AG("QAVIEW", "123456", "CO");
+		SwitchToFrame(adminGUIDriver, "Menu");
+		AdminGui.MainPage.EMS_Issue_Admin(adminGUIDriver).click();
+		AdminGui.MainPage.EMS_Issues_Log(adminGUIDriver).click();
+		SwitchToFrame(adminGUIDriver, "mainFrame");
+		AdminGui.MainPage.Btn_Demo(adminGUIDriver).click();
+		return adminGUIDriver;
+	}
+	
+	public static Boolean SwitchToFrame(WebDriver driver,String FrameSrcName) {
+		driver.switchTo().defaultContent();
+		int size = driver.findElements(By.tagName("frame")).size();
+		for (int i = 0; i < size; i++) {
+//			System.out.print(driver.findElements(By.tagName("frame")).get(i).getAttribute("name"));
+		    if (driver.findElements(By.tagName("frame")).get(i).getAttribute("name").equalsIgnoreCase(FrameSrcName)) {
+			    driver.switchTo().frame(i);
+			    return true;
+	    	}         
+		}
+		return false;
+	}
+	
+	/**
+	 * 切换窗口（当前窗口为2个）
+	 * @param driver
+	 * @return 返回初始句柄
+	 */
+	public static String SwitchToNewWindowAndRecordOldOne(WebDriver driver) { 	
+		String currentWindow = "";
+		currentWindow = driver.getWindowHandle();// 获取当前窗口句柄
+		Set<String> handles = driver.getWindowHandles();// 获取所有窗口句柄
+		Iterator<String> it = handles.iterator();
+		while (it.hasNext()) {
+			if (currentWindow == it.next()) {
+				continue;// 跳出本次循环，继续下个循环
+			}
+			try {
+				WebDriver window = driver.switchTo().window(it.next());// 切换到新窗口
+			    System.out.println("New page title is:" + window.getTitle());
+			    return currentWindow;
+			} catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Switch to new window"   , "Can not switch to new window"));
+				return currentWindow;
+			}
+			// window.close();//关闭当前焦点所在的窗口
+		}
+		return currentWindow;
+		// driver.switchTo().window(currentWindow);//回到原来页面
+	}
+	
+	public static void GoBackWindow(WebDriver driver, String currentWindow) { 	
+			try {
+				WebDriver window = driver.switchTo().window(currentWindow);// 切换到新窗口
+			    System.out.println("New page title is:" + window.getTitle());
+			} catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Go back window"   , "Can not go back window"));
+			}
+	}
+	
+	public static void ClickWithJs(WebDriver driver,WebElement ele) {
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", ele);
 	}
 	
 	
 	
+
+	public static void main(String[] args) throws Exception {
+		 //open ems log page and show demo list.
+			WebDriver AdminGuiDriver = functions.Open_EMS_LOG();
+			 WebTable EmsLogTable = new WebTable(AdminGuiDriver,"datatable");
+			 int TnsRow = EmsLogTable.getRowWithTN("9973012689");
+			 EmsLogTable.getRow(TnsRow).click();
+			 AdminGui.MainPage.Btn_viewdetail(AdminGuiDriver).click();
+			 functions funs = new functions(AdminGuiDriver);
+			 String OldOneHandle = functions.SwitchToNewWindowAndRecordOldOne(AdminGuiDriver);
+
+			 //Check some details.
+			 funs.CheckPorperty(AdminGui.EMS_Issues_Log_Detail.WebEdit_ATTUID(AdminGuiDriver), "value","JT0015"); 
+			 
+
+			 //Close the admingui window..
+			 AdminGui.EMS_Issues_Log_Detail.Btn_Back(AdminGuiDriver).click();
+			 functions.GoBackWindow(AdminGuiDriver, OldOneHandle);
+			 AdminGuiDriver.close();
+		 
+		 
+//		 SwitchToFrame(AdminGuiDriver, "mainFrame");
+//		 EmsLogTable.getRow(3).click();
+//		 AdminGui.MainPage.Btn_viewdetail(AdminGuiDriver).click();
+		
+	}
 	
-	
+
 }
 
 

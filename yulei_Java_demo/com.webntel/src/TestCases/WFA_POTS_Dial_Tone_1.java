@@ -11,6 +11,8 @@ import Function_Libary.WebDriver_Setup;
 import Function_Libary.functions;
 import Object_Repository.ChooseBox;
 import Object_Repository.QTP_CheckList;
+import Object_Repository.WebTable;
+import Object_Repository.AdminGui;
 import Object_Repository.Browser_GUI;
 import Object_Repository.CheckPoints;
 
@@ -896,21 +898,65 @@ public class WFA_POTS_Dial_Tone_1{
 		 Browser_GUI.MainPage.Tree_value(driver, "BEEPING ON LINE");
 		 Browser_GUI.MainPage.Tree_value(driver, "SUBSCRIBES TO VOICE MAIL");
 		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
-		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD BEEPING"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","BEEPING"); 
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Voice_mail_subscriber$_Beeping_may_be_the_message_waiting_indicator_tone$());
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
 		 Browser_GUI.MainPage.Ask_No(driver).click();
 
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER HAS NOT RETRIEVED MESSAGES");
+		 Browser_GUI.MainPage.information_CLOSE(driver).click();
 		 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Is_the_customer$s_trouble_resolved$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		 Browser_GUI.MainPage.Ask_No(driver).click();
 		 
+		 Browser_GUI.MainPage.Tree_value(driver, "TROUBLE NOT RESOLVED");
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE);
+		 chooseBox.ChooseBoxBtn("Some Phones (SP)").click();
 		 
+		 Browser_GUI.MainPage.Tree_value(driver, "SOME PHONES (SP)");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","BEEPING SP/AC"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Has_customer_checked_CPE_and$or_NID$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		 Browser_GUI.MainPage.Ask_No(driver).click();
 		 
-		 
-		 
-		 
-		 
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER HAS NOT CHECKED CPE AND/OR NID");
+		 funs.CheckPorperty(Browser_GUI.MainPage.Information_MSG_JTextPane(driver), "innerText",CheckPoints.Information_I_would_like_to_assist_you_in_determining());
+		 Browser_GUI.MainPage.Information_OK(driver).click();
 
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Willing_To_Check);
+		 chooseBox.ChooseBoxBtn("Willing to check").click();
+
+		 Browser_GUI.MainPage.Tree_value(driver, "WILLING TO CHECK");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","BEEPING SP/AC WL CK CPE-NID"); 
+		 Browser_GUI.MainPage.information_CLOSE(driver).click();
+
+		 Browser_GUI.MainPage.information_CLOSE(driver).click();
+		 
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE_Isolation_Cats);
+		 chooseBox.ChooseBoxBtn("Call Tree").click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "CALL TREE");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA BEEPING SP/AC WL CK CPE-NID CL TREE"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",CheckPoints.AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$());
+		 Browser_GUI.MainPage.AM_OK(driver).click();
+		 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA BEEPING SP/AC WL CK CPE-NID CL TREE"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","ICATS"); 
+		 
+		 Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		 Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		 Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes()); 
+		 Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		  
+		 Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		 Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
 	    }
 	    catch (Exception e) {
 			funs.ClearNtel(driver);
@@ -925,7 +971,7 @@ public class WFA_POTS_Dial_Tone_1{
 		 Thread.sleep(2000);
 		ChooseBox chooseBox;
 		chooseBox = new ChooseBox(driver);
-		funs.Enter_TN("9991852550");
+		funs.Enter_TN("9973012689");
 		Thread.sleep(3000);
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Please_verify_the_customer$s_name_and_address$());
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
@@ -936,7 +982,155 @@ public class WFA_POTS_Dial_Tone_1{
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
 		 Browser_GUI.MainPage.Ask_No(driver).click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_SW);
+		 chooseBox.ChooseBoxBtn("Dial Tone").click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "DIAL TONE");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		 chooseBox.ChooseBoxBtn("Beeping On Line").click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "BEEPING ON LINE");
+		 Browser_GUI.MainPage.Tree_value(driver, "SUBSCRIBES TO VOICE MAIL");
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD BEEPING"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Voice_mail_subscriber$_Beeping_may_be_the_message_waiting_indicator_tone$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+	 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Is_the_beeping_heard_on_all_phones$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "ALL PHONES");
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",CheckPoints.Ask_Advise_customer_to_check_their_equipment$_Is_customer_willing_to_check_equipment$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		 Browser_GUI.MainPage.Ask_Yes(driver).click();
+		 
+		 Browser_GUI.MainPage.Tree_value(driver, "WILLING TO CHECK CPE");
+		 funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE_Isolation_Cats);
+		 chooseBox.ChooseBoxBtn("CPE Isolation Email").click();
+		 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA SVC ORD BEEPING ISO EMAIL"); 
+		 Browser_GUI.MainPage.Tree_value(driver, "CPE ISOLATION EMAIL");
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",CheckPoints.AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$());
+		 funs.CheckPorperty(Browser_GUI.MainPage.AM_OK(driver), "innerText",CheckPoints.AM_OK());
+		 Browser_GUI.MainPage.AM_OK(driver).click();
+ 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","ICATS"); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA SVC ORD BEEPING ISO EMAIL"); 
 
+		String  ExpCurrentCommit  = funs.get_commitment_time();                                                                                               
+		String  ExpIssueDispatch= funs.get_localtime_maingui();
+		String ExpIssueSubmit = funs.get_localtime_maingui();
+		String ExpWFACReceived = funs.get_localtime_maingui();
+		 	 
+		 Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		 Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-RON"); 
+		 Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes()); 
+		 Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		  
+		 Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		 funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		 Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+		 
+		 //open ems log page and show demo list.
+			WebDriver AdminGuiDriver = functions.Open_EMS_LOG();
+			 WebTable EmsLogTable = new WebTable(AdminGuiDriver,"datatable");
+			 int TnsRow = EmsLogTable.getRowWithTN("9973012689");
+			 EmsLogTable.getRow(TnsRow).click();
+			 AdminGui.MainPage.Btn_viewdetail(AdminGuiDriver).click();
+			 functions funs = new functions(AdminGuiDriver);
+			 String OldOneHandle = functions.SwitchToNewWindowAndRecordOldOne(AdminGuiDriver);
+			 
+			 
+			 
+			 funs.CheckPorperty(AdminGui.MainPage.WebEdit_ATTUID(AdminGuiDriver), "value","JT0015"); 
+			 
+			 
+			 
+			 
+			 
+			 AdminGui.MainPage.Btn_Back(AdminGuiDriver).click();
+			 functions.GoBackWindow(AdminGuiDriver, OldOneHandle);
+			 AdminGuiDriver.close();
+//			 functions.ClickWithJs(AdminGuiDriver, AdminGui.MainPage.Btn_Back(AdminGuiDriver));
+
+		 
+//		 Browser("Browser").Page("Intelligent Customer Assistanc").Frame("mainFrame").WebElement("WebTable").Click
+//		 wait 2
+//		 Browser("Browser").Page("Intelligent Customer Assistanc").Frame("mainFrame").Image("viewdetail").Click
+//
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_reason_code").CheckProperty("value", "CATS", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_overrideindicatortype").CheckProperty("value", "Reporting", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_wfactroubleticketnumber").CheckProperty("value", "PO206B89", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_tn").CheckProperty("value", "9973012689", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_state").CheckProperty("value", "MO", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_accountname").CheckProperty("value", "RHONDA GRAHAM", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_contactname").CheckProperty("value", "COC-TY", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_callbacknumber").CheckProperty("value", "9999999999", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_customertype").CheckProperty("value", "Business", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_agentattuid").CheckProperty("value", "JT0005", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_ncsc").CheckProperty("value", "LAKEWOOD", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_accounttype").CheckProperty("value", "TN", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_originatinggroup").CheckProperty("value", "NCS", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_customertimezone").CheckProperty("value", "C" & EMS_Log_TZ(), 10)
+//		 Y = Browser("Browser").Page("View Record").WebCheckBox("j_aodcallbacksuppressindicator").CheckProperty("value", "0", 10)
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_comments").CheckProperty("value", " ", 10)
+//
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_systemstamp").CheckProperty("value", "NTEL", 10)
+//		 IssueID = Browser("Browser").Page("View Record").WebEdit("j_issueid").GetROProperty("value")
+//		 Y = Browser("Browser").Page("View Record").WebEdit("j_issueid").CheckProperty("value", IssueID, 10)
+//
+//		 Browser("Browser").Page("View Record").WebElement("EMS Issue Dispatch D/T:").Check CheckPoint("EMS Issue Dispatch D/T:")
+//		 IssueDispatch = Browser("Browser").Page("View Record").WebEdit("j_oper_time").GetROProperty("value")
+//
+//		 check_ems_log_exp_datetime IssueDispatch, ExpIssueDispatch, "EMS Issue Dispatch D/T:","15"
+//
+//		 Browser("Browser").Page("View Record").WebElement("EMS Issue Submit D/T:").Check CheckPoint("EMS Issue Submit D/T:")
+//		 IssueSubmit= Browser("Browser").Page("View Record").WebEdit("j_issuesubmitdate").GetROProperty("value")
+//
+//		 check_ems_log_exp_datetime IssueSubmit, ExpIssueSubmit, "EMS Issue Submit D/T:","15"
+//
+//		 Browser("Browser").Page("View Record").WebElement("WFAC Received D/T:").Check CheckPoint("WFAC Received D/T:")
+//		 WFACReceived= Browser("Browser").Page("View Record").WebEdit("j_wfaccreatedate").GetROProperty("value")
+//
+//		 check_ems_log_exp_datetime WFACReceived, ExpWFACReceived, "WFAC Received D/T:","15"
+//
+//		 Browser("Browser").Page("View Record").WebElement("WFAC Offered Commit D/T:").Check CheckPoint("WFAC Offered Commit D/T:")
+//		 OfferedCommit = Browser("Browser").Page("View Record").WebEdit("j_wfaccommittmentdate").GetROProperty("value")
+//		 check_ems_log_exp_datetime OfferedCommit, ExpOfferedCommit, "WFAC Offered Commit D/T:","5"
+//
+//		 Browser("Browser").Page("View Record").WebElement("Current Commit D/T:").Check CheckPoint("Current Commit D/T:")
+//		 CurrentCommit = Browser("Browser").Page("View Record").WebEdit("j_currentcommitmentdate").GetROProperty("value")                                      
+//		 check_ems_log_exp_datetime CurrentCommit, ExpCurrentCommit, "Current Commit D/T:","0"
+//
+//		 Browser("Browser").Page("View Record").Image("Back").Click
+//		 wait 1
+//		 Browser("Browser").Close
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 
 	    }
 	    catch (Exception e) {

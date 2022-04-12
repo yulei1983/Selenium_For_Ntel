@@ -6,10 +6,10 @@
       <class name="TestCases.WFA_POTS_Dial_Tone_1">
         <methods>
           <include name="afterMethod"/>
-          <include name="DT_07"/>
           <include name="AfterClass"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
+          <include name="DT_14"/>
         </methods>
       </class> <!-- TestCases.WFA_POTS_Dial_Tone_1 -->
     </classes>

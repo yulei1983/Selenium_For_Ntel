@@ -4,11 +4,8 @@ import java.util.List;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-
 import javax.swing.tree.ExpandVetoException;
-
 import java.util.ArrayList;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,10 +18,6 @@ import org.testng.asserts.SoftAssert;
 
 import Function_Libary.functions;
 //import TestCases.Transfer_PrimaryDriver;
-import bsh.This;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
 
 import java.awt.datatransfer.Transferable;
 import java.lang.String;
@@ -37,10 +30,10 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class Browser_GUI {
 	private static WebElement element = null;    
-	private static FluentWait<WebDriver> wait;
+	public static FluentWait<WebDriver> wait;
 	public Browser_GUI() {
 	}
-	private static void SetWait(WebDriver driver) {
+	public static void  SetWait(WebDriver driver) {
 		try {
 			FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
 			Browser_GUI.wait = wait;
@@ -86,7 +79,7 @@ public class Browser_GUI {
 		 
 		 
 		 public static WebElement Information_OK(WebDriver driver){ 
-				 element = driver.findElement(By.cssSelector(".hotKey"));
+				 element = driver.findElement(By.xpath("//table[@cellpadding='0']//td[@valign='middle']/div/div[normalize-space('OK')]"));
 			 return element;
 			} 
 		 
@@ -408,11 +401,7 @@ public class Browser_GUI {
 
 			 return element;
 			}
-		 
-		 
-		 
-		 
-		 
+		 	 
 		 public static WebElement Tree_value(WebDriver driver,String vTree){
 			 try {
 				 Boolean Isdiplayed = false;
@@ -438,6 +427,8 @@ public class Browser_GUI {
 		 
 		 public static WebElement topLocalTime(WebDriver driver) throws NoSuchElementException{
 			 try {
+				 Browser_GUI.SetWait(driver);
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".topLocalTimeLabel > label")));
 				 element = driver.findElement(By.cssSelector(".topLocalTimeLabel > label"));
 			} catch (NoSuchElementException e) {
 					try {

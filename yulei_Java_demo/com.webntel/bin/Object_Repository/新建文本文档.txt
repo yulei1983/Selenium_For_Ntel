@@ -1,0 +1,17 @@
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+
+  try {
+            Workbook book = Workbook.getWorkbook(new File("d:/test.xls"));
+            Sheet sheet = book.getSheet(0);
+            for(int i=0;i< sheet.getRows();i++){                
+                Cell cell = sheet.getCell(0,i);
+                String result = cell.getContents();
+
+                System.out.println(result);
+
+         }
+
+   } catch(Exception e){
+   }

@@ -2,7 +2,8 @@ package Function_Libary;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.*;
+import org.openqa.selenium.edge.EdgeDriver;
+//import org.openqa.selenium.edge.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,7 +19,7 @@ import org.openqa.selenium.WebDriver;
 public class WebDriver_Setup {
 //	public static WebDriver driver=null;
 	public static WebDriver driver;
-	public static EdgeDriver Edriver;
+	public static WebDriver Edriver;
     public static RemoteWebDriver rDriver;
 	public static SoftAssert softAssert = null;
 	public static boolean INIT=false;
@@ -55,32 +56,35 @@ public class WebDriver_Setup {
 	 */
 	public static WebDriver launchBrowser(){
 		WebDriver driver;
-//		EdgeDriver edgeDriver;
-		String webdv = PropertiesDataProvider.getTestData("config/config.properties", "webdv");
-		String webdvdir = PropertiesDataProvider.getTestData("config/config.properties", "webdvdir");
-		System.setProperty(webdv, webdvdir);
-
-//Set Edage
-//			EdgeOptions options = new EdgeOptions();
-//		    EdgeDriver driver = new EdgeDriver(options);
-		    
-			//Set Chrome Options.
-		    
-//			DesiredCapabilities dCapabilities = DesiredCapabilities.chrome();
-			ChromeOptions Coptions = new ChromeOptions();
-			Coptions.addArguments("test-type");
-			Coptions.addArguments("--start-maximized");
-			Coptions.addArguments("--disable-web-security");
-			Coptions.addArguments("--allow-running-insecure-content");
-			Coptions.addArguments("--disable-infobars");
-			Coptions.addArguments("--ignore-certificate-errors");
-			Coptions.addArguments("--disable-web-security");
-			Coptions.addArguments("--allow-running-insecure-content");
-			Coptions.setCapability(ChromeOptions.CAPABILITY, Coptions);
-//			dCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-//			dCapabilities.setCapability(CapabilityType.VERSION, true);
-//			driver = new ChromeDriver(dCapabilities);
-			driver = new ChromeDriver();
+		String webdv;
+		String webdvdir;
+		switch ("EDGE") {
+		case "Chrome":
+			 webdv = PropertiesDataProvider.getTestData("config/config.properties", "webdv");
+			 webdvdir = PropertiesDataProvider.getTestData("config/config.properties", "webdvdir");
+			 System.setProperty(webdv, webdvdir);
+				//Set Chrome Options.
+				ChromeOptions Coptions = new ChromeOptions();
+				Coptions.addArguments("test-type");
+				Coptions.addArguments("--start-maximized");
+				Coptions.addArguments("--disable-web-security");
+				Coptions.addArguments("--allow-running-insecure-content");
+				Coptions.addArguments("--disable-infobars");
+				Coptions.addArguments("--ignore-certificate-errors");
+				Coptions.addArguments("--disable-web-security");
+				Coptions.addArguments("--allow-running-insecure-content");
+				Coptions.setCapability(ChromeOptions.CAPABILITY, Coptions);
+				driver = new ChromeDriver();
+			    break;
+		case "EDGE":
+			 webdv = PropertiesDataProvider.getTestData("config/config.properties", "Edgewebdv");
+			 webdvdir = PropertiesDataProvider.getTestData("config/config.properties", "Edgewebdvdir");
+			 System.setProperty(webdv, webdvdir);
+			 driver = new EdgeDriver();
+			 break;
+		default:
+			 driver = null;
+		}
 		return driver;
 	}
 
