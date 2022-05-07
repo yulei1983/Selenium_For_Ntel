@@ -40,16 +40,22 @@ import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 import org.testng.asserts.SoftAssert;
+import org.testng.internal.Yaml;
 
 import Object_Repository.AdminGui;
 import Object_Repository.Browser_GUI;
 import Object_Repository.ChooseBox;
 import Object_Repository.WebTable;
+//import prepare.MMDriver;
+//import utils.Lib;
 
+import java.awt.Robot;
 import java.lang.String;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class functions {
 	public static int Threaddely = 2000;
@@ -147,7 +153,7 @@ public class functions {
 		Browser_GUI.MainPage.WebEdit_TNTR(driver).sendKeys(Keys.ENTER);
 	}
 	
-	public void highlightObj(Object obj){
+	public static void highlightObj(Object obj,WebDriver driver){
 		JavascriptExecutor hl = (JavascriptExecutor)driver;
 		hl.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", obj);
 		}
@@ -173,10 +179,166 @@ public class functions {
 		Thread.sleep(Threaddely);
 		Browser_GUI.MainPage.MenuBar_System_Demo(driver).click();
 	}
+	/*Function: When you logining the ntel,then relogin with other user id.
+	 * 
+	 * By yulei, on 05052022
+	 */
+	public void ReloginNtel(String UserName) throws Exception{
+        ClearNtel(driver);
+        Browser_GUI.MainPage.MenuBar_System(driver).click();
+		Thread.sleep(Threaddely);
+		Browser_GUI.MainPage.MenuBar_System_Exit(driver).click();
+		Thread.sleep(Threaddely);
+		Browser_GUI.MainPage.Exit_Yes(driver).click();
+		Thread.sleep(3000);	
+		Browser_GUI.MainPage.EditBox_ATTUID(driver).click();
+        Browser_GUI.MainPage.EditBox_ATTUID(driver).sendKeys(UserName);
+		Thread.sleep(Threaddely);
+        Browser_GUI.MainPage.EditBox_PSW(driver).click();
+        Browser_GUI.MainPage.EditBox_PSW(driver).sendKeys("12345678");
+        Browser_GUI.MainPage.BTN_Login_OK(driver).click();
+        Thread.sleep(2000);
+		Browser_GUI.MainPage.Error_MessageBox_OK(driver).click();
+        Thread.sleep(Threaddely);
+        
+        Browser_GUI.MainPage.MenuBar_System(driver).click();
+		Thread.sleep(Threaddely);
+		Browser_GUI.MainPage.MenuBar_System_Demo(driver).click();
+	}
 	
-//	public void setSoftAt(SoftAssert softAt) {
-//		this.softassert=softAt;
-//	}
+	public Boolean update_ntel_dbase(String sql , String TableName) {
+		try {
+				Browser_GUI.MainPage.MenuBar_Table(driver).click();
+				Browser_GUI.MainPage.Personalization_Admin(driver).click();
+		        Thread.sleep(3000);
+				String mainpageHandleId = functions.SwitchToNewWindowAndRecordOldOne(driver);
+				functions fun = new functions(driver);
+			    boolean IsEdited = fun.IsExist(By.xpath("//span[text()='"+TableName+"*']"));
+			    if (!IsEdited) {
+			    	driver.findElement(By.xpath("//span[text()='"+TableName+"']")).click();
+			        Thread.sleep(2000);
+			    	functions.mouseRightClick(driver, By.xpath("//span[text()='"+TableName+"']"));
+			    	Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_rightmenu_Edit(driver).click();
+				}
+		        functions.Excute_SQL(sql);
+		        driver.close();
+		        driver.switchTo().window(mainpageHandleId);
+		        return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 *@author yulei 
+	 *@param sql SQL��� inert or update or delete.
+	 *@return int 0  �޸�ʧ�ܣ�!0 �޸ĳɹ���������
+	 */
+	public static int Excute_SQL(String sql) {
+		int flag = 0;
+        try {
+			Class.forName("com.mysql.jdbc.Driver");	
+			Connection conn = DriverManager.getConnection(MySQLDBurl, MySQLDBuser, MySQLDBpassword);
+			PreparedStatement prestatment = conn.prepareStatement(sql);
+			flag = prestatment.executeUpdate();
+			if(prestatment!=null){
+				prestatment.close();
+				if(conn!=null){
+					conn.close();
+				}
+			}
+			return flag;
+		} catch (Exception e) {
+			return flag;	
+		}
+	}
+		
+	public void RollBackAll() throws Exception {		
+		Thread.sleep(500);
+		Set<String> handles = driver.getWindowHandles();
+		Boolean PadminExist = false;
+		for (String s : handles) {
+			driver.switchTo().window(s);  
+			if (driver.getTitle().contains("Ntelagent Personalization Admin")) {
+				PadminExist = true;
+		        Actions actions = new Actions(driver);
+		        actions.moveToElement(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver), 42,1);
+		        actions.click();
+		        actions.build().perform();
+
+				Thread.sleep(500);
+		        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_all(driver).click();
+				Thread.sleep(2000);
+		        Browser_GUI.PersonalizationAdmin.Ask_Yes(driver).click();
+		        driver.close();
+		        functions.switchToWindow("(DEMO)", driver);
+				break;
+			}
+		 }
+			if (!PadminExist) {	
+				Thread.sleep(500);
+				Browser_GUI.MainPage.MenuBar_Table(driver).click();
+				Browser_GUI.MainPage.Personalization_Admin(driver).click();
+				functions.switchToWindow("Ntelagent Personalization Admin", driver);
+//				functions.highlightObj(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver),driver);  
+				Thread.sleep(2000);
+		        Actions actions = new Actions(driver);
+		        actions.moveToElement(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver), 42 , 1);
+		        actions.click();
+		        actions.build().perform();
+//				JavascriptExecutor executor = (JavascriptExecutor)driver;
+//				executor.executeScript("arguments[0].click();", Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver));
+//		        Robot robot = new Robot();
+//		        robot.mouseMove(143, 92);
+//		        actions.click().build().perform();
+		        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_all(driver).click();
+				Thread.sleep(2000);
+		        Browser_GUI.PersonalizationAdmin.Ask_Yes(driver).click();
+		        driver.close();
+		        functions.switchToWindow("(DEMO)", driver);
+			}
+
+	}
+	
+//	/**
+//	 *@author yulei 
+//	 *@param TableName ��Ҫ�޸ĵ�table
+//	 *@param sql SQL���
+//	 *@return Boolean true �޸ĳɹ���FALSE �޸�ʧ�ܣ����л���ԭ����
+//	 */
+//	public Boolean Update_table(String TableName,String sql) {
+//		Boolean Flags = false;
+//		try {
+//			Thread.sleep(500);
+//			Boolean Y = functions.switchToWindow("Ntelagent Personalization Admin",driver);
+//			if(!Y) {
+//				Browser_GUI.MainPage.MenuBar_Table(driver).click();
+//				Browser_GUI.MainPage.Personalization_Admin(driver).click();
+//				functions.switchToWindow("Ntelagent Personalization Admin",driver);
+//			}
+//			WebElement OTableName = driver.findElement(By.xpath("//span[text()='"+TableName+"']"));
+//			OTableName.click();
+//	        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Edit(driver).click();
+//	        //String sql
+//	        functions.Excute_SQL(sql);
+//	        driver.close();
+//	        functions.switchToWindow("(DEMO)", driver);
+//		    Flags = true; 
+//	   }catch (Exception e) {
+//			WebElement OTableName = driver.findElement(By.xpath("//span[text()='"+TableName+"*']"));
+//			String Edit_table_name = OTableName.getText();
+//				   //String sql
+//			functions.Excute_SQL(sql);
+//			driver.close();
+//			functions.switchToWindow("(DEMO)", driver);
+//			Flags = true;
+//			return Flags;
+//		}
+//		   return Flags;	
+//  }
+	
+	
+
 
 	public void Cancel_Ticket(String TN) throws Exception{
 		Enter_TN(TN);
@@ -267,7 +429,6 @@ public class functions {
 				fwait.withTimeout(Duration.ofSeconds(6));
 				fwait.pollingEvery(Duration.ofSeconds(2));		
 				fwait.ignoring(NoSuchElementException.class);
-
 				fwait.until(ExpectedConditions.visibilityOf(webelement));
 	 			String vActualed = webelement.getAttribute(porperty);
 	 		    // <p>�����滻Ϊ���� 
@@ -284,16 +445,71 @@ public class functions {
 	 			vActualed = vActualed.replaceAll("amp;", "");
 //	 		    // ȥ���ո� 
 //	 	        vActualed = vActualed.replaceAll(" ", ""); 
-	 			if (vExpected.compareTo(vActualed)!=0) {
-				    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , vActualed));
-				    return false;
+	 			Boolean IsRexMatcher = vExpected.contains("regex_");
+	  			if (IsRexMatcher) {	//正则比对
+	  				vExpected = vExpected.replace("regex_", "");
+		    		Pattern intPattern = Pattern.compile(vExpected);
+			  		Matcher m = intPattern.matcher(vActualed);
+		 			if (!m.matches()) {
+					    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , vActualed));
+					    return false;
+					}else {
+			 			return true;
+					}
+				} else {//全文比对
+		 			if (vExpected.compareTo(vActualed)!=0) {
+					    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , vActualed));
+					    return false;
+					}else {
+			 			return true;
+					}
 				}
-	 			return true;
+
 			} catch (Exception e) {
 				functions.softassert.fail(ExceptionMessageFormat(e ,  vExpected   , "null"));
 				return false;
 			}
 	}
+	
+	public  Boolean CheckPorpertyDate(WebElement webelement,String porperty,String vExpected, int distance){
+        try {
+			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
+			fwait.withTimeout(Duration.ofSeconds(6));
+			fwait.pollingEvery(Duration.ofSeconds(2));		
+			fwait.ignoring(NoSuchElementException.class);
+			fwait.until(ExpectedConditions.visibilityOf(webelement));
+ 			String vActualed = webelement.getAttribute(porperty);
+ 		    // <p>�����滻Ϊ���� 
+             vActualed = vActualed.replaceAll("<p .*?>", "\r\n"); 
+ 		    // <br><br/>�滻Ϊ���� 
+ 			vActualed = vActualed.replaceAll("<br\\s*/?>", "\r\n"); 
+ 		    // ȥ��������<>֮��Ķ��� 
+ 			vActualed = vActualed.replaceAll("\\<.*?>", ""); 
+ 			//ȥ��\r
+ 			vActualed = vActualed.replaceAll("\r", ""); 
+ 			//ȥ��\n
+ 			vActualed = vActualed.replaceAll("\n", "");
+ 			//ȥ��amp;
+ 			vActualed = vActualed.replaceAll("amp;", "");
+// 		    // ȥ���ո� 
+// 	        vActualed = vActualed.replaceAll(" ", ""); 
+ 			Date expDate =new SimpleDateFormat("MM-dd-yy hhmma").parse(vExpected+"M");
+ 			Date ActDate = new SimpleDateFormat("MM/dd/yy hh:mma").parse(vActualed+"M");
+ 			long startTime = expDate.getTime();
+ 			long endTime = ActDate.getTime();
+ 			long IsOver15mins = Math.abs((startTime - endTime)/1000/60);
+ 			if (  IsOver15mins > distance ) {
+ 				functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  expDate.toString()   , ActDate.toString()));
+			    return false;
+			}else {
+	 			return true;
+			}
+		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(e ,  vExpected   , "null"));
+			return false;
+		}
+}
+	
 	
 	public  void CheckPorpertyWithRegex(WebElement webelement,String porperty,String vExpected, int Exoffset, int actoffset){
         try {
@@ -568,102 +784,7 @@ public class functions {
     }
 	
 	
-	/**
-	 *@author yulei 
-	 *@param sql SQL��� inert or update or delete.
-	 *@return int 0  �޸�ʧ�ܣ�!0 �޸ĳɹ���������
-	 */
-	public static int Excute_SQL(String sql) {
-		int flag = 0;
-        try {
-			Class.forName("com.mysql.jdbc.Driver");	
-			Connection conn = DriverManager.getConnection(MySQLDBurl, MySQLDBuser, MySQLDBpassword);
-			PreparedStatement prestatment = conn.prepareStatement(sql);
-			flag = prestatment.executeUpdate();
-			if(prestatment!=null){
-				prestatment.close();
-				if(conn!=null){
-					conn.close();
-				}
-			}
-			return flag;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return flag;	
-		}
-	}
-	
-	
-	/**
-	 *@author yulei 
-	 *@param TableName ��Ҫ�޸ĵ�table
-	 *@param sql SQL���
-	 *@return Boolean true �޸ĳɹ���FALSE �޸�ʧ�ܣ����л���ԭ����
-	 */
-	public Boolean Update_table(String TableName,String sql) throws Exception {
-		Thread.sleep(500);
-		Boolean Flags = false;
-		try {
-			Boolean Y = functions.switchToWindow("Ntelagent Personalization Admin",driver);
-			if(!Y) {
-				Browser_GUI.MainPage.MenuBar_Table(driver).click();
-				Browser_GUI.MainPage.Personalization_Admin(driver).click();
-				functions.switchToWindow("Ntelagent Personalization Admin",driver);
-			}
-			WebElement OTableName = driver.findElement(By.xpath("//span[text()='"+TableName+"']"));
-			OTableName.click();
-	        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Edit(driver).click();
-	        //String sql
-	        functions.Excute_SQL(sql);
-	        driver.close();
-	        functions.switchToWindow("(DEMO)", driver);
-		    Flags = true; 
-	   }catch (NoSuchElementException e) {
-			WebElement OTableName = driver.findElement(By.xpath("//span[text()='"+TableName+"*']"));
-			String Edit_table_name = OTableName.getText();
-				   //String sql
-			functions.Excute_SQL(sql);
-			driver.close();
-			functions.switchToWindow("(DEMO)", driver);
-			Flags = true;
-			return Flags;
-		}
-		   return Flags;	
-  }
-	
-	public void RollBackAll() throws Exception {		
-		Thread.sleep(500);
-		Set<String> handles = driver.getWindowHandles();
-		Boolean PadminExist = false;
-		for (String s : handles) {
-			driver.switchTo().window(s);  
-			if (driver.getTitle().contains("Ntelagent Personalization Admin")) {
-				PadminExist = true;
-		        Actions actions = new Actions(driver);
-		        actions.moveToElement(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver), 75,11).click();  
-		        actions.perform();
-		        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_all(driver).click();
-		        Browser_GUI.PersonalizationAdmin.Ask_Yes(driver).click();
-		        driver.close();
-		        functions.switchToWindow("(DEMO)", driver);
-				break;
-			}
-		 }
-			if (!PadminExist) {
-				Thread.sleep(500);
-				Browser_GUI.MainPage.MenuBar_Table(driver).click();
-				Browser_GUI.MainPage.Personalization_Admin(driver).click();
-				functions.switchToWindow("Ntelagent Personalization Admin", driver);
-		        Actions actions = new Actions(driver);
-		        actions.moveToElement(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver), 75,11).click();  
-		        actions.perform();
-		        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_all(driver).click();
-		        Browser_GUI.PersonalizationAdmin.Ask_Yes(driver).click();
-		        driver.close();
-		        functions.switchToWindow("(DEMO)", driver);
-			}
 
-	}
 	
 
 	public String get_commitment_time() {
@@ -812,7 +933,7 @@ public class functions {
 			}
 			try {
 				WebDriver window = driver.switchTo().window(it.next());// 切换到新窗口
-			    System.out.println("New page title is:" + window.getTitle());
+//			    System.out.println("New page title is:" + window.getTitle());
 			    return currentWindow;
 			} catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Switch to new window"   , "Can not switch to new window"));
@@ -827,7 +948,7 @@ public class functions {
 	public static void GoBackWindow(WebDriver driver, String currentWindow) { 	
 			try {
 				WebDriver window = driver.switchTo().window(currentWindow);// 切换到新窗口
-			    System.out.println("New page title is:" + window.getTitle());
+//			    System.out.println("New page title is:" + window.getTitle());
 			} catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Go back window"   , "Can not go back window"));
 			}
@@ -838,27 +959,68 @@ public class functions {
 		executor.executeScript("arguments[0].click();", ele);
 	}
 	
-	
-	
+	public static String EMS_Log_TZ() {
+		return "DT";
+	} 
 
+	/**
+	 * 模拟鼠标操作 - 鼠标右击
+	 */
+	public static void mouseRightClick(WebDriver driver, By by) {
+		try {
+			driver.findElement(by).click();
+			Actions actions = new Actions(driver);
+//			actions.moveToElement(driver.findElement(by));
+//			actions.click(driver.findElement(by));
+			actions.contextClick(driver.findElement(by));
+			actions.perform();
+		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(e, "", "MouseRightClick failed!") );
+//			MMDriver.softAssert.fail(ExceptionMessage(e, "", "MouseRightClick failed!") + "gui_start ");
+		}
+	}
+	
 	public static void main(String[] args) throws Exception {
+		WebDriver dr = WebDriver_Setup.launchBrowser();
+		functions fun = new functions(dr);
+		fun.loginNtel("jt0005");
+
+		fun.loginNtel("jt0015");
+		
+//		 Date  vToday = new SimpleDateFormat("MM-dd-yy hhmma").parse("04-13-22 1037P"+"M");
+//		 vToday = DateAdd(vToday, Calendar.DAY_OF_YEAR , 4);
+//		 String strToday = dateToString(vToday);
+//		 strToday = strToday.substring(0, 9);
+		
+// 			Date expDate =new SimpleDateFormat("MM-dd-yy hhmma").parse("04-13-22 1037p"+"M");
+// 			Date ActDate = new SimpleDateFormat("MM/dd/yy hh:mma").parse("04/13/22 10:30p"+"M");
+// 			long startTime = expDate.getTime();
+// 			long endTime = ActDate.getTime();
+//
+// 			long IsOver15mins = Math.abs((startTime - endTime)/1000/60);
+// 			if (  IsOver15mins >= 15 ) {
+//			    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  expDate.toString()   , ActDate.toString()));
+//			}
+//			System.out.println(IsOver15mins);
+
+		
 		 //open ems log page and show demo list.
-			WebDriver AdminGuiDriver = functions.Open_EMS_LOG();
-			 WebTable EmsLogTable = new WebTable(AdminGuiDriver,"datatable");
-			 int TnsRow = EmsLogTable.getRowWithTN("9973012689");
-			 EmsLogTable.getRow(TnsRow).click();
-			 AdminGui.MainPage.Btn_viewdetail(AdminGuiDriver).click();
-			 functions funs = new functions(AdminGuiDriver);
-			 String OldOneHandle = functions.SwitchToNewWindowAndRecordOldOne(AdminGuiDriver);
-
-			 //Check some details.
-			 funs.CheckPorperty(AdminGui.EMS_Issues_Log_Detail.WebEdit_ATTUID(AdminGuiDriver), "value","JT0015"); 
-			 
-
-			 //Close the admingui window..
-			 AdminGui.EMS_Issues_Log_Detail.Btn_Back(AdminGuiDriver).click();
-			 functions.GoBackWindow(AdminGuiDriver, OldOneHandle);
-			 AdminGuiDriver.close();
+//			WebDriver AdminGuiDriver = functions.Open_EMS_LOG();
+//			 WebTable EmsLogTable = new WebTable(AdminGuiDriver,"datatable");
+//			 int TnsRow = EmsLogTable.getRowWithTN("9973012689");
+//			 EmsLogTable.getRow(TnsRow).click();
+//			 AdminGui.MainPage.Btn_viewdetail(AdminGuiDriver).click();
+//			 functions funs = new functions(AdminGuiDriver);
+//			 String OldOneHandle = functions.SwitchToNewWindowAndRecordOldOne(AdminGuiDriver);
+//
+//			 //Check some details.
+//			 funs.CheckPorperty(AdminGui.EMS_Issues_Log_Detail.WebEdit_ATTUID(AdminGuiDriver), "value","JT0015"); 
+//			 
+//
+//			 //Close the admingui window..
+//			 AdminGui.EMS_Issues_Log_Detail.Btn_Back(AdminGuiDriver).click();
+//			 functions.GoBackWindow(AdminGuiDriver, OldOneHandle);
+//			 AdminGuiDriver.close();
 		 
 		 
 //		 SwitchToFrame(AdminGuiDriver, "mainFrame");

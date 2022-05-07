@@ -108,6 +108,27 @@ public class Browser_GUI {
 			}
 			 return element; 
 			} 
+		 public static WebElement AM_Yes(WebDriver driver){	 
+			 try {
+				 Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='Yes']")));
+				element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='Yes']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_Yes"   , "No popup"));
+			}
+			 return element; 
+			} 
+		 
+		 public static WebElement AM_No(WebDriver driver){	 
+			 try {
+				 Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='No']")));
+				element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='No']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_No"   , "No popup"));
+			}
+			 return element; 
+			} 
 		 
 		 public static WebElement BTN_Login_OK(WebDriver driver) throws NoSuchElementException{
 		     element = driver.findElement(By.xpath("//font[text()='OK']"));
@@ -201,6 +222,18 @@ public class Browser_GUI {
 			 return element;
 			}	
 		 
+
+		 
+		 public static WebElement MenuBar_System_Exit(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[contains(text(),'Exit')]"));
+			 return element;
+			}	
+		 
+		 public static WebElement Exit_Yes(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[contains(text(),'Exit')]/ancestor::div//td[@align='center']//table//table[normalize-space()='Yes']"));
+			 return element;
+			}
+		 
 		 public static WebElement MenuBar_System_Demo(WebDriver driver){
 			 element = driver.findElement(By.xpath("//span[contains(text(),'Demo')]"));
 			 return element;
@@ -248,6 +281,41 @@ public class Browser_GUI {
 			 return element;
 			}
 		
+		 public static WebElement DataInput_JTextPane(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='ebmsgf']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput_Title(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//div[text()='Data Input']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput_MaskEdit(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='MaskEdit_1']//input")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput_OK(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='OK']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput_Cancel(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='Cancel']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
 		 public static WebElement Submit_AgMsg_Yes(WebDriver driver){
 			 try {
 					 Thread.sleep(300);
@@ -356,7 +424,7 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement MenuBar_Table(WebDriver driver){
-			 element = driver.findElement(By.xpath("//div[text()='Table']"));
+			 element = driver.findElement(By.xpath("//td[@valign='middle']/descendant::div[text()='Table']"));
 			 return element;
 			}
 		 
@@ -364,6 +432,8 @@ public class Browser_GUI {
 			 element = driver.findElement(By.xpath("//span[text()='Personalization Admin']"));
 			 return element;
 			}
+		 
+		 
 		 
 		 public static WebElement CheckBox_QueueView_AUTO(WebDriver driver){
 			 element = driver.findElement(By.xpath("//label[text()='AUTO']"));
@@ -412,10 +482,10 @@ public class Browser_GUI {
 				 if (Isdiplayed) {
 					    functions.softassert.assertTrue(Isdiplayed, vTree+" PASS");
 				} else {
-				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception()  ,  vTree   , "The Tree no display1!"));
-				}
-			 } catch (NoSuchElementException e) {
 				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception()  ,  vTree   , "The Tree no display!"));
+				}
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  vTree   , "The Tree no display!"));
 			   }
 			 return element;
 		 }
@@ -447,6 +517,11 @@ public class Browser_GUI {
 			 return element;
 			}
 		 
+		 public static WebElement PersonalizationAdmin_rightmenu_Edit(WebDriver driver){
+			 element = driver.findElement(By.xpath("//span[@unselectable='on' and text()='Edit']"));
+			 return element;
+			}
+
 		 public static WebElement PersonalizationAdmin_Rollback(WebDriver driver){
 			 element = driver.findElement(By.xpath("//div[text()='Rollback']"));
 			 return element;
@@ -457,7 +532,8 @@ public class Browser_GUI {
 //			 return element;
 //			}
 		 public static WebElement PersonalizationAdmin_Rollback_list(WebDriver driver){
-			 element = driver.findElement(By.xpath("//div[@class = 'GMRNFO4CNN GMRNFO4CDN']/.."));
+			 List<WebElement> Rollback_list =  driver.findElements(By.xpath("//table//td[2]/div[normalize-space()='Rollback']"));
+			 WebElement element = Rollback_list.get(0);
 			 return element;
 			}
 		 

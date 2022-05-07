@@ -31,7 +31,7 @@ public class CheckPoints {
 	        Row row;
 	        Cell ValueCell;
 	        Cell CheckPointCell;
-	        for (int i = 1; i < sheet.getLastRowNum(); i++) {
+	        for (int i = 1; i < sheet.getLastRowNum()+1; i++) {
 			     row = sheet.getRow(i);
                  if(row == null) {
                      continue;
@@ -57,39 +57,69 @@ public class CheckPoints {
     
 	public static void main(String[] args) {
 	    	 try {
-//	    		 Pattern intPattern = Pattern.compile("Inform the customer that the trouble will be cleared by");
-//	  			Matcher m = intPattern.matcher("Inform the customer that the trouble will be cleared by 04-03-22 0131A.");	    		 
-	 			File file = new File("./src/Object_Repository/CheckPointsList.xlsx");
-	 	        XSSFWorkbook xssfWorkbook = new XSSFWorkbook(new FileInputStream(file));
-	 	        XSSFWorkbook tempxssfWorkbook = new XSSFWorkbook();
-	 	        int tabIndex =0;
-	 	        Sheet sheet = xssfWorkbook.getSheetAt(tabIndex);
-	 	        Sheet tempsheet = tempxssfWorkbook.createSheet("1");
-	 	        Row row;
-	 	        Row temprow;
-	 	        Cell tempCell;
-	 	        Cell CheckPointCell; 	       
-	 	        for (int i = 1; i < sheet.getLastRowNum() ; i++) {
-	 			     row = sheet.getRow(i);
-	                 CheckPointCell = row.getCell(0);
-	                 temprow = tempsheet.createRow(i);
-	                 tempCell = temprow.createCell(0);
-	                 tempCell.
-    setCellValue(	"public static String " + CheckPointCell.getStringCellValue()+"(){\n String checkpoint = \""+CheckPointCell.getStringCellValue()+"\";\n return getValueFromExcel(checkpoint);\n}");
-	 			}
-	 	        try (FileOutputStream outputStream = new FileOutputStream("./src/Object_Repository/temp.xlsx")) {
-	 	        	tempxssfWorkbook.write(outputStream);
-	 	        }
+	    		 Pattern intPattern = Pattern.compile("We can have your service repaired on \\d{2}-\\d{2}-\\d{2}\\. Will you\\nbe available from 0800A to 1200P\\?");
+	  			Matcher m = intPattern.matcher("We can have your service repaired on 04-25-22. Will you\nbe available from 0800A to 1200P?");
+	  			System.out.print(m.matches()); 
+	  			
+//	    		 System.out.print(getValueFromExcel("Ask_We_can_have_your_service_repaired_on_$rex_Date$"));
+	  			
+	  			
+//	 			File file = new File("./src/Object_Repository/CheckPointsList.xlsx");
+//	 	        XSSFWorkbook xssfWorkbook = new XSSFWorkbook(new FileInputStream(file));
+//	 	        XSSFWorkbook tempxssfWorkbook = new XSSFWorkbook();
+//	 	        int tabIndex =0;
+//	 	        Sheet sheet = xssfWorkbook.getSheetAt(tabIndex);
+//	 	        Sheet tempsheet = tempxssfWorkbook.createSheet("1");
+//	 	        Row row;
+//	 	        Row temprow;
+//	 	        Cell tempCell;
+//	 	        Cell CheckPointCell; 	       
+//	 	        for (int i = 1; i < sheet.getLastRowNum() ; i++) {
+//	 			     row = sheet.getRow(i);
+//	                 CheckPointCell = row.getCell(0);
+//	                 temprow = tempsheet.createRow(i);
+//	                 tempCell = temprow.createCell(0);
+//	                 tempCell.
+//    setCellValue(	"public static String " + CheckPointCell.getStringCellValue()+"(){\n String checkpoint = \""+CheckPointCell.getStringCellValue()+"\";\n return getValueFromExcel(checkpoint);\n}");
+//	 			}
+//	 	        try (FileOutputStream outputStream = new FileOutputStream("./src/Object_Repository/temp.xlsx")) {
+//	 	        	tempxssfWorkbook.write(outputStream);
+//	 	        }
 	 	    } catch (Exception e) {
 	 	        e.printStackTrace();
 	 	    }
 	}
 	
-
+	public static String DataInput_Enter_the_call_forwarding_number() {
+		String checkpoint = "DataInput_Enter_the_call_forwarding_number";
+		return getValueFromExcel(checkpoint);
+	}
+	
+	public static String DataInput_OK() {
+		String checkpoint = "DataInput_OK";
+		return getValueFromExcel(checkpoint);
+	}
+	
+	public static String DataInput_Cancel() {
+		String checkpoint = "DataInput_Cancel";
+		return getValueFromExcel(checkpoint);
+	}
+	
+	public static String AM_Advise_the_customer_to_call_the_ATT_CPE_Cust$$$1_800_667_2118$$$phone_is_under_warranty() {
+		String checkpoint = "AM_Advise_the_customer_to_call_the_ATT_CPE_Cust$$$1_800_667_2118$$$phone_is_under_warranty";
+		return getValueFromExcel(checkpoint);
+	}
+	
 	public static String Zip_finder_error_999199_not_found_in_NPANXX_table() {
 		String checkpoint = "Zip_finder_error_999199_not_found_in_NPANXX_table";
 		return getValueFromExcel(checkpoint);
 	}
+	
+	public static String Ask_We_can_have_your_service_repaired_on_$rex_Date$() {
+        String checkpoint = "Ask_We_can_have_your_service_repaired_on_$rex_Date$";
+		return getValueFromExcel(checkpoint);
+	}
+
 		public static String Yes_2(){
 		 String checkpoint = "Yes_2";
 		 return getValueFromExcel(checkpoint);
@@ -3974,6 +4004,12 @@ public class CheckPoints {
 		 String checkpoint = "AM_Inform_the_customer_that_the_trouble_will_be_cleared_by";
 		 return getValueFromExcel(checkpoint);
 		}
+		
+		public static String AM_Inform_the_customer_that_the_trouble_will_be_cleared_by_$Rex$(){
+			 String checkpoint = "AM_Inform_the_customer_that_the_trouble_will_be_cleared_by_$Rex$";
+			 return getValueFromExcel(checkpoint);
+			}
+
 		public static String AM_Inform_the_customer_that_the_report_will_be$$$a_dispatch_is_required$(){
 		 String checkpoint = "AM_Inform_the_customer_that_the_report_will_be$$$a_dispatch_is_required$";
 		 return getValueFromExcel(checkpoint);
@@ -4158,8 +4194,8 @@ public class CheckPoints {
 		 String checkpoint = "AM_I$m_not_able_to_enter_a_report_at_this_time$";
 		 return getValueFromExcel(checkpoint);
 		}
-		public static String AM_I_would_like_to_assist_you_in_determining(){
-		 String checkpoint = "AM_I_would_like_to_assist_you_in_determining";
+		public static String AM_I_would_like_to_assist_you_in_determining$$$CPE_Trouble(){
+		 String checkpoint = "AM_I_would_like_to_assist_you_in_determining$$$CPE_Trouble";
 		 return getValueFromExcel(checkpoint);
 		}
 		public static String AM_I_will_be_glad_to_note_this_on_the_request(){
@@ -5946,7 +5982,10 @@ public class CheckPoints {
 		 String checkpoint = "AM_$_Pending_Pickup$PP$_General_NCSC_Screening_Bucket$POT$";
 		 return getValueFromExcel(checkpoint);
 		}
-
+//		public static String Ask_Does_customer_agree_to_charges$(){
+//			 String checkpoint = "AM_$_Pending_Pickup$PP$_General_NCSC_Screening_Bucket$POT$";
+//			 return getValueFromExcel(checkpoint);
+//			}
 	
 	
 	
@@ -5955,65 +5994,65 @@ public class CheckPoints {
 	
 	
 	
-	public static String Ask_Yes = "Yes";
-	public static String Information_OK = "O";
-	public static String Submit_TankYou_OK = "OK";
-	public static String Ask_No = "No";
-	public static String AM_OK = "OK";
-	public static String Submit_AgMsg_No = "No";
-	public static String Submit_AgMsg_Yes = "Y";
-	public static String ThankYou_OK = "O";
-	public static String AM_Title = "Agent Message";
-	public static String Ask_Does_the_customer_demand_a_dispatch$ = "Does the customer demand a dispatch?";
-	public static String Ask_Does_customer_agree_to_charges$ ="Does customer agree to charges?";
-	public static String AM_Mr$Ms$Mrs_$last_name$$_you_do_have_the_option_of_notbus_SW = 
-			"Mr/Ms/Mrs (last name), you have the option of: -Repairing the trouble yourself. -Arranging for a contractor to do the repair work. -Or,"
-			+ " if you would like, ATT can complete this repair work and a charge will apply. $99 1st 30 minutes $40 each add'l 15 minutes.";
-	
-	public static String Ask_Does_the_customer_have$$$switch_on_their_telephone_set = "Does the customer have a pulse/tone switch on their telephone set?";
-	public static String Ask_Does_the_customer_have_a_pulse_tone_switch_on_their_telephone_set = "Does the customer have a pulse/tone switch on their telephone set?";
-	public static String Ask_Touchtone_service_is_not_on_the_customers_account = "Touchtone service is not on the customer's account. Does the customer want to order Touchtone service?";
-	public static String Ask_Are_you_calling_from_that_number_now$ = "Are you calling from that number now?";
-	
-	public static String AM_Online_transfer_to_MO_EB$$$800_499_7928$$$800_4997928 = "Online transfer to MO EB business office 800-499-7928. Educate the customer with 800-499-7928 for future reporting. Make a P2R referral if appropriate.";
-	public static String AM_Advise_the_customer_toswitchthephonetopulsesetting = "Advise the customer to switch the phone to pulse setting.";
-	public static String AM_I_would_like_to_assist_you_in_determining = "I would like to assist you in determining if the trouble is at your location or in your telephone equipment. "
-				+ "Are you interested in hearing the trouble-shooting steps?If the customer is interested, "
-				+ "select \"Isolate for CPE Trouble\" flow.";
-	
-	public static String AM_TT_has_been_added_to_the_customer$s_line_in_the_switch$ = 
-			"TT has been added to the customer's line in the switch.";
-	public static String Ask_Has_the_customer_had_their_vendor_out_to_isolate_the_trouble$ = 
-					"Has the customer had their vendor out to isolate thetrouble?";
-	public static String Ask_Service_Order_Activity_is_present$ = "Service Order Activity is present. Is the trouble being reported related to the service order? If reporting a feature, select \"No\".";
-	public static String Ask_Is_the_customer_calling_from_the_line_and_are_they_able_to_press_one_of_the_buttons_on_the_phone_that_is_not_working$
-			= "Is the customer calling from the line and are they able to press one of the buttons on the phone that is not working?";
-
-	public static String Ask_Did_you_hear_a_tone_when_the_customer_pressed_the_button$ 
-	                  = "Did you hear a tone when the customer pressed the button?";
-
-		
-	public static String Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$
-			= "Ask the customer if the trouble is on all Phones?";
-
-	public static String Ask_Has_customer_checked_CPE_and$or_NID$ = "Has customer checked CPE and/or NID?";
-
-	public static String AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$ 
-	       = "Inform the customer that the report will be held for 24hours. Ensure understanding of ICATS process withcustomer.";
-							
-	public static String AM_Explain_that_ATT_s_responsibility_ends_at_the_D_Marc 
-	      = "Explain that AT&T's responsibility ends at the D-Marc.";
-	
-	public static String Ask_Please_verify_the_customer_name_and_address$$$address_correct$
-	       = "Please verify the customer's name and address.Is the customer's address correct?";
-
-	public static String Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones
-	       = "Ask the customer if the trouble is on all Phones?";
-
-	public static String Ask_Has_customer_checked_CPE_and_or_NID = "Has customer checked CPE and/or NID?";
-	
-	public static String information_I_would_like_to_assist_you_in_determining$$$If_the_customer_is_interested_select_Willing_to_check
-	= "I would like to assist you in determining if the trouble is at your location or in your telephone equipment. Are you interested in hearing the trouble-shooting steps?If the customer is interested, select 'Willing to check'";
+//	public static String Ask_Yes = "Yes";
+//	public static String Information_OK = "O";
+//	public static String Submit_TankYou_OK = "OK";
+//	public static String Ask_No = "No";
+//	public static String AM_OK = "OK";
+//	public static String Submit_AgMsg_No = "No";
+//	public static String Submit_AgMsg_Yes = "Y";
+//	public static String ThankYou_OK = "O";
+//	public static String AM_Title = "Agent Message";
+//	public static String Ask_Does_the_customer_demand_a_dispatch$ = "Does the customer demand a dispatch?";
+//	public static String Ask_Does_customer_agree_to_charges$ ="Does customer agree to charges?";
+//	public static String AM_Mr$Ms$Mrs_$last_name$$_you_do_have_the_option_of_notbus_SW = 
+//			"Mr/Ms/Mrs (last name), you have the option of: -Repairing the trouble yourself. -Arranging for a contractor to do the repair work. -Or,"
+//			+ " if you would like, ATT can complete this repair work and a charge will apply. $99 1st 30 minutes $40 each add'l 15 minutes.";
+//	
+//	public static String Ask_Does_the_customer_have$$$switch_on_their_telephone_set = "Does the customer have a pulse/tone switch on their telephone set?";
+//	public static String Ask_Does_the_customer_have_a_pulse_tone_switch_on_their_telephone_set = "Does the customer have a pulse/tone switch on their telephone set?";
+//	public static String Ask_Touchtone_service_is_not_on_the_customers_account = "Touchtone service is not on the customer's account. Does the customer want to order Touchtone service?";
+//	public static String Ask_Are_you_calling_from_that_number_now$ = "Are you calling from that number now?";
+//	
+//	public static String AM_Online_transfer_to_MO_EB$$$800_499_7928$$$800_4997928 = "Online transfer to MO EB business office 800-499-7928. Educate the customer with 800-499-7928 for future reporting. Make a P2R referral if appropriate.";
+//	public static String AM_Advise_the_customer_toswitchthephonetopulsesetting = "Advise the customer to switch the phone to pulse setting.";
+//	public static String AM_I_would_like_to_assist_you_in_determining = "I would like to assist you in determining if the trouble is at your location or in your telephone equipment. "
+//				+ "Are you interested in hearing the trouble-shooting steps?If the customer is interested, "
+//				+ "select \"Isolate for CPE Trouble\" flow.";
+//	
+//	public static String AM_TT_has_been_added_to_the_customer$s_line_in_the_switch$ = 
+//			"TT has been added to the customer's line in the switch.";
+//	public static String Ask_Has_the_customer_had_their_vendor_out_to_isolate_the_trouble$ = 
+//					"Has the customer had their vendor out to isolate thetrouble?";
+//	public static String Ask_Service_Order_Activity_is_present$ = "Service Order Activity is present. Is the trouble being reported related to the service order? If reporting a feature, select \"No\".";
+//	public static String Ask_Is_the_customer_calling_from_the_line_and_are_they_able_to_press_one_of_the_buttons_on_the_phone_that_is_not_working$
+//			= "Is the customer calling from the line and are they able to press one of the buttons on the phone that is not working?";
+//
+//	public static String Ask_Did_you_hear_a_tone_when_the_customer_pressed_the_button$ 
+//	                  = "Did you hear a tone when the customer pressed the button?";
+//
+//		
+//	public static String Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones$
+//			= "Ask the customer if the trouble is on all Phones?";
+//
+//	public static String Ask_Has_customer_checked_CPE_and$or_NID$ = "Has customer checked CPE and/or NID?";
+//
+//	public static String AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$ 
+//	       = "Inform the customer that the report will be held for 24hours. Ensure understanding of ICATS process withcustomer.";
+//							
+//	public static String AM_Explain_that_ATT_s_responsibility_ends_at_the_D_Marc 
+//	      = "Explain that AT&T's responsibility ends at the D-Marc.";
+//	
+//	public static String Ask_Please_verify_the_customer_name_and_address$$$address_correct$
+//	       = "Please verify the customer's name and address.Is the customer's address correct?";
+//
+//	public static String Ask_Ask_the_customer_if_the_trouble_is_on_all_Phones
+//	       = "Ask the customer if the trouble is on all Phones?";
+//
+//	public static String Ask_Has_customer_checked_CPE_and_or_NID = "Has customer checked CPE and/or NID?";
+//	
+//	public static String information_I_would_like_to_assist_you_in_determining$$$If_the_customer_is_interested_select_Willing_to_check
+//	= "I would like to assist you in determining if the trouble is at your location or in your telephone equipment. Are you interested in hearing the trouble-shooting steps?If the customer is interested, select 'Willing to check'";
 
 	
 }
