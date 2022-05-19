@@ -79,17 +79,26 @@ public class Browser_GUI {
 		 
 		 
 		 public static WebElement Information_OK(WebDriver driver){ 
-				 element = driver.findElement(By.xpath("//table[@cellpadding='0']//td[@valign='middle']/div/div[normalize-space('OK')]"));
-			 return element;
+			    Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@cellpadding='0']//td[@valign='middle']/div/div[normalize-space('OK')]")));
+				element = driver.findElement(By.xpath("//table[@cellpadding='0']//td[@valign='middle']/div/div[normalize-space('OK')]"));
+		 return element;
 			} 
 		 
 		 public static WebElement information_CLOSE(WebDriver driver){ 
-			 element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//table//td[@valign='middle' and normalize-space(text()='CLOSE')]"));
+			 Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//table//td[@valign='middle' and normalize-space(text()='CLOSE')]")));
+				element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//table//td[@valign='middle' and normalize-space(text()='CLOSE')]"));
 		 return element;
 		} 
 		 
 		 public static WebElement Information_MSG_JTextPane(WebDriver driver){
 			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			} 
+		 
+		 public static WebElement information_Title(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@id='head']//strong/font"));
 			 return element;
 			} 
 		 
@@ -111,8 +120,8 @@ public class Browser_GUI {
 		 public static WebElement AM_Yes(WebDriver driver){	 
 			 try {
 				 Browser_GUI.SetWait(driver);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='Yes']")));
-				element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='Yes']"));
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']")));
+				element = driver.findElement(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']"));
 			 } catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_Yes"   , "No popup"));
 			}
@@ -122,8 +131,8 @@ public class Browser_GUI {
 		 public static WebElement AM_No(WebDriver driver){	 
 			 try {
 				 Browser_GUI.SetWait(driver);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='No']")));
-				element = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']/div[normalize-space()='No']"));
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']")));
+				element = driver.findElement(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']"));
 			 } catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_No"   , "No popup"));
 			}
@@ -158,7 +167,9 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement WebEdit_Report(WebDriver driver) {
-			 element = driver.findElement(By.xpath("//div[@nid='reportText']"));
+			 Browser_GUI.SetWait(driver);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='reportText']")));
+			element = driver.findElement(By.xpath("//div[@nid='reportText']"));
 			 return element;
 			}
 		 
@@ -193,7 +204,9 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement WebEdit_ACTION(WebDriver driver){
-			 element = driver.findElement(By.xpath("//div[@nid='actionDrop']//input[@type='text']"));
+			 Browser_GUI.SetWait(driver);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='actionDrop']//input[@type='text']")));
+			element = driver.findElement(By.xpath("//div[@nid='actionDrop']//input[@type='text']"));
 			 return element;
 			}
 		 
@@ -213,10 +226,26 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement CheckBox_MR(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='MR']/preceding-sibling::input[@type='checkbox']")));
 			 element = driver.findElement(By.xpath("//label[text()='MR']/preceding-sibling::input[@type='checkbox']"));
 			 return element;
 			}	
 		 
+		 public static WebElement CheckBox_BACKDOWN(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='BACKDOWN']/preceding-sibling::input")));
+			 element = driver.findElement(By.xpath("//label[text()='BACKDOWN']/preceding-sibling::input"));
+			 return element;
+			}	
+		 
+		 public static WebElement CheckBox_MISSLR_ETKT_WRG(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='MISSLR/ETKT/WRG#']/preceding-sibling::input[@type='checkbox']")));
+			 element = driver.findElement(By.xpath("//label[text()='MISSLR/ETKT/WRG#']/preceding-sibling::input[@type='checkbox']"));
+			 return element;
+			}	
+
 		 public static WebElement MenuBar_System(WebDriver driver){
 			 element = driver.findElement(By.xpath("//td[@valign='middle']/descendant::div[text()='System']"));
 			 return element;
@@ -251,28 +280,47 @@ public class Browser_GUI {
 
 		 public static WebElement Ask_JTextPane(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='askdialog-message']")));
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='askdialog-message']")));
+			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement Instruction_JTextPane(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//div[@class='ebmsgf']/span")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement Instruction_OK(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//td[@valign='middle']//div[contains(@style,'font') and normalize-space()='OK']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement Instruction_Title(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//div[text()='Instruction']")));
 //			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
 		 
 		 public static WebElement Information_JTextPane(WebDriver driver) throws Exception{
-			 
 			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
 		 
 		 public static WebElement AM_JTextPane(WebDriver driver){
-//			 functions func = new functions(driver);
-//			 func.fWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='askdialog-message']")));
 			 Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='askdialog-message']")));
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']")));
 			 return element;
 			}
 		 
 		 public static WebElement Ask_Yes(WebDriver driver){
-				 element = driver.findElement(By.xpath("//div[contains(text(),'es')]"));
-				 return element;
+			 Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'es')]")));
+			  return element;
 			}
 		 
 		 public static WebElement Ask_No(WebDriver driver){
@@ -372,8 +420,7 @@ public class Browser_GUI {
 		 public static WebElement Submit_TankYou_OK(WebDriver driver){
 			 try {
 				 Thread.sleep(300);
-				 List<WebElement> eles = driver.findElements(By.cssSelector(
-			     "#flowlayoutcontainer > div > table > tbody > tr:nth-child(3) > td > div > div > div > div > table > tbody > tr:nth-child(2) > td > div > div > table > tbody > tr > td > div > div"));
+				 List<WebElement> eles = driver.findElements(By.xpath("//div[@nid='messagedialog_L']//td[@valign='middle']//div[contains(@style,'font') and normalize-space()='OK']"));
 				 for(WebElement element : eles) {
 						  if(element.getText().equals("OK")) {
 							 return element;
@@ -385,6 +432,18 @@ public class Browser_GUI {
 			}
 			    return null;
 			}
+		 
+		 public static WebElement Submit_TankYou_OK_For_Queue(WebDriver driver) {
+			 try {
+				 Browser_GUI.SetWait(driver);
+				 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Queued Report:')]//ancestor::table[3]//tr[3]//table//td[@valign='middle' and normalize-space()='OK']")));
+				 element = driver.findElement(By.xpath("//span[contains(text(),'Queued Report:')]//ancestor::table[3]//tr[3]//table//td[@valign='middle' and normalize-space()='OK']"));
+				 return element;		
+			 } catch (Exception e) {
+						// TODO: handle exception
+					}
+			 return null;
+		 }
 		 
 /*		 public static WebElement table(WebDriver driver){
 			 element = driver.findElement(By.xpath("//div[contains(@qtip,'TN')]/parent::td/parent::tr/parent::tbody/parent::table/parent::div/parent::div/following-sibling::div[1]//table"));
@@ -432,9 +491,7 @@ public class Browser_GUI {
 			 element = driver.findElement(By.xpath("//span[text()='Personalization Admin']"));
 			 return element;
 			}
-		 
-		 
-		 
+	 
 		 public static WebElement CheckBox_QueueView_AUTO(WebDriver driver){
 			 element = driver.findElement(By.xpath("//label[text()='AUTO']"));
 			 return element;
@@ -466,12 +523,40 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement Cancel_Customer_Error(WebDriver driver){
-			 
 				 element =driver.findElement(By.xpath("//span[text()='Customer Error']"));
 
 			 return element;
 			}
 		 	 
+		 public static WebElement Tree(WebDriver driver,String vTree){
+			 try {
+				//div[contains(@class,'informationRow')]//font[text()="TROUBLE INFORMATION"]
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'informationRow')]//font[text()=\""+ vTree +"\"]")));
+				 element = driver.findElement(By.xpath("//div[contains(@class,'informationRow')]//font[text()=\""+ vTree +"\"]"));
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  vTree   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+		 
+		 public static WebElement Tree_red_value(WebDriver driver,String vTree){
+			 try {
+				 Boolean Isdiplayed = false;
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ui[normalize-space()=\""+ vTree   +"\"]/font[@color='RED']")));
+				 element = driver.findElement(By.xpath("//ui[normalize-space()=\""+ vTree   +"\"]/font[@color='RED']"));
+				 Isdiplayed = wait.until(ExpectedConditions.attributeToBe(element, "outerText", vTree));
+				 
+				 if (Isdiplayed) {
+					    functions.softassert.assertTrue(Isdiplayed, vTree+" PASS");
+				} else {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception()  ,  vTree   , "The Tree no display!"));
+				}
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  vTree   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+		 
 		 public static WebElement Tree_value(WebDriver driver,String vTree){
 			 try {
 				 Boolean Isdiplayed = false;
@@ -489,11 +574,42 @@ public class Browser_GUI {
 			   }
 			 return element;
 		 }
-
 		 
+		 public static WebElement TreeForm_Title(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='treeformdialog_U']//div[text()='TreeForm']"));
+			 return element;
+			}
 		 
+		 public static WebElement TreeForm_OK(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='treeformdialog_U']//td[@valign='middle']//div[contains(@style,'font') and normalize-space()='OK']"));
+			 return element;
+			}
 		 
+		 public static WebElement TreeForm_Cancel(WebDriver driver){
+			 element = driver.findElement(By.xpath("//div[@nid='treeformdialog_U']//td[@valign='middle']//div[contains(@style,'font') and normalize-space()='Cancel']"));
+			 return element;
+			}
 		 
+		 public static WebElement treeForm_expandNode(WebDriver driver , String TreeForm_Option){
+			 WebElement element;
+			//div[@class='treeRootDIV']//span/span[text()="CAN'T BE CALLED"]/parent::span/preceding-sibling::img[2]
+			List<WebElement> elements = driver.findElements(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + TreeForm_Option + "\"]"));
+			element = elements.get(0);
+			element = element.findElement(By.xpath("./parent::span/preceding-sibling::img[2]"));
+			 return element;
+			}
+		 
+		 public static WebElement TreeForm_Option(WebDriver driver , String TreeForm_Option ,int index){
+			 WebElement element;
+			//div[@class='treeRootDIV']//span/span[text()="CAN'T BE CALLED"]/parent::span/preceding-sibling::img[2]
+			List<WebElement> elements = driver.findElements(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + TreeForm_Option + "\"]"));
+			if (elements.size()>1) {
+				element = elements.get(index);
+			}else {
+				element = elements.get(0);		
+			}
+			 return element;
+			}
 		 
 		 public static WebElement topLocalTime(WebDriver driver) throws NoSuchElementException{
 			 try {
@@ -508,7 +624,24 @@ public class Browser_GUI {
 					}
 			}
 			 return element;
-			}	 
+			}
+		 
+		 public static WebElement OS_Commitment(WebDriver driver){
+			 element =driver.findElement(By.xpath("//table//tr[normalize-space()='CURRENT COMMITMENTS AVAILABLE']/following-sibling::tr[2]/td[2]"));
+		 return element;
+		}
+		 
+		 public static WebElement AS_Commitment(WebDriver driver){
+			 element =driver.findElement(By.xpath("//table//tr[normalize-space()='CURRENT COMMITMENTS AVAILABLE']/following-sibling::tr[1]/td[2]"));
+		 return element;
+		}
+		 
+		 public static WebElement BC_Commitment(WebDriver driver){
+			 element =driver.findElement(By.xpath("//table//tr[normalize-space()='CURRENT COMMITMENTS AVAILABLE']/following-sibling::tr[3]/td[2]"));
+		 return element;
+		}
+		 
+		 
     } 
     
     public static class PersonalizationAdmin {

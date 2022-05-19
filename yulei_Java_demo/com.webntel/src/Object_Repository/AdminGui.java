@@ -122,6 +122,30 @@ public class AdminGui {
 			 return element; 
 			}
 		 
+		 public static WebElement Expedite_Admin(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(text(),'Expedite Admin')]")));
+				element = driver.findElement(By.xpath("//td[contains(text(),'Expedite Admin')]"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Expedite Admin"   , "No popup"));
+			}
+			 return element; 
+			}
+		 
+		 public static WebElement Expedite_Reports_Log(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td/a[contains(text(),'Expedite Reports Log')]")));
+				element = driver.findElement(By.xpath("//td/a[contains(text(),'Expedite Reports Log')]"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Expedite Reports Log"   , "No popup"));
+			}
+			 return element; 
+			}
+		 
+		 
+		 
 		 public static WebElement Btn_Demo(WebDriver driver){	 
 			 try {
 				 AdminGui.SetWait(driver);
@@ -424,7 +448,305 @@ public class AdminGui {
 		}
 	}
 	
-	
+	public static class Expedite_Reports_Log_Detail{
+		public static WebElement WebEdit_Validation_ID(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_issueid']")));
+				element = driver.findElement(By.xpath("//input[@id='j_issueid']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Validation_ID"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_WFAC_TR(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_wfactroubleticketnumber']")));
+				element = driver.findElement(By.xpath("//input[@id='j_wfactroubleticketnumber']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_WFAC_TR"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_State(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_state']")));
+				element = driver.findElement(By.xpath("//input[@id='j_state']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_State"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Account_Name(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_accountname']")));
+				element = driver.findElement(By.xpath("//input[@id='j_accountname']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Account_Name"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Override_Type(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_overrideindicatortype']")));
+				element = driver.findElement(By.xpath("//input[@id='j_overrideindicatortype']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Override_Type"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Expedite_Report_Submit_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_issuesubmitdate']")));
+				element = driver.findElement(By.xpath("//input[@id='j_issuesubmitdate']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Expedite_Report_Submit_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Contact_Name(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_contactname']")));
+				element = driver.findElement(By.xpath("//input[@id='j_contactname']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Contact_Name"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_ATTUID(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_agentattuid']")));
+				element = driver.findElement(By.xpath("//input[@id='j_agentattuid']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_ATTUID"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_NCSC_Center(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_ncsc']")));
+				element = driver.findElement(By.xpath("//input[@id='j_ncsc']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_NCSC_Center"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Current_Commit_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_currentcommitmentdate']")));
+				element = driver.findElement(By.xpath("//input[@id='j_currentcommitmentdate']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Current_Commit_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_System(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_systemstamp']")));
+				element = driver.findElement(By.xpath("//input[@id='j_systemstamp']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_System"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_TNCKTID(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_tn']")));
+				element = driver.findElement(By.xpath("//input[@id='j_tn']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_TNCKTID"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Trx_Type(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_trxtype']")));
+				element = driver.findElement(By.xpath("//input[@id='j_trxtype']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Trx_Type"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Acct_Type(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_accounttype']")));
+				element = driver.findElement(By.xpath("//input[@id='j_accounttype']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Acct_Type"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Cust_Type(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_customertype']")));
+				element = driver.findElement(By.xpath("//input[@id='j_customertype']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Cust_Type"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Reason_Code(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_reason_code']")));
+				element = driver.findElement(By.xpath("//input[@id='j_reason_code']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Reason_Code"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_WFAC_Received_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_wfaccreatedate']")));
+				element = driver.findElement(By.xpath("//input[@id='j_wfaccreatedate']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_WFAC_Received_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Callback(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_callbacknumber']")));
+				element = driver.findElement(By.xpath("//input[@id='j_callbacknumber']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Callback"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Orig_Grp(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_originatinggroup']")));
+				element = driver.findElement(By.xpath("//input[@id='j_originatinggroup']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Orig_Grp"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_WFAC_Offered_Commit_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_wfaccommittmentdate']")));
+				element = driver.findElement(By.xpath("//input[@id='j_wfaccommittmentdate']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_WFAC_Offered_Commit_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Customer_Time_Zone(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_customertimezone']")));
+				element = driver.findElement(By.xpath("//input[@id='j_customertimezone']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Customer_Time_Zone"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Went_Unprocessed(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_wentunprocessed']")));
+				element = driver.findElement(By.xpath("//input[@id='j_wentunprocessed']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Went_Unprocessed"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Approval(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_approval']")));
+				element = driver.findElement(By.xpath("//input[@id='j_approval']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Approval"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Appt_Start_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_appstart']")));
+				element = driver.findElement(By.xpath("//input[@id='j_appstart']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Appt_Start_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Appt_End_DT(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_append']")));
+				element = driver.findElement(By.xpath("//input[@id='j_append']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Appt_Start_DT"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		public static WebElement WebEdit_Denial_Reason(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='j_denialreason']")));
+				element = driver.findElement(By.xpath("//input[@id='j_denialreason']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Denial_Reason"   , "No exist"));
+			}
+			 return element; 
+			}
+		
+		 public static WebElement Btn_Back(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[contains(@src, 'images/back.gif')]")));
+				element = driver.findElement(By.xpath("//img[contains(@src, 'images/back.gif')]"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Back"   , "No exist"));
+			}
+			 return element; 
+			}
+
+	}
 	
 	
 	

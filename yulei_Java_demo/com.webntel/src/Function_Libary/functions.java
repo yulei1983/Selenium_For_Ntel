@@ -51,6 +51,7 @@ import Object_Repository.WebTable;
 
 import java.awt.Robot;
 import java.lang.String;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -132,6 +133,12 @@ public class functions {
 		return s;
 	}
 	
+	public static String ExceptionMessageFormat(Exception e, Boolean exp , Boolean actual) {
+		String s = "";
+		s = ExceptionMessageFormat(e, exp, actual) + "gui_start "+" gui_end";
+		return s;
+	}
+
     public static String ExcptionMessageRejector(Exception e,String filterkeyword) {
     	String s = "";
 		StackTraceElement[] stackTraceElements = e.getStackTrace();
@@ -341,6 +348,10 @@ public class functions {
 
 
 	public void Cancel_Ticket(String TN) throws Exception{
+		String isdisabled = Browser_GUI.MainPage.WebEdit_TNTR(driver).getAttribute("disabled");
+		if (isdisabled.compareToIgnoreCase("true")==0) {
+			ClearNtel(driver);
+		}
 		Enter_TN(TN);
 		ClearNtel(driver);
 	}
@@ -348,12 +359,15 @@ public class functions {
 	
 	public void ClearNtel(WebDriver driver){
 		try {
-			WebElement AMOK;
-			AMOK = driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']//span[contains(text(),'O')]/parent::div"));
+			Boolean Y = IsExist(driver.findElement(By.xpath("//div[@id='flowlayoutcontainer']//td[@valign='middle']//td[@valign='middle']//span[contains(text(),'O')]/parent::div")));
+			if(Y) {
+			    Browser_GUI.MainPage.AM_OK(driver).click();	
+		    }
+			   Y =IsExist(By.xpath("//span[contains(text(),'Please select an entry from the tree list')]//ancestor::table[3]//table//table[normalize-space()='OK']"));
+			if(Y) {
+			    driver.findElement(By.xpath("//span[contains(text(),'Please select an entry from the tree list')]//ancestor::table[3]//table//table[normalize-space()='OK']")).click();	
+		    }
 			
-			if(AMOK.isDisplayed()) {
-			Browser_GUI.MainPage.AM_OK(driver).click();	
-		}
 		if (Browser_GUI.MainPage.Submit_AgMsg_Yes(driver) != null) {
 			Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click();
 		}
@@ -363,6 +377,8 @@ public class functions {
 		if (Browser_GUI.MainPage.Submit_TankYou_OK(driver) != null) {
 			Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
 		}
+		
+		
 
 		   } catch (Exception e) {
 			   // TODO: handle exception
@@ -422,7 +438,7 @@ public class functions {
 			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpected   , "null"));
 		}
 }
-	
+
 	public  Boolean CheckPorperty(WebElement webelement,String porperty,String vExpected){
 	        try {
 				FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
@@ -471,7 +487,27 @@ public class functions {
 			}
 	}
 	
-	public  Boolean CheckPorpertyDate(WebElement webelement,String porperty,String vExpected, int distance){
+	public void CheckBooleanTureIsPass(Boolean yBoolean){
+        try {
+    		if (!yBoolean) {
+   			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , true , false));
+   		}
+		} catch (Exception e) {
+			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , true , false));
+		}
+    }
+	
+	public void CheckBooleanFalseIsPass(Boolean yBoolean){
+        try {
+    		if (yBoolean) {
+   			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , false , true));
+   		}
+		} catch (Exception e) {
+  			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , false , true));
+		}
+    }
+	
+	public  Boolean CheckPorpertyDate(WebElement webelement,String porperty,String vExpected ,String ExpectedFormat , String ActFormat , int distance){
         try {
 			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
 			fwait.withTimeout(Duration.ofSeconds(6));
@@ -493,8 +529,8 @@ public class functions {
  			vActualed = vActualed.replaceAll("amp;", "");
 // 		    // ȥ���ո� 
 // 	        vActualed = vActualed.replaceAll(" ", ""); 
- 			Date expDate =new SimpleDateFormat("MM-dd-yy hhmma").parse(vExpected+"M");
- 			Date ActDate = new SimpleDateFormat("MM/dd/yy hh:mma").parse(vActualed+"M");
+ 			Date expDate =new SimpleDateFormat(ExpectedFormat).parse(vExpected+"M");
+ 			Date ActDate = new SimpleDateFormat(ActFormat).parse(vActualed+"M");
  			long startTime = expDate.getTime();
  			long endTime = ActDate.getTime();
  			long IsOver15mins = Math.abs((startTime - endTime)/1000/60);
@@ -554,30 +590,30 @@ public class functions {
 		softassert.assertAll();	
 	}
 	
-	public boolean IsExist(WebElement webelement) throws NoSuchElementException {
+	public boolean IsExist(WebElement webelement) {
 		try {
 			fWait.until(ExpectedConditions.visibilityOf(webelement));
 			webelement.isDisplayed();
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}
 	
-	public static boolean IsExist(WebElement webelement,By by) throws NoSuchElementException {
+	public static boolean IsExist(WebElement webelement,By by) {
 		try {
 			webelement.findElement(by);
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}
 	
-	public boolean IsExist(By by) throws NoSuchElementException {
+	public boolean IsExist(By by) {
 		try {
 			driver.findElement(by);
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}
@@ -782,10 +818,6 @@ public class functions {
             
 				return flag;    
     }
-	
-	
-
-	
 
 	public String get_commitment_time() {
 		String get_commitment_time = Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value");
@@ -904,12 +936,40 @@ public class functions {
 		return adminGUIDriver;
 	}
 	
+//	'####################################################
+//	'# Open_Expeditet_LOG()
+//	'# Function: Goto demo Expeditet Issues Log to check TR all fields’ value
+//	'#  By yulei, on 04072022
+//	'####################################################
+	public static WebDriver Open_Expeditet_LOG() {
+		WebDriver adminGUIDriver = Login_AG("QAVIEW", "123456", "CO");
+		SwitchToFrame(adminGUIDriver, "Menu");
+		AdminGui.MainPage.Expedite_Admin(adminGUIDriver).click();
+		AdminGui.MainPage.Expedite_Reports_Log(adminGUIDriver).click();
+		SwitchToFrame(adminGUIDriver, "mainFrame");
+		AdminGui.MainPage.Btn_Demo(adminGUIDriver).click();
+		return adminGUIDriver;
+	}
+	
 	public static Boolean SwitchToFrame(WebDriver driver,String FrameSrcName) {
 		driver.switchTo().defaultContent();
 		int size = driver.findElements(By.tagName("frame")).size();
 		for (int i = 0; i < size; i++) {
 //			System.out.print(driver.findElements(By.tagName("frame")).get(i).getAttribute("name"));
 		    if (driver.findElements(By.tagName("frame")).get(i).getAttribute("name").equalsIgnoreCase(FrameSrcName)) {
+			    driver.switchTo().frame(i);
+			    return true;
+	    	}         
+		}
+		return false;
+	}
+	
+	public static Boolean SwitchToFrame(WebDriver driver,String Attribute,String value) {
+		driver.switchTo().defaultContent();
+		int size = driver.findElements(By.tagName("iframe")).size();
+		for (int i = 0; i < size; i++) {
+//			System.out.print(driver.findElements(By.tagName("frame")).get(i).getAttribute("name"));
+		    if (driver.findElements(By.tagName("iframe")).get(i).getAttribute(Attribute).equalsIgnoreCase(value)) {
 			    driver.switchTo().frame(i);
 			    return true;
 	    	}         
@@ -963,6 +1023,50 @@ public class functions {
 		return "DT";
 	} 
 
+	public String get_localtime_Cal_round_dt(int hours) {	
+		String strDate = "";
+		String strtempDate = "";
+		try {
+			String localtime = get_localtime_maingui();
+			Date ActDate = new SimpleDateFormat("MM-dd-yy hhmma").parse(localtime+"M");
+//			long startTime = ActDate.getTime();
+			ActDate = DateAdd(ActDate, Calendar.HOUR_OF_DAY , hours);
+			DateFormat dateFormat = new SimpleDateFormat("MM-dd-yy hhmma");
+			strtempDate = dateFormat.format(ActDate);
+			strDate = strtempDate;
+			if ( Integer.parseInt(strtempDate.substring(11, 13)) > 1 ) {//If more than 10mins then add 1 hours.
+				ActDate = DateAdd(ActDate, Calendar.HOUR_OF_DAY , 1);
+				strDate = dateFormat.format(ActDate);
+				strDate = new StringBuilder(strDate).replace(11, 13, "00").toString();
+			}
+			strDate = strDate.replace("M", "");
+			return strDate;
+		} catch (Exception e) {
+
+		}
+		return strDate;
+	} 
+	/*
+	 * @TimeClass  :  eg.  Calendar.HOUR_OF_DAY
+	 * @instance : eg. 1 or 2 or 3 etc.
+	 * 
+	 */
+	public String get_localtime_Cal_dt( int TimeClass , int instance) {	
+		String strDate = "";
+		try {
+			String localtime = get_localtime_maingui();
+			Date ActDate = new SimpleDateFormat("MM-dd-yy hhmma").parse(localtime+"M");
+//			long startTime = ActDate.getTime();     Calendar.HOUR_OF_DAY
+			ActDate = DateAdd(ActDate, TimeClass , instance);
+			DateFormat dateFormat = new SimpleDateFormat("MM-dd-yy hhmma");
+			strDate = dateFormat.format(ActDate).replace("M", "");
+			return strDate;
+		} catch (Exception e) {
+
+		}
+		return strDate;
+	} 
+	
 	/**
 	 * 模拟鼠标操作 - 鼠标右击
 	 */
@@ -985,8 +1089,6 @@ public class functions {
 		functions fun = new functions(dr);
 		fun.loginNtel("jt0005");
 
-		fun.loginNtel("jt0015");
-		
 //		 Date  vToday = new SimpleDateFormat("MM-dd-yy hhmma").parse("04-13-22 1037P"+"M");
 //		 vToday = DateAdd(vToday, Calendar.DAY_OF_YEAR , 4);
 //		 String strToday = dateToString(vToday);

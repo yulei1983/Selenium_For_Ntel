@@ -21,7 +21,6 @@ import Object_Repository.Browser_GUI;
 import Object_Repository.CheckPoints;
 
 public class WFA_POTS_Dial_Tone_2{
-//	SoftAssert softAt = null;
 	WebDriver driver = null;
 	functions funs = null;
 	String declaringClassNameReg = "TestCases";
@@ -1916,7 +1915,6 @@ public class WFA_POTS_Dial_Tone_2{
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
 		 funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
 		 Browser_GUI.MainPage.Ask_Yes(driver).click();
-		 
 		 
 		 Browser_GUI.MainPage.Tree_value(driver, "FEATURE NOT IN TRANSLATIONS");
 		 Browser_GUI.MainPage.Tree_value(driver, "TOUCH-TONE SERVICE FOR TESTING");

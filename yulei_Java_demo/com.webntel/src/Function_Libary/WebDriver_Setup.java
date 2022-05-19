@@ -3,6 +3,7 @@ package Function_Libary;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 //import org.openqa.selenium.edge.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -74,13 +75,15 @@ public class WebDriver_Setup {
 				Coptions.addArguments("--disable-web-security");
 				Coptions.addArguments("--allow-running-insecure-content");
 				Coptions.setCapability(ChromeOptions.CAPABILITY, Coptions);
-				driver = new ChromeDriver();
+				driver = new ChromeDriver(Coptions);
 			    break;
 		case "EDGE":
 			 webdv = PropertiesDataProvider.getTestData("config/config.properties", "Edgewebdv");
 			 webdvdir = PropertiesDataProvider.getTestData("config/config.properties", "Edgewebdvdir");
 			 System.setProperty(webdv, webdvdir);
-			 driver = new EdgeDriver();
+			 EdgeOptions options = new EdgeOptions();
+			 options.addArguments("--disable-infobars");
+			 driver = new EdgeDriver(options);
 			 break;
 		default:
 			 driver = null;

@@ -90,13 +90,18 @@ public class CheckPoints {
 	 	    }
 	}
 	
+	public static String DataInput_OK() {
+		String checkpoint = "DataInput_OK";
+		return getValueFromExcel(checkpoint);
+	}
+	
 	public static String DataInput_Enter_the_call_forwarding_number() {
 		String checkpoint = "DataInput_Enter_the_call_forwarding_number";
 		return getValueFromExcel(checkpoint);
 	}
 	
-	public static String DataInput_OK() {
-		String checkpoint = "DataInput_OK";
+	public static String information_CLOSE() {
+		String checkpoint = "information_CLOSE";
 		return getValueFromExcel(checkpoint);
 	}
 	
@@ -3568,6 +3573,12 @@ public class CheckPoints {
 		 String checkpoint = "AM_OK";
 		 return getValueFromExcel(checkpoint);
 		}
+		
+		public static String Submit_TankYou_OK_For_Queue(){
+			 String checkpoint = "Submit_TankYou_OK_For_Queue";
+			 return getValueFromExcel(checkpoint);
+			}
+		
 		public static String AM_Ntelagent_will_close_report$(){
 		 String checkpoint = "AM_Ntelagent_will_close_report$";
 		 return getValueFromExcel(checkpoint);
@@ -5982,13 +5993,18 @@ public class CheckPoints {
 		 String checkpoint = "AM_$_Pending_Pickup$PP$_General_NCSC_Screening_Bucket$POT$";
 		 return getValueFromExcel(checkpoint);
 		}
-//		public static String Ask_Does_customer_agree_to_charges$(){
-//			 String checkpoint = "AM_$_Pending_Pickup$PP$_General_NCSC_Screening_Bucket$POT$";
-//			 return getValueFromExcel(checkpoint);
-//			}
+		
+		public static String AM_Advise_the_customer_that_the_trouble_will_be_cleared_by$$$access_to_the_NID(){
+			 String checkpoint = "AM_Advise_the_customer_that_the_trouble_will_be_cleared_by$$$access_to_the_NID";
+			 return getValueFromExcel(checkpoint);
+			}
+		
+		public static String Ask_The_customer_has_already_been_given$$$customer_accept_this_commitment$(){
+			 String checkpoint = "Ask_The_customer_has_already_been_given$$$customer_accept_this_commitment$";
+			 return getValueFromExcel(checkpoint);
+			}
 	
-	
-	
+		
 	
 	
 	
