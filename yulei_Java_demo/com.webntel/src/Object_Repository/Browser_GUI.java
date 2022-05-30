@@ -107,6 +107,20 @@ public class Browser_GUI {
 			 return element;
 			} 
 		 
+		 public static WebElement AM_JTextPane(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']")));
+			 element = driver.findElement(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement AM2_JTextPane(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']")));
+			 element = driver.findElement(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']"));
+			 return element;
+			}
+
 		 public static WebElement AM_OK(WebDriver driver){	 
 			 try {
 				 Browser_GUI.SetWait(driver);
@@ -120,24 +134,48 @@ public class Browser_GUI {
 		 public static WebElement AM_Yes(WebDriver driver){	 
 			 try {
 				 Browser_GUI.SetWait(driver);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']")));
-				element = driver.findElement(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']"));
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']")));
+				element = driver.findElement(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']"));
 			 } catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_Yes"   , "No popup"));
 			}
 			 return element; 
 			} 
-		 
+
 		 public static WebElement AM_No(WebDriver driver){	 
 			 try {
 				 Browser_GUI.SetWait(driver);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']")));
-				element = driver.findElement(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']"));
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']")));
+				element = driver.findElement(By.xpath("//div[@nid='messagedialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']"));
 			 } catch (Exception e) {
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_No"   , "No popup"));
 			}
 			 return element; 
 			} 
+
+		 public static WebElement AM2_Yes(WebDriver driver){	 
+			 try {
+				 Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']")));
+				element = driver.findElement(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_Yes"   , "No popup"));
+			}
+			 return element; 
+			} 
+
+		 public static WebElement AM2_No(WebDriver driver){	 
+			 try {
+				 Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']")));
+				element = driver.findElement(By.xpath("//div[@nid='askdialog_U' or @nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='No']"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "AM_No"   , "No popup"));
+			}
+			 return element; 
+			} 
+		//div[@nid='askdialog_U']//div[normalize-space()='Agent Message']/following-sibling::div//td[@valign='middle']/div[normalize-space()='Yes']
+		 
 		 
 		 public static WebElement BTN_Login_OK(WebDriver driver) throws NoSuchElementException{
 		     element = driver.findElement(By.xpath("//font[text()='OK']"));
@@ -156,6 +194,8 @@ public class Browser_GUI {
 			 return element;
 			} 		 
 		 public static WebElement Error_MessageBox_OK(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='hotKey'][text()='O']")));
 			 element = driver.findElement(By.xpath("//span[@class='hotKey'][text()='O']"));
 			 return element;
 			}		 
@@ -311,11 +351,8 @@ public class Browser_GUI {
 			 return element;
 			}
 		 
-		 public static WebElement AM_JTextPane(WebDriver driver){
-			 Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='askdialog_L']//div[normalize-space()='Agent Message']/following-sibling::div//span[@class='askdialog-message']")));
-			 return element;
-			}
+
+		
 		 
 		 public static WebElement Ask_Yes(WebDriver driver){
 			 Browser_GUI.SetWait(driver);
@@ -328,18 +365,49 @@ public class Browser_GUI {
 			 element = element.findElement(By.xpath("./parent::div"));
 			 return element;
 			}
-		
-		 public static WebElement DataInput_JTextPane(WebDriver driver) throws Exception{
+		 
+		 public static WebElement DataInput2_JTextPane(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='ebmsgf']")));
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//td[@class='ebmsgf']")));
+			 return element;
+			}
+
+		 public static WebElement DataInput2_Title(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//div[text()='Data Input']")));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput2_MaskEdit(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//input")));
 //			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
 		 
+		 public static WebElement DataInput2_OK(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='OK']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+		 
+		 public static WebElement DataInput2_Cancel(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='Cancel']")));
+//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
+			 return element;
+			}
+
+		 public static WebElement DataInput_JTextPane(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//td[@class='ebmsgf']")));
+			 return element;
+			}
+
 		 public static WebElement DataInput_Title(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
 			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multiinputdialog_U']//div[text()='Data Input']")));
-//			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
 		 
@@ -575,7 +643,26 @@ public class Browser_GUI {
 			 return element;
 		 }
 		 
+		 public static WebElement Treelist_Title(WebDriver driver){
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='treelistdialog_U']//div[text()='TreeList']")));
+			 element = driver.findElement(By.xpath("//div[@nid='treelistdialog_U']//div[text()='TreeList']"));
+			 return element;
+			}
+		 
+		 public static WebElement Treelist_Option(WebDriver driver , String treelist_option){
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + treelist_option + "\"]")));
+			 element = driver.findElement(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + treelist_option + "\"]"));
+			 return element;
+			}
+		 
+		 public static WebElement Treelist_OK(WebDriver driver){
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='treelistdialog_U']//td[@valign = 'middle' and normalize-space()='OK']")));
+			 element = driver.findElement(By.xpath("//div[@nid='treelistdialog_U']//td[@valign = 'middle' and normalize-space()='OK']"));
+			 return element;
+			}
+		 
 		 public static WebElement TreeForm_Title(WebDriver driver){
+			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='treeformdialog_U']//div[text()='TreeForm']")));
 			 element = driver.findElement(By.xpath("//div[@nid='treeformdialog_U']//div[text()='TreeForm']"));
 			 return element;
 			}
@@ -590,7 +677,7 @@ public class Browser_GUI {
 			 return element;
 			}
 		 
-		 public static WebElement treeForm_expandNode(WebDriver driver , String TreeForm_Option){
+		 public static WebElement TreeForm_expandNode(WebDriver driver , String TreeForm_Option){
 			 WebElement element;
 			//div[@class='treeRootDIV']//span/span[text()="CAN'T BE CALLED"]/parent::span/preceding-sibling::img[2]
 			List<WebElement> elements = driver.findElements(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + TreeForm_Option + "\"]"));

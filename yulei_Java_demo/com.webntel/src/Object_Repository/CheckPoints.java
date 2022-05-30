@@ -110,6 +110,11 @@ public class CheckPoints {
 		return getValueFromExcel(checkpoint);
 	}
 	
+	public static String Ask_Have_you_already_contacted_NDC_for$$$override_$ID_authorization_required$() {
+		String checkpoint = "Ask_Have_you_already_contacted_NDC_for$$$override_$ID_authorization_required$";
+		return getValueFromExcel(checkpoint);
+	}
+	
 	public static String AM_Advise_the_customer_to_call_the_ATT_CPE_Cust$$$1_800_667_2118$$$phone_is_under_warranty() {
 		String checkpoint = "AM_Advise_the_customer_to_call_the_ATT_CPE_Cust$$$1_800_667_2118$$$phone_is_under_warranty";
 		return getValueFromExcel(checkpoint);
@@ -2385,8 +2390,8 @@ public class CheckPoints {
 		 String checkpoint = "AM_This_will_cancel_Expedite_Escalation_Request$_Are_you_sure_you_want_to_Cancel$";
 		 return getValueFromExcel(checkpoint);
 		}
-		public static String AM_This_will_cancel_EMS_Escalatio(){
-		 String checkpoint = "AM_This_will_cancel_EMS_Escalatio";
+		public static String AM2_This_will_cancel_EMS_Escalatio(){
+		 String checkpoint = "AM2_This_will_cancel_EMS_Escalatio";
 		 return getValueFromExcel(checkpoint);
 		}
 		public static String AM_This_will_be_referred_to_our_Voice_Mail_Group_for_correction$(){

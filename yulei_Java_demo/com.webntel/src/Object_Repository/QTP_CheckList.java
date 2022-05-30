@@ -10,6 +10,14 @@ public class QTP_CheckList {
 	public QTP_CheckList() {
 
 	}
+//	public static String[] 	IF_aware_other_customers 
+//    = {"Ask if the customer is aware of other customers in the area affected?",
+//		"Yes","No","Unsure"};
+//
+//	public static String[] 	IF_AT$T_CABLE 
+//    = {"Ask customer if this is an AT&T cable?",
+//		"Yes","No","Unsure"};
+	
 	public static String[] ChooseBox_MainMenu_MW 
 	     = {"AT&T POTS Main Menu - Select One:",
 			"Dial Tone","Can't Call Out","Voice Mail","Caller ID",
@@ -1532,17 +1540,20 @@ public class QTP_CheckList {
 				,"Outside to Outside"
 				,"Outside to Inside"
 				,"For Remodeling"};
+	
 	public static String[] ChooseBox_IF_AT$T_CABLE
 		= {"Ask customer if this is an AT&T cable?"
 				,"Yes"
 				,"No"
 				,"Unsure"
 				};
+	
 	public static String[] ChooseBox_IF_aware_other_customers
 		= {"Ask if the customer is aware of other customers in the area affected?","Yes"
 				,"No"
 				,"Unsure"
 				};
+	
 	public static String[] ChooseBox_No_Report_VMS_Trouble_SE
 		= {"Report VMS Trouble - Select One:"
 				,"Education Requested"

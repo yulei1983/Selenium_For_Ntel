@@ -86,9 +86,11 @@ public class functions {
 	
 	public functions(WebDriver driver) throws Exception
 	{
-//	    this.fWait = new FluentWait<WebDriver>(driver)
-//		    	.withTimeout(5, TimeUnit.SECONDS)
-//		        .pollingEvery(400, TimeUnit.MILLISECONDS);
+		FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
+		fwait.withTimeout(Duration.ofSeconds(6));
+		fwait.pollingEvery(Duration.ofSeconds(2));		
+		fwait.ignoring(NoSuchElementException.class);
+		this.fWait = fwait;
 	    this.driver = driver;
 //		        .ignoring(NoSuchElementException.class);
 //		if (Debug_scripts.isDebug) {
@@ -190,7 +192,8 @@ public class functions {
 	 * 
 	 * By yulei, on 05052022
 	 */
-	public void ReloginNtel(String UserName) throws Exception{
+	public void ReloginNtel(String UserName){
+		try {
         ClearNtel(driver);
         Browser_GUI.MainPage.MenuBar_System(driver).click();
 		Thread.sleep(Threaddely);
@@ -211,6 +214,9 @@ public class functions {
         Browser_GUI.MainPage.MenuBar_System(driver).click();
 		Thread.sleep(Threaddely);
 		Browser_GUI.MainPage.MenuBar_System_Demo(driver).click();
+		} catch (Exception e) {
+		    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  ""   , "ReloginNtel failed"));
+		}
 	}
 	
 	public Boolean update_ntel_dbase(String sql , String TableName) {
@@ -260,7 +266,8 @@ public class functions {
 		}
 	}
 		
-	public void RollBackAll() throws Exception {		
+	public void RollBackAll() {	
+		try {
 		Thread.sleep(500);
 		Set<String> handles = driver.getWindowHandles();
 		Boolean PadminExist = false;
@@ -287,23 +294,21 @@ public class functions {
 				Browser_GUI.MainPage.MenuBar_Table(driver).click();
 				Browser_GUI.MainPage.Personalization_Admin(driver).click();
 				functions.switchToWindow("Ntelagent Personalization Admin", driver);
-//				functions.highlightObj(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver),driver);  
 				Thread.sleep(2000);
 		        Actions actions = new Actions(driver);
 		        actions.moveToElement(Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver), 42 , 1);
 		        actions.click();
 		        actions.build().perform();
-//				JavascriptExecutor executor = (JavascriptExecutor)driver;
-//				executor.executeScript("arguments[0].click();", Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_list(driver));
-//		        Robot robot = new Robot();
-//		        robot.mouseMove(143, 92);
-//		        actions.click().build().perform();
+
 		        Browser_GUI.PersonalizationAdmin.PersonalizationAdmin_Rollback_all(driver).click();
 				Thread.sleep(2000);
 		        Browser_GUI.PersonalizationAdmin.Ask_Yes(driver).click();
 		        driver.close();
 		        functions.switchToWindow("(DEMO)", driver);
 			}
+		} catch (Exception e) {
+		    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  ""   , "Rollback failed"));
+		}
 
 	}
 	
@@ -410,6 +415,7 @@ public class functions {
 	
 	public  void CheckPorperty(By by,String porperty,String vExpected){
         try {
+			Thread.sleep(500);
 			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
 			fwait.withTimeout(Duration.ofSeconds(6));
 			fwait.pollingEvery(Duration.ofSeconds(2));		
@@ -441,6 +447,7 @@ public class functions {
 
 	public  Boolean CheckPorperty(WebElement webelement,String porperty,String vExpected){
 	        try {
+				Thread.sleep(500);
 				FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
 				fwait.withTimeout(Duration.ofSeconds(6));
 				fwait.pollingEvery(Duration.ofSeconds(2));		
@@ -713,6 +720,8 @@ public class functions {
 		try {
 			ChooseBox choosebox = new ChooseBox(driver);
 			functions func = new functions(driver);
+			fWait.until(ExpectedConditions.visibilityOf(choosebox.ChooseBox_JTextPane()));
+			
 			func.CheckPorperty(choosebox.ChooseBox_JTextPane(), "textContent",
 		      args[0]);
 		    
@@ -1030,19 +1039,19 @@ public class functions {
 			String localtime = get_localtime_maingui();
 			Date ActDate = new SimpleDateFormat("MM-dd-yy hhmma").parse(localtime+"M");
 //			long startTime = ActDate.getTime();
-			ActDate = DateAdd(ActDate, Calendar.HOUR_OF_DAY , hours);
+			ActDate = DateAdd(ActDate, Calendar.HOUR , hours);
 			DateFormat dateFormat = new SimpleDateFormat("MM-dd-yy hhmma");
 			strtempDate = dateFormat.format(ActDate);
 			strDate = strtempDate;
 			if ( Integer.parseInt(strtempDate.substring(11, 13)) > 1 ) {//If more than 10mins then add 1 hours.
-				ActDate = DateAdd(ActDate, Calendar.HOUR_OF_DAY , 1);
+				ActDate = DateAdd(ActDate, Calendar.HOUR , 1);
 				strDate = dateFormat.format(ActDate);
 				strDate = new StringBuilder(strDate).replace(11, 13, "00").toString();
 			}
 			strDate = strDate.replace("M", "");
 			return strDate;
 		} catch (Exception e) {
-
+			strDate = "null value";
 		}
 		return strDate;
 	} 
@@ -1083,6 +1092,43 @@ public class functions {
 //			MMDriver.softAssert.fail(ExceptionMessage(e, "", "MouseRightClick failed!") + "gui_start ");
 		}
 	}
+	
+	
+	
+	public static String get_CommitentWithTZ(WebDriver driver , String TZ) {	
+		String Commit = "";
+		try {
+		    Browser_GUI.MainPage.Tree(driver, "TROUBLE INFORMATION").click();
+			functions.SwitchToFrame(driver, "class", "gwt-Frame");
+			switch (TZ) {
+			case "OS":
+				Commit = Browser_GUI.MainPage.OS_Commitment(driver).getText();
+				driver.switchTo().defaultContent();
+				break;
+			case "AS":
+				Commit = Browser_GUI.MainPage.AS_Commitment(driver).getText();
+				driver.switchTo().defaultContent();
+				break;
+			case "BC":
+				Commit = Browser_GUI.MainPage.BC_Commitment(driver).getText();
+				driver.switchTo().defaultContent();
+				break;
+			default:
+				Commit = Browser_GUI.MainPage.AS_Commitment(driver).getText();
+				driver.switchTo().defaultContent();
+				break;
+			}
+			return Commit;
+		} catch (Exception e) {
+			return Commit;
+		}
+	} 
+
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args) throws Exception {
 		WebDriver dr = WebDriver_Setup.launchBrowser();

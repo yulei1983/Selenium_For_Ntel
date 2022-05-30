@@ -3,15 +3,15 @@
 <suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Batch_1]" parallel="classes">
   <test thread-count="1" name="Default test(failed)" parallel="classes">
     <classes>
-      <class name="TestCases.WFA_POTS_Dial_Tone_1">
+      <class name="TestCases.WFA_Set_Basic24_Commit_Personalization">
         <methods>
           <include name="afterMethod"/>
           <include name="AfterClass"/>
+          <include name="Basic24_34"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="DT_14"/>
         </methods>
-      </class> <!-- TestCases.WFA_POTS_Dial_Tone_1 -->
+      </class> <!-- TestCases.WFA_Set_Basic24_Commit_Personalization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Batch_1] -->

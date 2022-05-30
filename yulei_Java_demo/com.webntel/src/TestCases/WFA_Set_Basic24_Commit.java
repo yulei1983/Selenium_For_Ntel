@@ -387,7 +387,7 @@ public class WFA_Set_Basic24_Commit {
 			Browser_GUI.MainPage.AM_OK(driver).click();
 			
 			funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-			Browser_GUI.MainPage.treeForm_expandNode(driver, "NO DIAL TONE") .click();
+			Browser_GUI.MainPage.TreeForm_expandNode(driver, "NO DIAL TONE") .click();
 			Browser_GUI.MainPage.TreeForm_Option(driver, "NO DIAL TONE", 1).click();
 			Browser_GUI.MainPage.TreeForm_OK(driver).click();			
 
@@ -781,7 +781,7 @@ public class WFA_Set_Basic24_Commit {
 		Browser_GUI.MainPage.Ask_Yes(driver).click();
 
 		funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-		Browser_GUI.MainPage.treeForm_expandNode(driver, "NO DIAL TONE") .click();
+		Browser_GUI.MainPage.TreeForm_expandNode(driver, "NO DIAL TONE") .click();
 		Browser_GUI.MainPage.TreeForm_Option(driver, "NO DIAL TONE", 1).click();
 		Browser_GUI.MainPage.TreeForm_OK(driver).click();			
 
@@ -891,7 +891,7 @@ public class WFA_Set_Basic24_Commit {
 			Browser_GUI.MainPage.Ask_Yes(driver).click();
 
 			funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-			Browser_GUI.MainPage.treeForm_expandNode(driver, "PHYSICAL") .click();
+			Browser_GUI.MainPage.TreeForm_expandNode(driver, "PHYSICAL") .click();
 			Browser_GUI.MainPage.TreeForm_Option(driver, "PHYSICAL", 1).click();
 			Browser_GUI.MainPage.TreeForm_OK(driver).click();			
 
@@ -1078,7 +1078,7 @@ public class WFA_Set_Basic24_Commit {
 							Browser_GUI.MainPage.Ask_Yes(driver).click();
 					
 							funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-							Browser_GUI.MainPage.treeForm_expandNode(driver, "CAN'T BE CALLED") .click();
+							Browser_GUI.MainPage.TreeForm_expandNode(driver, "CAN'T BE CALLED") .click();
 							Browser_GUI.MainPage.TreeForm_Option(driver, "CAN'T BE CALLED", 1).click();
 							Browser_GUI.MainPage.TreeForm_OK(driver).click();	
 					
@@ -1190,7 +1190,7 @@ public class WFA_Set_Basic24_Commit {
 
 		Browser_GUI.MainPage.Tree_value(driver, "RELATED TO COF");
 		funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-		Browser_GUI.MainPage.treeForm_expandNode(driver, "NO DIAL TONE") .click();
+		Browser_GUI.MainPage.TreeForm_expandNode(driver, "NO DIAL TONE") .click();
 		Browser_GUI.MainPage.TreeForm_Option(driver, "NO DIAL TONE", 1).click();
 		Browser_GUI.MainPage.TreeForm_OK(driver).click();
 
@@ -1253,7 +1253,7 @@ public class WFA_Set_Basic24_Commit {
 
 			Browser_GUI.MainPage.Tree_value(driver, "RELATED TO COF");
 			funs.CheckPorperty(Browser_GUI.MainPage.TreeForm_Title(driver), "innerText","TreeForm");
-			Browser_GUI.MainPage.treeForm_expandNode(driver, "TRANSMISSION") .click();
+			Browser_GUI.MainPage.TreeForm_expandNode(driver, "TRANSMISSION") .click();
 			Browser_GUI.MainPage.TreeForm_Option(driver, "TRANSMISSION", 1).click();
 			Browser_GUI.MainPage.TreeForm_OK(driver).click();
 
@@ -1650,18 +1650,13 @@ public class WFA_Set_Basic24_Commit {
 	       }
            functions.softassert.assertAll();  	    	
 	}
-	
-	
-	
-	
-	
-	
+
 	@Test
 	public void Basic24_39(){
 	    try {	
 	    ChooseBox chooseBox;
 	    chooseBox = new ChooseBox(driver);
-	    funs.Enter_TN("9985002321");
+	    funs.Enter_TN("9975002350");
 	    Thread.sleep(3000);
 	    
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
@@ -1670,28 +1665,187 @@ public class WFA_Set_Basic24_Commit {
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
 		Browser_GUI.MainPage.Ask_Yes(driver).click();
 		
-		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR ATTSENFPOTS");
-		Browser_GUI.MainPage.Tree_value(driver, "ACCOUNT STATUS:IN EFFECT");
-		Browser_GUI.MainPage.Tree_value(driver, "STATUS WKG");
-		Browser_GUI.MainPage.Tree_value(driver, "LOC (SF)");
-		Browser_GUI.MainPage.Tree_value(driver, "CONSUMER SERVICE");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		Browser_GUI.MainPage.Tree_value(driver, "BASIC24 CUSTOMER");
 		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Service_Order_Activity_is_present$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+		
 		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
-		funs.ClearNtel(driver);
+		chooseBox.ChooseBoxBtn("Physical").click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Physical);
+		Browser_GUI.MainPage.Tree_value(driver, "PHYSICAL");
+		chooseBox.ChooseBoxBtn("Damaged Outside Plant (Cable/Pole/Terminal)").click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Damaged_Outside_Plant_$Cable$Pole$Terminal$);
+		Browser_GUI.MainPage.Tree_value(driver, "DAMAGED OUTSIDE PLANT (CABLE/POLE/TERMINAL)");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","PHYS"); 
+		chooseBox.ChooseBoxBtn("Cable Down/Low").click();
+		
+		Browser_GUI.MainPage.Tree_value(driver, "CABLE DOWN/LOW");
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Ask_customer_if_they_are_out_of_service$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Is_this_Hazardous$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER IS OUT OF SERVICE");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","NDT"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver) , "value","PDF"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CA DOWN/LOW CAB DOWN/LOW-OOS"); 
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","NDT"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver) , "value","HAZARD"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CA DOWN/LOW CAB DOWN/LOW-OOS HAZARDOUS BASIC24"); 
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER SAYS HAZARDOUS");
+		String HAZARDCommitment = funs.get_localtime_Cal_round_dt(4);
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Commitment(driver) , "value",HAZARDCommitment); 
+
+		Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).click();
+	    Thread.sleep(1000);
+	    funs.CheckBooleanTureIsPass(Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).isSelected());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_The_customer_has_already_been_given$$$customer_accept_this_commitment$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).click();
+	    Thread.sleep(1000);
+	    funs.CheckBooleanFalseIsPass(Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).isSelected());
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_This_will_cancel_Expedite_Escalation_Request$_Are_you_sure_you_want_to_Cancel$());
+		Browser_GUI.MainPage.AM_Yes(driver).click();
+
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-JERRY"); 
+
+        Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+        funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes()); 
+        Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+        Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+        funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+        Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
 		   }
 	    catch (Exception e) {
 			funs.ClearNtel(driver);
 			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
 	       }
-           functions.softassert.assertAll();  	    	
+           functions.softassert.assertAll();  	     	
 	}
 	
 	@Test
-	public void Basic24_39(){
+	public void Basic24_40(){
 	    try {	
 	    ChooseBox chooseBox;
 	    chooseBox = new ChooseBox(driver);
-	    funs.Enter_TN("9985002321");
+	    funs.Enter_TN("9975002350");
+	    Thread.sleep(3000);
+	    
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Please_verify_the_customer$s_name_and_address$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		Browser_GUI.MainPage.Tree_value(driver, "BASIC24 CUSTOMER");
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Service_Order_Activity_is_present$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+		
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		chooseBox.ChooseBoxBtn("Physical").click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Physical);
+		Browser_GUI.MainPage.Tree_value(driver, "PHYSICAL");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","PHYS"); 
+		chooseBox.ChooseBoxBtn("Damaged Outside Plant (Cable/Pole/Terminal)").click();
+		
+		Browser_GUI.MainPage.Tree_value(driver, "DAMAGED OUTSIDE PLANT (CABLE/POLE/TERMINAL)");
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Damaged_Outside_Plant_$Cable$Pole$Terminal$);
+		chooseBox.ChooseBoxBtn("Cable Down/Low").click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "CABLE DOWN/LOW");
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Ask_customer_if_they_are_out_of_service$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER NOT OUT OF SERVICE");
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_IF_aware_other_customers);
+		chooseBox.ChooseBoxBtn("Cable Down/Low").click();
+
+		Browser_GUI.MainPage.Tree_value(driver, "NO/UNSURE IF OTHERS AFFECTED");
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_IF_AT$T_CABLE);
+		chooseBox.ChooseBoxBtn("Unsure").click();	
+
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Is_this_Hazardous$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Tree_value(driver, "UNSURE");
+		Browser_GUI.MainPage.Tree_value(driver, "YES/UNSURE IF AT&T CABLE");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","PHYS"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver) , "value","REFNDC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CA DOWN/LOW ATT CABLE DOWN/LOW"); 
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver) , "value","PHYS"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver) , "value","HAZARD"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD CA DOWN/LOW ATT CABLE DOWN/LOW HAZARDOUS"); 
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER SAYS HAZARDOUS");
+		String HAZARDCommitment = funs.get_localtime_Cal_round_dt(4);
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Commitment(driver) , "value",HAZARDCommitment); 
+
+		Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).click();
+	    Thread.sleep(1000);
+	    funs.CheckBooleanTureIsPass(Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).isSelected());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_The_customer_has_already_been_given$$$customer_accept_this_commitment$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).click();
+	    Thread.sleep(1000);
+	    funs.CheckBooleanFalseIsPass(Browser_GUI.MainPage.CheckBox_BACKDOWN(driver).isSelected());
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_This_will_cancel_Expedite_Escalation_Request$_Are_you_sure_you_want_to_Cancel$());
+		Browser_GUI.MainPage.AM_Yes(driver).click();
+
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("9999999999"); 
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-JERRY"); 
+
+        Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+        funs.CheckPorperty(Browser_GUI.MainPage.Submit_AgMsg_Yes(driver), "innerText",CheckPoints.Submit_AgMsg_Yes()); 
+        Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+        Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+        funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+        Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	     	
+	}
+
+	@Test
+	public void Basic24_41(){
+	    try {	
+	    ChooseBox chooseBox;
+	    chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9984002350");
 	    Thread.sleep(3000);
 	    
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
@@ -1704,16 +1858,72 @@ public class WFA_Set_Basic24_Commit {
 		Browser_GUI.MainPage.Tree_value(driver, "ACCOUNT STATUS:IN EFFECT");
 		Browser_GUI.MainPage.Tree_value(driver, "STATUS WKG");
 		Browser_GUI.MainPage.Tree_value(driver, "LOC (SF)");
-		Browser_GUI.MainPage.Tree_value(driver, "CONSUMER SERVICE");
+		Browser_GUI.MainPage.Tree_value(driver, "BUSINESS SERVICE");
 		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Service_Order_Activity_is_present$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+		
+	     if (funs.IsExist(By.xpath("//ui[text()='BASIC24 CUSTOMER']"))) {
+	 		functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "SHOULD NOT DISPLAY"   , "DISPLAY"));
+		}	
+
 		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
 		funs.ClearNtel(driver);
+
 		   }
 	    catch (Exception e) {
 			funs.ClearNtel(driver);
 			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
 	       }
-           functions.softassert.assertAll();  	    	
+           functions.softassert.assertAll();  	     	
+	}
+	
+	@Test
+	public void Basic24_42(){
+	    try {	
+	    ChooseBox chooseBox;
+	    chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9984002353");
+	    Thread.sleep(3000);
+	    
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Please_verify_the_customer$s_name_and_address$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
+		
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR ATTSENFPOTS");
+		Browser_GUI.MainPage.Tree_value(driver, "ACCOUNT STATUS:IN EFFECT");
+		Browser_GUI.MainPage.Tree_value(driver, "STATUS WKG");
+		Browser_GUI.MainPage.Tree_value(driver, "LOC (SF)");
+		Browser_GUI.MainPage.Tree_value(driver, "BUSINESS SERVICE");
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Service_Order_Activity_is_present$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+		
+	     if (funs.IsExist(By.xpath("//ui[text()='BASIC24 CUSTOMER']"))) {
+	 		functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "SHOULD NOT DISPLAY"   , "DISPLAY"));
+		}
+		
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_MW);
+		funs.ClearNtel(driver);
+		driver.quit();
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	     	
 	}
 	
 	public static void main(String[] args) {
