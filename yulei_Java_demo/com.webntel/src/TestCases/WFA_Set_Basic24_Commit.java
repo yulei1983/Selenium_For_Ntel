@@ -704,12 +704,7 @@ public class WFA_Set_Basic24_Commit {
 	       }
            functions.softassert.assertAll();  	    	
 	}
-	
-	
-	
-	
-	
-	
+
 	@Test
 	public void Basic24_16(){
 	    try {	

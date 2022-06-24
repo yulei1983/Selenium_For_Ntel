@@ -76,7 +76,12 @@ public class Browser_GUI {
 //			 return element;
 //			} 
 
-		 
+		 public static WebElement BTN_DPG(WebDriver driver){
+			    Browser_GUI.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='transOneButton']//div[text()='DPG']")));
+				element = driver.findElement(By.xpath("//div[@nid='transOneButton']//div[text()='DPG']"));
+		        return element;
+			}
 		 
 		 public static WebElement Information_OK(WebDriver driver){ 
 			    Browser_GUI.SetWait(driver);
@@ -366,6 +371,31 @@ public class Browser_GUI {
 			 return element;
 			}
 		 
+		 public static WebElement select_Service_Address_Title(WebDriver driver) {
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='selsrvaddrdialog_U']//div[text()='Select Service Address']")));
+			 return element;
+			}
+		 
+		 public static WebElement Select_Service_Address_JTextPane(WebDriver driver) {
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='selsrvaddrdialog_U']//div[@class='ebmsgf']")));
+			 return element;
+			}
+		 
+		 public static WebElement select_Service_Address_Option(WebDriver driver , String Option) {
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class,'selsrvaddrFieldset')]//fieldset//label[text()='"+ Option +"']")));
+			 return element;
+			}
+
+		 public static WebElement Select_Service_Address_OK(WebDriver driver) throws Exception{
+			  Browser_GUI.SetWait(driver);
+			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='selsrvaddrdialog_U']//div[contains(@style,'font') and normalize-space()='OK']")));
+			 return element;
+			}
+		 
+		 
 		 public static WebElement DataInput2_JTextPane(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
 			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//td[@class='ebmsgf']")));
@@ -592,10 +622,45 @@ public class Browser_GUI {
 		 
 		 public static WebElement Cancel_Customer_Error(WebDriver driver){
 				 element =driver.findElement(By.xpath("//span[text()='Customer Error']"));
-
 			 return element;
 			}
 		 	 
+		 
+		 public static WebElement Verify_and_select_the_name_and_service_address_being_reported_Title(WebDriver driver){
+			 try {
+				//div[contains(@class,'informationRow')]//font[text()="TROUBLE INFORMATION"]
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[text()='Verify and select the name and service address being reported']")));
+				 element = driver.findElement(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[text()='Verify and select the name and service address being reported']"));
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Verify_and_select_the_name_and_service_address_being_reported_Title"   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+		 
+		 public static WebElement V_and_s_name_and_service_address_Option(WebDriver driver,String Option){
+			 try {
+				//div[contains(@class,'informationRow')]//font[text()="TROUBLE INFORMATION"]
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[@id='flowlayoutcontainer']//div[@class='treeRootDIV']//span[text()='"+ Option +"']")));
+				 element = driver.findElement(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[@id='flowlayoutcontainer']//div[@class='treeRootDIV']//span[text()='"+ Option +"']"));
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Verify_and_select_the_name_and_service_address_being_reported"   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+		 
+		 public static WebElement V_and_s_name_and_service_address_OK(WebDriver driver){
+			 try {
+				//div[contains(@class,'informationRow')]//font[text()="TROUBLE INFORMATION"]
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[contains(@class,'fullDiv')]//td[@valign='middle' and normalize-space()='OK']//div[contains(@style,'font')]")));
+				 element = driver.findElement(By.xpath("//div[@nid='multirecordstreelistdialog_U']//div[contains(@class,'fullDiv')]//td[@valign='middle' and normalize-space()='OK']//div[contains(@style,'font')]"));
+			 } catch (Exception e) {
+				        functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Verify_and_select_the_name_and_service_address_being_reported_Title"   , "The Tree no display!"));
+			   }
+			 return element;
+		 }
+		 
+		 
+		 
 		 public static WebElement Tree(WebDriver driver,String vTree){
 			 try {
 				//div[contains(@class,'informationRow')]//font[text()="TROUBLE INFORMATION"]
@@ -728,6 +793,10 @@ public class Browser_GUI {
 		 return element;
 		}
 		 
+		 public static WebElement Webtable_right_html_section(WebDriver driver){
+			 element = driver.findElement(By.xpath("//table[@align='center']"));
+			 return element;
+			}
 		 
     } 
     
@@ -766,7 +835,6 @@ public class Browser_GUI {
 			 element = driver.findElement(By.xpath("//div[contains(text(),'YES')]"));
 			 return element;
 		}
-
     }
     
    }

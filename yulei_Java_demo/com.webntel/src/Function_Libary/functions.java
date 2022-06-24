@@ -4,26 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 import java.sql.*;
-import javax.swing.tree.ExpandVetoException;
-
 import java.util.Set;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.interactions.Actions;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,8 +40,16 @@ import Object_Repository.ChooseBox;
 import Object_Repository.WebTable;
 //import prepare.MMDriver;
 //import utils.Lib;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 
 import java.awt.Robot;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.lang.String;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -587,6 +587,43 @@ public class functions {
 		}
 }
 	
+	public  void CheckPorpertyWithRegex(WebElement webelement,String porperty,String vExpectedRegex){
+        try {
+        	boolean IsPass = false;
+			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
+			fwait.withTimeout(Duration.ofSeconds(6));
+			fwait.pollingEvery(Duration.ofSeconds(2));		
+			fwait.ignoring(NoSuchElementException.class);
+			fwait.until(ExpectedConditions.visibilityOf(webelement));
+ 			String vActualed = webelement.getAttribute(porperty);
+ 		    // <p>�����滻Ϊ���� 
+             vActualed = vActualed.replaceAll("<p .*?>", "\r\n"); 
+ 		    // <br><br/>�滻Ϊ���� 
+ 			vActualed = vActualed.replaceAll("<br\\s*/?>", "\r\n"); 
+ 		    // ȥ��������<>֮��Ķ��� 
+ 			vActualed = vActualed.replaceAll("\\<.*?>", ""); 
+ 			//ȥ��\r
+ 			vActualed = vActualed.replaceAll("\r", ""); 
+ 			//ȥ��\n
+ 			vActualed = vActualed.replaceAll("\n", "");
+ 			//ȥ��amp;
+ 			vActualed = vActualed.replaceAll("amp;", "");
+// 		    // ȥ���ո� 
+// 	        vActualed = vActualed.replaceAll(" ", ""); 
+ 			
+ 	    	Pattern Pcontext = Pattern.compile(vExpectedRegex);
+ 	        Matcher matcher = Pcontext.matcher(vActualed);
+ 	        IsPass = matcher.find();
+
+ 			if (!IsPass) {
+			    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpectedRegex   , vActualed));
+			}
+// 			functions.softassert.assertEquals(vActualed, vExpected," expected [" + vExpected + "] but found [" + vActualed + "]@@\n\t");
+ 			
+		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  vExpectedRegex   , "null"));
+		}
+}
 //	public void CheckPorperty(WebElement webelement,String porperty,String vExpected) throws Exception{
 //		fWait.until(ExpectedConditions.visibilityOf(webelement));
 //		String vActualed = webelement.getAttribute(porperty);
@@ -618,13 +655,24 @@ public class functions {
 	
 	public boolean IsExist(By by) {
 		try {
+			fWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			driver.findElement(by);
 			return true;
 		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  "Exist"   , "Not exist"));
 			return false;
 		}
 	}
 	
+	public boolean IsNotExist(By by) {
+		try {
+			fWait.until(ExpectedConditions.visibilityOfElementLocated(by));
+			driver.findElement(by);
+			return false;
+		} catch (Exception e) {
+			return true;
+		}
+	}
 //	public static boolean IsExist(Table table) throws NoSuchElementException{
 //		try {
 //			int i = table.hashCode();
@@ -1124,6 +1172,306 @@ public class functions {
 		}
 	} 
 
+	public static Boolean Update_TrxStatus_InAdminGUI(String TN , String DataClass , String Status) {
+		WebDriver adminGUIDriver = null;
+		try {
+		adminGUIDriver = Login_AG("QAVIEW", "123456", "CO");
+		SwitchToFrame(adminGUIDriver, "Menu");
+		AdminGui.MainPage.DRM(adminGUIDriver).click();
+		AdminGui.MainPage.Modify_Data_DRM(adminGUIDriver).click();
+		SwitchToFrame(adminGUIDriver, "mainFrame");
+		adminGUIDriver.switchTo().frame("checkframe");
+		AdminGui.ModifyData.select_Search_type(adminGUIDriver,"TN");
+		AdminGui.ModifyData.WebEdit_Search(adminGUIDriver).sendKeys(TN);
+		AdminGui.ModifyData.Btn_Search(adminGUIDriver).click();
+		adminGUIDriver.switchTo().frame("Tree");
+		adminGUIDriver.findElement(By.xpath("//a[text()='"+ TN +"']")).click();
+		adminGUIDriver.switchTo().parentFrame();
+		adminGUIDriver.switchTo().frame("myframe");
+		adminGUIDriver.findElement(By.xpath("//td/font[text()='"+ DataClass +"']")).click();
+		AdminGui.ModifyData.select_STATUS(adminGUIDriver, Status);
+		adminGUIDriver.quit();
+        return true;
+		} catch (Exception e) {
+			adminGUIDriver.quit();
+			functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Update_TrxStatus_InAdminGUI"   , "Failed"));
+	        return false;
+		}
+        
+	}
+	
+	/**
+	 * 获取标准table表格中的数据
+	 * @param TableObject table对象
+	 * @param row  行 1起始
+	 * @param column 列 1起始
+	 * @return String
+	 * @author yulei
+	 */
+	public static String GetTableCellData(WebElement TableObject, int row, int column)
+    {
+        String text = null;
+//      String xpath="./tbody/tr["+row+"]/td["+column+"]";
+        String xpath=".//tr["+row+"]/td["+column+"]";
+        WebElement CellObj = TableObject.findElement(By.xpath(xpath));
+        text=CellObj.getText();
+        return text;
+    }
+	/**
+	 * 获取总行数
+	 * @param TableObject table对象
+	 * @return int 总行数
+	 * @author yulei
+	 */
+	public static int GetTableRows(WebElement TableObject)
+    {
+        int row = 0;
+        String xpath="./tbody/tr";
+        List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
+        row = eles.size();
+        return row;
+    }
+	
+	/**
+	 * 获取总列数
+	 * @param TableObject table对象
+	 * @return int 总列数
+	 * @author yulei
+	 */
+	public static int GetTableColumns(WebElement TableObject)
+    {
+        int column = 0;
+        String xpath="./tbody/tr[1]/td";
+        List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
+        column = eles.size();
+        return column;
+    }
+	
+	public static List<String> GetTableActuals(WebElement TableObject) {
+		int Rowcount = functions.GetTableRows(TableObject);
+		int Columncount = functions.GetTableColumns(TableObject);
+		List<String> Actuals = new ArrayList<>();
+//        HashMap<String, int[][]> acts =new HashMap< String, int[Rowcount][Columncount]>();
+		for (int r = 0; r < Rowcount ; r++) {
+			for (int c = 0; c < Columncount ; c++) {
+				Actuals.add(functions.GetTableCellData(TableObject, r+1, c+1));
+			}
+		}
+		return Actuals;
+	}
+	
+	/**
+	 * 获取table中所有数据及数据坐标
+	 * @Parameter TableObject (By为WebTable_XXX)
+	 * @return Map<String, List<Integer>>
+	 * @author yulei
+	 */
+	private static Map<List<Integer> , String> GetTableActualsSet(WebElement TableObject) {
+		int Rowcount = functions.GetTableRows(TableObject);
+		List<WebElement> ColumnObjs = null;
+		String R = null;
+		List<Integer> XYPoint = null;
+		Boolean IsInput = false;
+		Boolean Istextarea = false;
+        String InputBoxActual=null;
+        int CloNum = 0;
+		// create map to store
+        Map<List<Integer> , String> map = new HashMap<List<Integer> , String>();
+        
+		for (int r = 0; r < Rowcount ; r++) {
+			R = String.valueOf(r+1);
+			ColumnObjs = TableObject.findElements(By.xpath("./tbody/tr["+ R +"]/td"));
+			//遍历列
+			CloNum = 1;
+			for (WebElement ColumnObj : ColumnObjs) {
+				IsInput = ColumnObj.findElements(By.xpath("./input")).size() != 0;
+				Istextarea = ColumnObj.findElements(By.xpath("./textarea")).size() != 0;
+				
+			    //如果为input或textarea输入框,则取值
+			    if (IsInput||Istextarea) {
+			    	InputBoxActual = ColumnObj.getText();
+			    	InputBoxActual = ColumnObj.findElement(By.xpath("./child::*")).getAttribute("value") + InputBoxActual;
+			    	XYPoint = new ArrayList<Integer>();
+			    	//X
+			    	XYPoint.add(r+1);
+			    	//Y
+			    	XYPoint.add(CloNum);
+		                map.put(XYPoint , InputBoxActual);
+		                ++CloNum;
+			    }
+		        else {
+			    	XYPoint = new ArrayList<Integer>();
+			    	//X
+			    	XYPoint.add(r+1);
+			    	//Y
+			    	XYPoint.add(CloNum);
+		                map.put(XYPoint , functions.GetTableCellData(TableObject, r+1, CloNum).trim());
+		                ++CloNum;
+			    }
+			}
+		}
+        return map;
+	}
+
+	/**
+	 * @param map
+	 * @param CaseName
+	 * @param CheckPointName
+	 * @author yulei
+	 */
+	private static void InputTableActualsSetToExcel(Map<List<Integer> , String> map , String CaseName , String CheckPointName) {
+		OutputStream os = null;
+		OutputStream PointOs = null;
+//		String subFix = "";
+//		String testNgNm = "";
+        Boolean IsExist = false;
+        Boolean IsSame = false;
+        int inx = 0;
+        Label cell = null;
+        Label XYcell = null;
+        int j = 0;
+        
+		try {
+			//是否存在该Case 的CheckPoint文件
+	        File dir = new File("./TableCheckPoint/");
+	        File[] dir_contents = dir.listFiles();     
+	        for (int i = 0; i < dir_contents.length; i++) {
+	            if (dir_contents[i].getName().equals(CaseName + ".xls"))
+	                 IsExist = true;
+	                }
+
+	        if (!IsExist) {
+			   os = new FileOutputStream("./TableCheckPoint/" + CaseName + ".xls");
+			   // 创建一个可写的Workbook
+			   WritableWorkbook wwb = Workbook.createWorkbook(os);
+//			   wwb.removeSheet(1);
+//			   wwb.removeSheet(2);
+			   WritableSheet sheet = wwb.createSheet(CheckPointName , 0);
+               //循环遍历map取值并输入到excel对应格中
+			   
+			   for(Map.Entry<List<Integer>, String> entry: map.entrySet())
+	              {
+	            	  cell = new Label(entry.getKey().get(1) , entry.getKey().get(0) , entry.getValue());
+	            	  sheet.addCell(cell);
+	            	  XYcell = new Label(j, 314, entry.getKey().get(0)+","+entry.getKey().get(1));
+	            	  sheet.addCell(XYcell);
+	            	  ++j;
+	              }
+//			          System.out.println(sheet.getColumns());  
+			   wwb.write();
+			   wwb.close();
+			 //存在该Case 的CheckPoint文件  
+			}else {
+				// 获得原始文档
+		       Workbook wb = Workbook.getWorkbook(new File("./TableCheckPoint/" + CaseName + ".xls")); 
+		       WritableWorkbook wwb = Workbook.createWorkbook(new File("./TableCheckPoint/" + CaseName + ".xls"),wb);
+		       WritableSheet[] sheetlist = wwb.getSheets();
+		          //查找是否有同名检查点
+		          for (WritableSheet writableSheet : sheetlist) { 
+//		        	  System.out.println(writableSheet.getName());
+		     	     if (writableSheet.getName().equals(CheckPointName)) {
+		     	  	      IsSame = true;
+		     	  	      break;
+			 	     }  
+		     	    ++inx;
+			      }
+		        //是否有同名检查点
+		          if (IsSame) {
+		        	  //检查点同名则修改检查点内容
+		        	  WritableSheet sheet = wwb.getSheet(inx);
+		        	//clear all cells
+		        	  for (int i = sheet.getRows()-1; i >= 0; i--) {
+						sheet.removeRow(i);
+					  }  
+		        	  //循环遍历map取值并输入到excel对应格中
+		              for(Map.Entry<List<Integer>, String> entry: map.entrySet())
+		              {
+		            	  cell = new Label(entry.getKey().get(1) , entry.getKey().get(0) , entry.getValue());
+		            	  sheet.addCell(cell);
+		            	  XYcell = new Label(j, 314, entry.getKey().get(0)+","+entry.getKey().get(1));
+		            	  sheet.addCell(XYcell);
+		            	  ++j;
+		              }
+				  } else {
+					 //检查点不同名则新建检查点sheet
+			          WritableSheet sheet = wwb.createSheet(CheckPointName , sheetlist.length);
+			          sheet.setName(CheckPointName);
+			          //clear all cells
+		        	  for (int i = sheet.getRows()-1; i >= 0; i--) {
+						sheet.removeRow(i);
+					  }  
+		        	  //循环遍历map取值并输入到excel对应格中
+		              for(Map.Entry<List<Integer>, String> entry: map.entrySet())
+		              {
+		            	  cell = new Label(entry.getKey().get(1) , entry.getKey().get(0) , entry.getValue());
+		            	  sheet.addCell(cell);
+		            	  XYcell = new Label(j, 314, entry.getKey().get(0)+","+entry.getKey().get(1));
+		            	  sheet.addCell(XYcell);
+		            	  ++j;
+		              }
+				    }
+				   wwb.write();
+				   wwb.close();
+			 }
+
+		} catch (Exception e) {
+			System.out.println("InputTableActualsSetToExcel error");
+		}
+		
+	}
+    
+	public static void TableCheckPoint(WebElement Obj , String CaseName, String CheckPointName) {
+		String TableCheckPointEnable = PropertiesDataProvider.getTestData("config/config.properties", "TableCheckPointEnable");
+		Map<List<Integer> , String> DataSet = null;
+		String Expected = "";
+		String Actualed = "";
+	   try {
+		switch (TableCheckPointEnable) {
+		case "0":
+	        DataSet = functions.GetTableActualsSet(Obj);
+	        functions.InputTableActualsSetToExcel(DataSet, CaseName, CheckPointName);
+			break;
+
+		case "1":
+			Map<List<Integer> , String> ExpectedDataSetMap = new HashMap<List<Integer> , String>();
+			List<Integer> ExpectedXYPoint = null;
+			String[] tempXYPoint = null;
+			String XYCell = "";
+	        DataSet = functions.GetTableActualsSet(Obj);
+		    Workbook wb = Workbook.getWorkbook(new File("./TableCheckPoint/" + CaseName + ".xls")); 
+            Sheet sheet = wb.getSheet(CheckPointName);
+            
+            //将Excel中的数据转换为hashmap
+            for (int i = 0; i < sheet.getColumns(); i++) {
+            	ExpectedXYPoint = new ArrayList<Integer>();
+				XYCell = sheet.getCell(i, 314).getContents();
+				tempXYPoint = XYCell.split(",");
+				for (String xandy : tempXYPoint) {
+					ExpectedXYPoint.add(Integer.valueOf(xandy));
+				}
+				ExpectedDataSetMap.put(ExpectedXYPoint, sheet.getCell(ExpectedXYPoint.get(1), ExpectedXYPoint.get(0)).getContents());
+			}
+            
+            for (Map.Entry<List<Integer>, String> ExpectedDataSetMapEntry : ExpectedDataSetMap.entrySet()) {
+            	Actualed = DataSet.get(ExpectedDataSetMapEntry.getKey()); 
+            	Expected = ExpectedDataSetMapEntry.getValue();
+    			functions.softassert.assertEquals(Actualed, Expected, functions.ExceptionMessageFormat(new Exception() ,  CheckPointName   , "Failed"));
+
+// 			    assertEquals(Actualed, Expected, CheckPointName + "\n["+ ExpectedDataSetMapEntry.getKey()+"]");
+ 			    DataSet.remove(ExpectedDataSetMapEntry.getKey());
+			}
+            //如果不为空则实际值多出
+			functions.softassert.assertTrue(DataSet.isEmpty() , functions.ExceptionMessageFormat(new Exception() ,  CheckPointName   , "\nActuals is more than Expects.Please review the case,if need to update?"));
+//			functions.softassert.assertTrue(DataSet.isEmpty(), CheckPointName+"\nActuals is more than Expects.Please review the case,if need to update?");
+			break;
+		}
+		
+	   } catch (Exception e) {
+			// TODO: handle exception
+	   }
+	}
+	
+	
 	
 	
 	

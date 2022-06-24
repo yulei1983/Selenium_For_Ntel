@@ -1,5 +1,6 @@
 package Object_Repository;
 
+import java.security.cert.PKIXRevocationChecker.Option;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -143,9 +144,7 @@ public class AdminGui {
 			}
 			 return element; 
 			}
-		 
-		 
-		 
+
 		 public static WebElement Btn_Demo(WebDriver driver){	 
 			 try {
 				 AdminGui.SetWait(driver);
@@ -178,8 +177,99 @@ public class AdminGui {
 			}
 			 return element; 
 			}
-
+		 
+		 public static WebElement DRM(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(text(),'>>DRM')]")));
+				element = driver.findElement(By.xpath("//td[contains(text(),'>>DRM')]"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "DRM"   , "No popup"));
+			}
+			 return element; 
+			}
+		 
+		 public static WebElement Modify_Data_DRM(WebDriver driver){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Modify Data ')]")));
+				element = driver.findElement(By.xpath("//a[contains(text(),'Modify Data ')]"));
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Modify Data "   , "No popup"));
+			}
+			 return element; 
+			}
 	}
+	
+	public static class ModifyData{
+		 public static Boolean select_Search_type(WebDriver driver , String classString){	 
+			 try {
+				 AdminGui.SetWait(driver);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@name='select']")));
+				element = driver.findElement(By.xpath("//select[@name='select']"));
+				element.click();
+				element.findElement(By.xpath("./option[@value='" + classString + "']")).click();
+				return true;
+			 } catch (Exception e) {
+				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "select_Search_type"   , "failed"));
+				return false;
+			 }
+		 }
+			 
+				public static WebElement WebEdit_Search(WebDriver driver){	 
+					 try {
+						 AdminGui.SetWait(driver);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='DefaultGrayText']//input[@name='key']")));
+						element = driver.findElement(By.xpath("//td[@class='DefaultGrayText']//input[@name='key']"));
+					 } catch (Exception e) {
+						functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Search"   , "No exist"));
+					}
+					 return element; 
+					}
+			 
+				public static WebElement Btn_Search(WebDriver driver){	 
+					 try {
+						 AdminGui.SetWait(driver);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='Submit']")));
+						element = driver.findElement(By.xpath("//input[@name='Submit']"));
+					 } catch (Exception e) {
+						functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "WebEdit_Search"   , "No exist"));
+					}
+					 return element; 
+					}
+				
+				 public static Boolean select_STATUS(WebDriver driver , String STATUS){	 
+					 try {
+						 AdminGui.SetWait(driver);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@name='STATUS']")));
+						element = driver.findElement(By.xpath("//select[@name='STATUS']"));
+						element.click();
+						wait.until(ExpectedConditions.elementToBeClickable(element.findElement(By.xpath("./option[@value='" + STATUS + "']"))));
+						element.findElement(By.xpath("./option[@value='" + STATUS + "']")).click();
+						return true;
+					 } catch (Exception e) {
+						functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "select_Search_type"   , "failed"));
+						return false;
+					 }
+				 }
+				
+				 public static Boolean Btn_Update(WebDriver driver){	 
+					 try {
+						 AdminGui.SetWait(driver);
+						wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td/img[@onclick='onUpdate();']")));
+						element = driver.findElement(By.xpath("//td/img[@onclick='onUpdate();']"));
+						element.click();
+						return true;
+					 } catch (Exception e) {
+						functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Btn_Update"   , "failed"));
+						return false;
+					 }
+				 }
+				 
+				 
+			 
+	}
+	
 	
 	
 	public static class EMS_Issues_Log_Detail{

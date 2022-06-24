@@ -1319,13 +1319,7 @@ public class WFA_Set_Basic24_Commit_Personalization {
 	       }
            functions.softassert.assertAll();  	    	
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@Test
 	public void Basic24_36(){
 	    try {	
@@ -1345,7 +1339,6 @@ public class WFA_Set_Basic24_Commit_Personalization {
 		
 		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
 		Browser_GUI.MainPage.Tree_value(driver, "BASIC24 CUSTOMER");
-		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
 		CheckPoints.Ask_Our_records_indicate_you_are_reporting_a_Coin_phone$_Are_you_the_owner_or_vendor$());
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
@@ -1359,7 +1352,6 @@ public class WFA_Set_Basic24_Commit_Personalization {
 		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
 		chooseBox.ChooseBoxBtn("No Dial Tone").click();
 
-		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD NDT AP/AC"); 
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
 		CheckPoints.Ask_Is_that_line_currently_in_use$());
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
@@ -1369,17 +1361,17 @@ public class WFA_Set_Basic24_Commit_Personalization {
 		Browser_GUI.MainPage.Tree_value(driver, "NID LOCATION");
 		Browser_GUI.MainPage.Tree_value(driver, "EXK OVERRIDE USED TO TEST THIS NUMBER");
 		Browser_GUI.MainPage.Tree_value(driver, "LINE NOT IN USE");
-		Browser_GUI.MainPage.Tree_value(driver, "MLT/LOOPCARE:CROSS");
+		Browser_GUI.MainPage.Tree_value(driver, "MLT/LOOPCARE: CROSS");
 		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","TEST : CROSS TO WKG PR"); 
 		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","PDO"); 
 
-		funs.CheckPorperty(Browser_GUI.MainPage.DataInput_JTextPane(driver), "innerText",
+		funs.CheckPorperty(Browser_GUI.MainPage.DataInput2_JTextPane(driver), "innerText",
 				CheckPoints.Data_Input_Ask_the_customer_where_the_NID_is_located$_Input_location_of_NID$());
 		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","PDO"); 
-		Browser_GUI.MainPage.DataInput_MaskEdit(driver).clear();
-		Browser_GUI.MainPage.DataInput_MaskEdit(driver).sendKeys("DON'T KNOW");
-		funs.CheckPorperty(Browser_GUI.MainPage.DataInput_MaskEdit(driver), "value","DON'T KNOW"); 
-		Browser_GUI.MainPage.DataInput_OK(driver).click();
+		Browser_GUI.MainPage.DataInput2_MaskEdit(driver).clear();
+		Browser_GUI.MainPage.DataInput2_MaskEdit(driver).sendKeys("DON'T KNOW");
+		funs.CheckPorperty(Browser_GUI.MainPage.DataInput2_MaskEdit(driver), "value","DON'T KNOW"); 
+		Browser_GUI.MainPage.DataInput2_OK(driver).click();
 		
 		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
 		CheckPoints.Ask_Does_NID_location_require_access_arrangements$());
