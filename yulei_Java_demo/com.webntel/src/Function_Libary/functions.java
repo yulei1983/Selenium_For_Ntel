@@ -45,6 +45,7 @@ import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+import net.bytebuddy.dynamic.loading.ClassLoadingStrategy.ForUnsafeInjection;
 
 import java.awt.Robot;
 import java.io.File;
@@ -83,6 +84,7 @@ public class functions {
 //		    	.withTimeout(4, TimeUnit.SECONDS)
 //		        .pollingEvery(500, TimeUnit.MILLISECONDS);
 //	}
+
 	
 	public functions(WebDriver driver) throws Exception
 	{
@@ -350,7 +352,13 @@ public class functions {
 //  }
 	
 	
-
+	public void Cancel_Ticket() throws Exception{
+	    Browser_GUI.MainPage.Cancel(driver).click();
+		Thread.sleep(300);
+		Browser_GUI.MainPage.Cancel_Customer_Error(driver).click();
+		Thread.sleep(300);
+		Browser_GUI.MainPage.Cancel_Message_Yes(driver).click();
+	}
 
 	public void Cancel_Ticket(String TN) throws Exception{
 		String isdisabled = Browser_GUI.MainPage.WebEdit_TNTR(driver).getAttribute("disabled");
@@ -358,9 +366,64 @@ public class functions {
 			ClearNtel(driver);
 		}
 		Enter_TN(TN);
-		ClearNtel(driver);
+	    Browser_GUI.MainPage.Cancel(driver).click();
+		Thread.sleep(300);
+		Browser_GUI.MainPage.Cancel_Customer_Error(driver).click();
+		Thread.sleep(300);
+		Browser_GUI.MainPage.Cancel_Message_Yes(driver).click();
 	}
 	
+	public static void SendKeysOnebyOne(Actions action , String str  ) {
+		try {
+			 char[] characters= null;
+			 characters = str.toCharArray();
+			 for (char c : characters) {
+				  action.sendKeys(Character.toString(c));
+				  Thread.sleep(300);
+			 }
+			 action.perform();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public static void Set_STATUS_COMMENTS(WebDriver driver , String str) {
+		try {
+			Actions act = new Actions(driver);
+			functions func = new functions(driver);
+			Browser_GUI.SPPage.STATUS_COMMENTS_1(driver).click();
+			functions.SendKeysOnebyOne(act, str);
+			func.CheckPorperty(Browser_GUI.SPPage.STATUS_COMMENTS_1(driver) , "value" , str);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void ClearSP(WebDriver driver){
+		try {
+			functions funs = new functions(driver);
+			if (Browser_GUI.MainPage.Receipt_1_X(driver)!=null) {
+				Browser_GUI.MainPage.Receipt_1_X(driver).click();
+			}
+			if (Browser_GUI.MainPage.Screening_1_X(driver)!=null) {
+				Browser_GUI.MainPage.Screening_1_X(driver).click();
+			}
+
+		   } catch (Exception e) {
+			   // TODO: handle exception
+		   }
+		finally {
+			try {
+				Thread.sleep(Threaddely);
+		        Browser_GUI.MainPage.Cancel(driver).click();
+				Thread.sleep(Threaddely);
+				Browser_GUI.MainPage.Cancel_Customer_Error(driver).click();
+				Thread.sleep(Threaddely);
+				Browser_GUI.MainPage.Cancel_Message_Yes(driver).click(); 
+			} catch (Exception e2) {
+			}
+		}
+	}
 	
 	public void ClearNtel(WebDriver driver){
 		try {
@@ -382,9 +445,6 @@ public class functions {
 		if (Browser_GUI.MainPage.Submit_TankYou_OK(driver) != null) {
 			Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();
 		}
-		
-		
-
 		   } catch (Exception e) {
 			   // TODO: handle exception
 		   }
@@ -659,8 +719,18 @@ public class functions {
 			driver.findElement(by);
 			return true;
 		} catch (Exception e) {
-			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  "Exist"   , "Not exist"));
+//			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  "Exist"   , "Not exist"));
 			return false;
+		}
+	}
+	
+	public boolean IsNotExist(WebElement webelement) {
+		try {
+			fWait.until(ExpectedConditions.visibilityOf(webelement));
+//			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  "Not exist"   , "Exist"));
+			return false;
+		} catch (Exception e) {
+			return true;
 		}
 	}
 	
@@ -668,6 +738,7 @@ public class functions {
 		try {
 			fWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			driver.findElement(by);
+			functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  "Not exist"   , "Exist"));
 			return false;
 		} catch (Exception e) {
 			return true;
@@ -962,6 +1033,75 @@ public class functions {
 		return bool;
 	}
 	
+	public Boolean set_REQUESTED_COMMIT(String NtelREQUESTEDCOMMIT) throws ParseException {
+		Boolean bool = false;
+		try {
+				String MM = NtelREQUESTEDCOMMIT.substring(0, 2);
+				String dd = NtelREQUESTEDCOMMIT.substring(3, 5);
+				String YY = NtelREQUESTEDCOMMIT.substring(6, 8);
+				String hh = NtelREQUESTEDCOMMIT.substring(9, 11);
+				String mm = NtelREQUESTEDCOMMIT.substring(11, 13);
+				String AP = NtelREQUESTEDCOMMIT.substring(13, 14);
+				Actions actions = new Actions(driver);
+				actions.moveToElement(Browser_GUI.MainPage.WebEdit_EMS_OREF_REQUESTED_COMMIT(driver) , -89, -7);
+				actions.click();
+				actions.sendKeys(MM);
+//				char[] characters= null;
+//				 characters = MM.toCharArray();
+//				 for (char c : characters) {
+//					 actions.sendKeys(Character.toString(c));
+//					  Thread.sleep(300);
+//				 }
+				actions.sendKeys(Keys.ARROW_RIGHT);
+//				 characters= null;
+//				 characters = dd.toCharArray();
+//				 for (char c : characters) {
+//					 actions.sendKeys(Character.toString(c));
+//					  Thread.sleep(300);
+//				 }
+				actions.sendKeys(dd);
+				actions.sendKeys(Keys.ARROW_RIGHT);
+//				 characters= null;
+//				 characters = YY.toCharArray();
+//				 for (char c : characters) {
+//					 actions.sendKeys(Character.toString(c));
+//					  Thread.sleep(300);
+//				 }
+				actions.sendKeys(YY);
+				actions.sendKeys(Keys.ARROW_RIGHT);
+				actions.sendKeys(hh);
+				actions.sendKeys(Keys.ARROW_RIGHT);
+				actions.sendKeys(mm);
+				actions.sendKeys(Keys.ARROW_RIGHT);
+				actions.sendKeys(AP);
+				actions.sendKeys(Keys.ARROW_RIGHT);
+				actions.perform();
+				
+				if(Browser_GUI.MainPage.WebEdit_EMS_OREF_REQUESTED_COMMIT(driver).getAttribute("value").equals(NtelREQUESTEDCOMMIT)) {
+					bool = true;
+				}	
+				return bool;
+		
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param CalType  �������� eg.Calendar.DAY_OF_YEAR
+	 * @param num  
+	 * @return  String
+	 * @throws ParseException
+	 */
+	public String datetime_calculation(String ntelDatetimeString  , int CalType , int num) throws ParseException {
+		Date ntelDatetime = functions.convert_datetime_format_ntel_to_qtp(ntelDatetimeString);
+		ntelDatetime = DateAdd(ntelDatetime, CalType, num);
+		ntelDatetimeString = dateToString(ntelDatetime);
+		return ntelDatetimeString;
+	}
+	
+	
 //	'####################################################
 //	'# Login_AG
 //	'# Function: Login to Admin GUI.
@@ -1200,6 +1340,40 @@ public class functions {
         
 	}
 	
+	public static int GetDataRowByTN(WebElement TableObject , String TN , String Order)
+    {
+        int row = 0;
+        int allrows = GetTableRows(TableObject);
+        switch (Order) {
+		case "DES":
+			for (int i = 1 ; i < allrows+1 ; i++) {
+				if (GetTableCellData(TableObject, i , 1).compareTo(TN) == 0) {
+					row = i;
+					break;
+				}
+			}
+			break;
+		default:
+			break;
+		}
+        return row;
+    }
+
+	public static WebElement GetTableRowElement(WebElement TableObject ,  int row){
+        String xpath=".//tr["+row+"]";
+        WebElement CellObj = TableObject.findElement(By.xpath(xpath));
+        return CellObj;
+    }
+	
+	public static void CheckCellData(WebElement TableObject ,  int row, int column ,String Expected)
+    {
+		Boolean res = false;
+		res = GetTableCellData(TableObject, row, column).equals(Expected);
+		if (!res) {
+		   functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  Expected   , GetTableCellData(TableObject, row, column)));
+		}
+    }
+	
 	/**
 	 * 获取标准table表格中的数据
 	 * @param TableObject table对象
@@ -1226,7 +1400,7 @@ public class functions {
 	public static int GetTableRows(WebElement TableObject)
     {
         int row = 0;
-        String xpath="./tbody/tr";
+        String xpath=".//tr";
         List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
         row = eles.size();
         return row;
@@ -1241,7 +1415,7 @@ public class functions {
 	public static int GetTableColumns(WebElement TableObject)
     {
         int column = 0;
-        String xpath="./tbody/tr[1]/td";
+        String xpath=".//tr[1]/td";
         List<WebElement> eles = TableObject.findElements(By.xpath(xpath));
         column = eles.size();
         return column;
@@ -1427,12 +1601,12 @@ public class functions {
 		String Actualed = "";
 	   try {
 		switch (TableCheckPointEnable) {
-		case "0":
+		case "0":  //输入检查点信息
 	        DataSet = functions.GetTableActualsSet(Obj);
 	        functions.InputTableActualsSetToExcel(DataSet, CaseName, CheckPointName);
 			break;
 
-		case "1":
+		case "1"://对比检查点
 			Map<List<Integer> , String> ExpectedDataSetMap = new HashMap<List<Integer> , String>();
 			List<Integer> ExpectedXYPoint = null;
 			String[] tempXYPoint = null;
@@ -1455,6 +1629,13 @@ public class functions {
             for (Map.Entry<List<Integer>, String> ExpectedDataSetMapEntry : ExpectedDataSetMap.entrySet()) {
             	Actualed = DataSet.get(ExpectedDataSetMapEntry.getKey()); 
             	Expected = ExpectedDataSetMapEntry.getValue();
+            	
+            	//忽略带"X"的值
+            	if (Expected.startsWith("X", 0)) {
+            		DataSet.remove(ExpectedDataSetMapEntry.getKey());
+            		continue;
+				}
+            	
     			functions.softassert.assertEquals(Actualed, Expected, functions.ExceptionMessageFormat(new Exception() ,  CheckPointName   , "Failed"));
 
 // 			    assertEquals(Actualed, Expected, CheckPointName + "\n["+ ExpectedDataSetMapEntry.getKey()+"]");
@@ -1474,6 +1655,115 @@ public class functions {
 	
 	
 	
+	
+//	'Check TN or TR whether exist in QueueView
+//	'
+//	'CheckType:  Value    ExpExisted 	 IsRetrieve
+//	'		   0 			No			             No 
+//	'		   1 			Yes	                     No
+//	'		   2 			Yes			     Yes - retrieve by dbclick
+//	'		   3 			Yes			     Yes - retrieve by RETRIEVE button
+//	'               4              Yes                    Yes - retrieve by Enter Key 
+//
+//	'  *if you nocheck another cloum,type "^" instead of cloum value.
+	public static void ChkInQView(WebDriver driver , String[] Expecteds , int CheckType)
+    {
+		try {
+	    List<String> list=Arrays.asList(Expecteds);
+	    List<String> ExpectedList = new ArrayList<String>(list);
+	    WebElement QueueTable = null;
+	    functions funs = new functions(driver);
+			if (Browser_GUI.MainPage.Table_Server_Queue(driver)==null) {
+				Browser_GUI.MainPage.BTN_QueueView(driver).click();
+				QueueTable =  Browser_GUI.MainPage.Table_Server_Queue(driver);
+			}else {
+				QueueTable =  Browser_GUI.MainPage.Table_Server_Queue(driver);
+			}
+			Browser_GUI.MainPage.BTN_REFRESH(driver).click();
+			if (Browser_GUI.MainPage.CheckBox_AUTO(driver).isSelected()) {
+				Browser_GUI.MainPage.CheckBox_AUTO(driver).click();
+			}
+			Boolean isExist = false;
+			int allrows = -1;
+			int TnsRow = -1;
+			switch (CheckType) {
+			case 0:
+				allrows = functions.GetTableRows(QueueTable);
+				for (int i = 1; i < allrows+1 ; i++) {
+					if (ExpectedList.get(1)==functions.GetTableCellData(QueueTable, i, 1)) {
+						isExist = true;
+						break;
+					}
+				}
+				if (isExist) {
+					functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  ExpectedList.get(0)  , "found Record"));
+				}
+				break;
+			
+			case 1:
+                allrows = functions.GetTableRows(QueueTable);
+				for (int i = 1; i < allrows+1 ; i++) {
+					if (ExpectedList.get(1).equals(functions.GetTableCellData(QueueTable, i, 1))) {
+						isExist = true;
+						TnsRow = i;
+						break;
+					}
+				}
+				if (isExist) {
+					for (int i = 1; i < Expecteds.length ; i++) {
+						if (ExpectedList.get(i).equals("^")) {
+							continue;
+						}
+						functions.CheckCellData(QueueTable , TnsRow , i , ExpectedList.get(i));
+					}
+				}else {
+					functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  ExpectedList.get(0)  , "found Record"));
+				}
+				break;
+			
+			case 2:
+                allrows = functions.GetTableRows(QueueTable);
+				for (int i = 1; i < allrows+1 ; i++) {
+					if (ExpectedList.get(1).equals(functions.GetTableCellData(QueueTable, i, 1))) {
+						isExist = true;
+						TnsRow = i;
+						break;
+					}
+				}
+				if (isExist) {
+					for (int i = 1; i < Expecteds.length ; i++) {
+						if (ExpectedList.get(i).equals("^")) {
+							continue;
+						}
+						functions.CheckCellData(QueueTable , TnsRow , i , ExpectedList.get(i));
+					}
+					Actions act = new Actions(driver);
+					act.doubleClick(functions.GetTableRowElement(QueueTable, TnsRow));
+					act.perform();
+				}else {
+					functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  ExpectedList.get(0)  , "found Record"));
+				}
+				break;
+				
+			default:
+				break;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    }
+	
+	public Boolean Set_REASON_CODE(String Rcode) {
+		Browser_GUI.MainPage.WebEdit_EMS_OREF_REASON_CODE(driver).click();
+		fWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'listview-in-dialog')]//div[text()='"+ Rcode +"']")));
+		driver.findElement(By.xpath("//div[contains(@class,'listview-in-dialog')]//div[text()='"+ Rcode +"']")).click();
+		if (CheckPorperty(Browser_GUI.MainPage.WebEdit_EMS_OREF_REASON_CODE(driver), "value", Rcode)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 	

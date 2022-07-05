@@ -8,8 +8,8 @@
           <include name="afterMethod"/>
           <include name="beforeClass"/>
           <include name="beforeMethod"/>
-          <include name="GUI_04_RUD_W"/>
           <include name="AfterClass"/>
+          <include name="EMS_084_CATS_ProcessD_NoProcess_Approved_UncheckBackdown_SW"/>
         </methods>
       </class> <!-- TestCases.GUIs -->
     </classes>

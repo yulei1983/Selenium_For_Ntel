@@ -6009,9 +6009,15 @@ public class CheckPoints {
 			 return getValueFromExcel(checkpoint);
 			}
 	
-
+		public static String AM_Your_report_has_been_queued(){
+			 String checkpoint = "AM_Your_report_has_been_queued";
+			 return getValueFromExcel(checkpoint);
+			}
 	
-	
+		public static String AM_OK_for_report_Queued(){
+			 String checkpoint = "AM_OK_for_report_Queued";
+			 return getValueFromExcel(checkpoint);
+			}
 	
 	
 //	public static String Ask_Yes = "Yes";
