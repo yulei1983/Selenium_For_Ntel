@@ -107,6 +107,13 @@ public class functions {
         return s;
 	}
     
+    public static String ExceptionMessage(Exception e,Boolean Exp, Boolean Actual) {
+    	String s = "";
+    	s = "@@line_start [" + e.getStackTrace()[1].getLineNumber() + "] line_end; expected ["+Exp+"] but found ["+Actual+"]";
+//    	s = "@@\nline_start [" + e.getStackTrace()[1].getLineNumber() + "] line_end;";
+        return s;
+	}
+    
     public static String ExceptionMessage(Exception e) {
     	String s = "";
 //    	s = "@@\nline_start [" + e.getStackTrace()[1].getLineNumber() + "] line_end; expected ["+Exp+"] but found ["+Actual+"]";
@@ -139,7 +146,7 @@ public class functions {
 	
 	public static String ExceptionMessageFormat(Exception e, Boolean exp , Boolean actual) {
 		String s = "";
-		s = ExceptionMessageFormat(e, exp, actual) + "gui_start "+" gui_end";
+		s = ExceptionMessage(e, exp, actual) + "gui_start "+" gui_end";
 		return s;
 	}
 
@@ -555,23 +562,19 @@ public class functions {
 	}
 	
 	public void CheckBooleanTureIsPass(Boolean yBoolean){
-        try {
-    		if (!yBoolean) {
-   			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , true , false));
-   		}
-		} catch (Exception e) {
-			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , true , false));
-		}
+		 functions.softassert.assertTrue(yBoolean, ExceptionMessageFormat(new Exception() , true , false));
+//        if (!yBoolean) {
+//            NullPointerException exception = new NullPointerException("test");
+//            ExceptionMessageFormat(exception , true , false);
+//        }
     }
 	
 	public void CheckBooleanFalseIsPass(Boolean yBoolean){
-        try {
-    		if (yBoolean) {
-   			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , false , true));
-   		}
-		} catch (Exception e) {
-  			 functions.softassert.fail(ExceptionMessageFormat(new Exception() , false , true));
-		}
+		functions.softassert.assertFalse(yBoolean, ExceptionMessageFormat(new Exception() , true , false));
+//        if (yBoolean) {
+//            NullPointerException exception = new NullPointerException("test");
+//            ExceptionMessageFormat(exception , false , true);
+//        }
     }
 	
 	public  Boolean CheckPorpertyDate(WebElement webelement,String porperty,String vExpected ,String ExpectedFormat , String ActFormat , int distance){

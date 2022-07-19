@@ -598,6 +598,12 @@ public class CheckPoints {
 		 String checkpoint = "Information_I_would_like_to_assist_you_in_determining";
 		 return getValueFromExcel(checkpoint);
 		}
+		
+		public static String AM_I_would_like_to_assist_you_in_determining$$$for_CPE_Trouble(){
+			 String checkpoint = "AM_I_would_like_to_assist_you_in_determining$$$for_CPE_Trouble";
+			 return getValueFromExcel(checkpoint);
+			}
+		
 		public static String Information_CLOSE(){
 		 String checkpoint = "Information_CLOSE";
 		 return getValueFromExcel(checkpoint);

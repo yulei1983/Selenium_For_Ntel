@@ -3,13 +3,16 @@ package Object_Repository;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 //import org.testng.asserts.SoftAssert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import Function_Libary.MyException;
 import Function_Libary.functions;
@@ -33,10 +36,14 @@ public class ChooseBox {
 //		ChooseBox.driver = driver;
 //	}
 
-	/**Ê¶±ðËùÓÐChooseButton*/
+	/**Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ChooseButton*/
 	 public List<WebElement> ChooseBoxBtns() throws Exception{
          try {
-//        	 List<WebElement> ObjChooseBoxBtns = new ArrayList<WebElement>();
+ 			FluentWait<WebDriver> fwait = new FluentWait<WebDriver>(driver);
+ 			fwait.withTimeout(Duration.ofSeconds(6));
+ 			fwait.pollingEvery(Duration.ofSeconds(2));		
+ 			fwait.ignoring(NoSuchElementException.class);
+ 			fwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[class*='chooseBtnTable']")));
         	 this.ObjChooseBoxBtns = this.driver.findElements(By.cssSelector("[class*='chooseBtnTable']"));
 
 	    }catch (Exception e) {
@@ -45,7 +52,7 @@ public class ChooseBox {
 	     }
 	   return ObjChooseBoxBtns;
       }
-	 /**Ê¶±ðÖ¸¶¨ChooseButton*/
+	 /**Ê¶ï¿½ï¿½Ö¸ï¿½ï¿½ChooseButton*/
 	 public WebElement ChooseBoxBtn(String BtnName) throws Exception{
 		    ChooseBox choosebox = new ChooseBox(this.driver);
         	 List<WebElement> ChooseBoxBtns = choosebox.ChooseBoxBtns();
@@ -59,14 +66,14 @@ public class ChooseBox {
 		   throw myex;
       }
 	 
-	 /**Ê¶±ðÖ¸¶¨ChooseBox±êÌâÄÚÈÝ*/
+	 /**Ê¶ï¿½ï¿½Ö¸ï¿½ï¿½ChooseBoxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	 public WebElement ChooseBox_JTextPane(){
 		 
 		WebElement element = driver.findElement(By.cssSelector("span.choosedialog-message"));
 		 return element;
 		}
 	 
-	 /**·µ»ØChooseButton×ÜÊý*/	 
+	 /**ï¿½ï¿½ï¿½ï¿½ChooseButtonï¿½ï¿½ï¿½ï¿½*/	 
 	 public int ChooseBtnCount() throws Exception {
 		    ChooseBox choosebox = new ChooseBox(this.driver);
 		  int Num = choosebox.ChooseBoxBtns().size();

@@ -850,6 +850,13 @@ public class Browser_GUI {
 			 return element;
 			}
 		 
+		 public static WebElement Backup(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@valign='middle']//div[text()='Backup']")));
+			 element = driver.findElement(By.xpath("//td[@valign='middle']//div[text()='Backup']"));
+			 return element;
+			}
+		 
 		 public static WebElement Cancel_Message_Yes(WebDriver driver) throws Exception{	
 			Browser_GUI.SetWait(driver);	
 			WebElement Cancel_Title = driver.findElement(By.xpath("//div[text() = 'Cancel']/parent::div/parent::div/parent::div/parent::div"));
@@ -1024,6 +1031,47 @@ public class Browser_GUI {
 			}
 			 return element;
 			}
+		 
+		 public static WebElement Radio_AS(WebDriver driver){
+			 try {
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='ASTmp']//input")));
+				 element = driver.findElement(By.xpath("//td[@class='ASTmp']//input"));
+			     return element;
+			 } catch (Exception e) {
+				        return null; 
+			 }
+			}
+		 
+		 public static WebElement Radio_OS(WebDriver driver){
+			 try {
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='OSTmp']//input")));
+				 element = driver.findElement(By.xpath("//td[@class='OSTmp']//input"));
+			     return element;
+			 } catch (Exception e) {
+				        return null; 
+			 }
+			}
+		 
+		 public static WebElement Radio_BC(WebDriver driver){
+			 try {
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='BCTmp']//input")));
+				 element = driver.findElement(By.xpath("//td[@class='BCTmp']//input"));
+			     return element;
+			 } catch (Exception e) {
+				        return null; 
+			 }
+			}
+		 
+		 public static WebElement Radio_Unique(WebDriver driver){
+			 try {
+				 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='UniqueTmp']//input")));
+				 element = driver.findElement(By.xpath("//td[@class='UniqueTmp']//input"));
+			     return element;
+			 } catch (Exception e) {
+				        return null; 
+			 }
+			}
+		 
 		 
 		 public static WebElement OS_Commitment(WebDriver driver){
 			 element =driver.findElement(By.xpath("//table//tr[normalize-space()='CURRENT COMMITMENTS AVAILABLE']/following-sibling::tr[2]/td[2]"));

@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="8" total="9" passed="0">
+<testng-results skipped="0" failed="1" ignored="7" total="8" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Batch_1" duration-ms="156882" started-at="2022-07-05T01:28:07 EDT" finished-at="2022-07-05T01:30:44 EDT">
+  <suite name="Batch_1" duration-ms="87182" started-at="2022-07-19T03:45:16 EDT" finished-at="2022-07-19T03:46:43 EDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="156882" started-at="2022-07-05T01:28:07 EDT" finished-at="2022-07-05T01:30:44 EDT">
-      <class name="TestCases.GUIs">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:TestCases.GUIs@1990a65e]" name="beforeClass" is-config="true" duration-ms="22091" started-at="2022-07-05T01:28:07 EDT" finished-at="2022-07-05T01:28:29 EDT">
+    <test name="Default test" duration-ms="87182" started-at="2022-07-19T03:45:16 EDT" finished-at="2022-07-19T03:46:43 EDT">
+      <class name="TestCases.WFA_LSMS_LNP_1">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:TestCases.WFA_LSMS_LNP_1@1990a65e]" name="beforeClass" is-config="true" duration-ms="50427" started-at="2022-07-19T03:45:16 EDT" finished-at="2022-07-19T03:46:06 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:TestCases.GUIs@1990a65e]" name="beforeMethod" is-config="true" duration-ms="6681" started-at="2022-07-05T01:28:29 EDT" finished-at="2022-07-05T01:28:36 EDT">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:TestCases.WFA_LSMS_LNP_1@1990a65e]" name="beforeMethod" is-config="true" duration-ms="6830" started-at="2022-07-19T03:46:06 EDT" finished-at="2022-07-19T03:46:13 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="EMS_084_CATS_ProcessD_NoProcess_Approved_UncheckBackdown_SW()[pri:0, instance:TestCases.GUIs@1990a65e]" name="EMS_084_CATS_ProcessD_NoProcess_Approved_UncheckBackdown_SW" duration-ms="128038" started-at="2022-07-05T01:28:36 EDT" finished-at="2022-07-05T01:30:44 EDT">
+        <test-method status="FAIL" signature="LSMS_LNP_008_Pooled_account_SNET()[pri:0, instance:TestCases.WFA_LSMS_LNP_1@1990a65e]" name="LSMS_LNP_008_Pooled_account_SNET" duration-ms="29829" started-at="2022-07-19T03:46:13 EDT" finished-at="2022-07-19T03:46:43 EDT">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
-@@line_start [509] line_end; expected [07-09-22  0818P] but found [07-09-22 0818P]gui_start  gui_end]]>
+@@line_start [364] line_end; expected [This is a pooled account. Do not discuss Pooled status with the customer.] but found [This is a pooled account. Do not discussPooled status with the customer.]gui_start  gui_end,
+@@line_start [374] line_end; expected [CUSTOMER DOES NOT AGREE] but found [The Tree no display!]gui_start  gui_end]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: The following asserts failed:
-@@line_start [509] line_end; expected [07-09-22  0818P] but found [07-09-22 0818P]gui_start  gui_end
+@@line_start [364] line_end; expected [This is a pooled account. Do not discuss Pooled status with the customer.] but found [This is a pooled account. Do not discussPooled status with the customer.]gui_start  gui_end,
+@@line_start [374] line_end; expected [CUSTOMER DOES NOT AGREE] but found [The Tree no display!]gui_start  gui_end
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:47)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:31)
-at TestCases.GUIs.EMS_084_CATS_ProcessD_NoProcess_Approved_UncheckBackdown_SW(GUIs.java:647)
+at TestCases.WFA_LSMS_LNP_1.LSMS_LNP_008_Pooled_account_SNET(WFA_LSMS_LNP_1.java:390)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -47,16 +49,16 @@ at java.lang.Thread.run(Thread.java:748)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EMS_084_CATS_ProcessD_NoProcess_Approved_UncheckBackdown_SW -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:TestCases.GUIs@1990a65e]" name="afterMethod" is-config="true" duration-ms="1" started-at="2022-07-05T01:30:44 EDT" finished-at="2022-07-05T01:30:44 EDT">
+        </test-method> <!-- LSMS_LNP_008_Pooled_account_SNET -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:TestCases.WFA_LSMS_LNP_1@1990a65e]" name="afterMethod" is-config="true" duration-ms="0" started-at="2022-07-19T03:46:43 EDT" finished-at="2022-07-19T03:46:43 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="AfterClass()[pri:0, instance:TestCases.GUIs@1990a65e]" name="AfterClass" is-config="true" duration-ms="0" started-at="2022-07-05T01:30:44 EDT" finished-at="2022-07-05T01:30:44 EDT">
+        <test-method status="PASS" signature="AfterClass()[pri:0, instance:TestCases.WFA_LSMS_LNP_1@1990a65e]" name="AfterClass" is-config="true" duration-ms="0" started-at="2022-07-19T03:46:43 EDT" finished-at="2022-07-19T03:46:43 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterClass -->
-      </class> <!-- TestCases.GUIs -->
+      </class> <!-- TestCases.WFA_LSMS_LNP_1 -->
     </test> <!-- Default test -->
   </suite> <!-- Batch_1 -->
 </testng-results>
