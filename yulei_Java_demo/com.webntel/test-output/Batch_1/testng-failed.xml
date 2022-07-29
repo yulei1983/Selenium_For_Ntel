@@ -5,8 +5,8 @@
     <classes>
       <class name="TestCases.WFA_LSMS_LNP_1">
         <methods>
+          <include name="LSMS_LNP_020_MR_report_RX_Screen_SO_Billing_ZBU_CS_SW"/>
           <include name="beforeClass"/>
-          <include name="LSMS_LNP_008_Pooled_account_SNET"/>
           <include name="AfterClass"/>
           <include name="afterMethod"/>
           <include name="beforeMethod"/>

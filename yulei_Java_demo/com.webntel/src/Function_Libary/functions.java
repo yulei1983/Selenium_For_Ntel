@@ -1022,19 +1022,86 @@ public class functions {
 	 * @return  Boolean
 	 * @throws ParseException
 	 */
-	public Boolean set_commitment_with_CalendarType(int CalType,int num) throws ParseException {
+	public Boolean set_commitment_with_Localtime_CalendarType(int CalType,int num) throws ParseException {
 		Boolean bool = false;
 		String get_commitment = Browser_GUI.MainPage.topLocalTime(driver).getText();
 		Date commit = functions.convert_datetime_format_ntel_to_qtp(get_commitment);
 		commit = DateAdd(commit, CalType, num);
 		get_commitment = dateToString(commit);
-		Browser_GUI.MainPage.WebEdit_Commitment(driver).sendKeys(get_commitment);
+		
+		String MM = get_commitment.substring(0, 2);
+		String dd = get_commitment.substring(3, 5);
+		String YY = get_commitment.substring(6, 8);
+		String hh = get_commitment.substring(9, 11);
+		String mm = get_commitment.substring(11, 13);
+		String AP = get_commitment.substring(13, 14);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(Browser_GUI.MainPage.WebEdit_Commitment(driver) , -47, 0);
+		actions.click();
+		actions.sendKeys(MM);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(dd);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(YY);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(hh);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(mm);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(AP);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.perform();
 		
 		if(Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value").equals(get_commitment)) {
 			bool = true;
 		}	
 		return bool;
 	}
+	
+	/**
+	 * 
+	 * @param CalType  �������� eg.Calendar.DAY_OF_YEAR
+	 * @param num  
+	 * @return  Boolean
+	 * @throws ParseException
+	 */
+	public Boolean set_commitment_with_Commit_CalendarType(int CalType,int num) throws ParseException {
+		Boolean bool = false;
+		String get_commitment = Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value");
+		Date commit = functions.convert_datetime_format_ntel_to_qtp(get_commitment);
+		commit = DateAdd(commit, CalType, num);
+		get_commitment = dateToString(commit);
+		
+		String MM = get_commitment.substring(0, 2);
+		String dd = get_commitment.substring(3, 5);
+		String YY = get_commitment.substring(6, 8);
+		String hh = get_commitment.substring(9, 11);
+		String mm = get_commitment.substring(11, 13);
+		String AP = get_commitment.substring(13, 14);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(Browser_GUI.MainPage.WebEdit_Commitment(driver) , -47, 0);
+		actions.click();
+		actions.sendKeys(MM);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(dd);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(YY);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(hh);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(mm);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.sendKeys(AP);
+		actions.sendKeys(Keys.ARROW_RIGHT);
+		actions.perform();
+
+		if(Browser_GUI.MainPage.WebEdit_Commitment(driver).getAttribute("value").equals(get_commitment)) {
+			bool = true;
+		}	
+		return bool;
+	}
+	
+	
 	
 	public Boolean set_REQUESTED_COMMIT(String NtelREQUESTEDCOMMIT) throws ParseException {
 		Boolean bool = false;

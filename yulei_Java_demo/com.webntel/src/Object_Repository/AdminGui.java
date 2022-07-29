@@ -162,6 +162,7 @@ public class AdminGui {
 				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='viewdetail' and contains(@src,'viewdetail.gif')]")));
 				element = driver.findElement(By.xpath("//input[@name='viewdetail' and contains(@src,'viewdetail.gif')]"));
 			 } catch (Exception e) {
+				driver.close();
 				functions.softassert.fail(functions.ExceptionMessageFormat(new Exception() ,  "Btn_viewdetail"   , "No popup"));
 			}
 			 return element; 

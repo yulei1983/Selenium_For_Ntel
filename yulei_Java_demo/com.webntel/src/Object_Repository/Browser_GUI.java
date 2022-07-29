@@ -347,6 +347,8 @@ public class Browser_GUI {
 			}
 		 
 		 public static WebElement WebEdit_Commitment(WebDriver driver){
+			 Browser_GUI.SetWait(driver);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='commitDatePicker']//input[@type='text']")));
 			 element = driver.findElement(By.xpath("//div[@nid='commitDatePicker']//input[@type='text']"));
 			 return element;
 			}
@@ -549,14 +551,14 @@ public class Browser_GUI {
 		 
 		 public static WebElement DataInput2_MaskEdit(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//input")));
+			 element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@nid='inputdialog_U']//input")));
 //			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
 		 
 		 public static WebElement DataInput2_OK(WebDriver driver) throws Exception{
 			  Browser_GUI.SetWait(driver);
-			 element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@nid='inputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='OK']")));
+			 element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@nid='inputdialog_U']//td[@class='buttonWarper']//td[@valign='middle']/div[normalize-space()='OK']")));
 //			 element = driver.findElement(By.xpath("//span[@class='askdialog-message']"));
 			 return element;
 			}
@@ -999,6 +1001,7 @@ public class Browser_GUI {
 		 public static WebElement TreeForm_expandNode(WebDriver driver , String TreeForm_Option){
 			 WebElement element;
 			//div[@class='treeRootDIV']//span/span[text()="CAN'T BE CALLED"]/parent::span/preceding-sibling::img[2]
+			 wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\""+ TreeForm_Option +"\"]/parent::span/preceding-sibling::img[2]")));
 			List<WebElement> elements = driver.findElements(By.xpath("//div[@class='treeRootDIV']//span/span[text()=\"" + TreeForm_Option + "\"]"));
 			element = elements.get(0);
 			element = element.findElement(By.xpath("./parent::span/preceding-sibling::img[2]"));
