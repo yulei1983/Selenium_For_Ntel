@@ -1000,10 +1000,7 @@ public class CheckPoints {
 		 String checkpoint = "Dara_Input_Obtain_callback_number_if$$$populated_with_zeros$";
 		 return getValueFromExcel(checkpoint);
 		}
-		public static String Dara_Input_Input_the_correct_address$(){
-		 String checkpoint = "Dara_Input_Input_the_correct_address$";
-		 return getValueFromExcel(checkpoint);
-		}
+
 		public static String CLOSE(){
 		 String checkpoint = "CLOSE";
 		 return getValueFromExcel(checkpoint);
@@ -3556,6 +3553,10 @@ public class CheckPoints {
 		 String checkpoint = "AM_Online_transfer_to_CA_CS_at_800_750_2355$_Educate_the_customer_at_866_346_1168_for_future_reporting$";
 		 return getValueFromExcel(checkpoint);
 		}
+		public static String AM_Online_transfer_to_CA_CS_at_800_310_2355$$$_800_750_2355$$$800_288_2020$$$800_750_2355_for_future_reporting$(){
+			 String checkpoint = "AM_Online_transfer_to_CA_CS_at_800_310_2355$$$_800_750_2355$$$800_288_2020$$$800_750_2355_for_future_reporting$";
+			 return getValueFromExcel(checkpoint);
+			}
 		public static String AM_Online_transfer_to_AR_EB_at_800_499_7928$_Educate_the_customer_at_800_499_7928_for_future_reporting$(){
 		 String checkpoint = "AM_Online_transfer_to_AR_EB_at_800_499_7928$_Educate_the_customer_at_800_499_7928_for_future_reporting$";
 		 return getValueFromExcel(checkpoint);
@@ -5484,10 +5485,10 @@ public class CheckPoints {
 		 String checkpoint = "AM_Advise_the_customer_that_calls_are_forwarded$_Provide_instructions_to_deactivate$";
 		 return getValueFromExcel(checkpoint);
 		}
-		public static String AM_Advise_the_customer_of_the_Service_Order_due_date_and_if_necessary_refer_to_Business_Office$(){
-		 String checkpoint = "AM_Advise_the_customer_of_the_Service_Order_due_date_and_if_necessary_refer_to_Business_Office$";
-		 return getValueFromExcel(checkpoint);
-		}
+//		public static String AM_Advise_the_customer_of_the_Service_Order_due_date_and_if_necessary_refer_to_Business_Office$(){
+//		 String checkpoint = "AM_Advise_the_customer_of_the_Service_Order_due_date_and_if_necessary_refer_to_Business_Office$";
+//		 return getValueFromExcel(checkpoint);
+//		}
 		public static String AM_Advise_the_customer_of_the_results_of_the_test_call_CFW(){
 		 String checkpoint = "AM_Advise_the_customer_of_the_results_of_the_test_call_CFW";
 		 return getValueFromExcel(checkpoint);
@@ -6015,6 +6016,11 @@ public class CheckPoints {
 			 return getValueFromExcel(checkpoint);
 			}
 	
+		public static String AM_Advise_the_customer_of_the_Service_Order_due_date$and_if_necessary_refer_to_Business_Office$(){
+			 String checkpoint = "AM_Advise_the_customer_of_the_Service_Order_due_date$and_if_necessary_refer_to_Business_Office$";
+			 return getValueFromExcel(checkpoint);
+			}
+
 		public static String AM_Your_report_has_been_queued(){
 			 String checkpoint = "AM_Your_report_has_been_queued";
 			 return getValueFromExcel(checkpoint);
@@ -6025,6 +6031,8 @@ public class CheckPoints {
 			 return getValueFromExcel(checkpoint);
 			}
 	
+
+		
 	
 //	public static String Ask_Yes = "Yes";
 //	public static String Information_OK = "O";

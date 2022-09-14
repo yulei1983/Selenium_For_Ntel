@@ -591,8 +591,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_011_WINBACK_account_SNET(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9976002326");
 	    Thread.sleep(3000);
 		
@@ -630,8 +628,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_012_WINDBACK_DIFF_CO_account_SNET(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9976002327");
 	    Thread.sleep(3000);
 		
@@ -668,9 +664,7 @@ public class WFA_LSMS_LNP_1 {
 	@Test
 	public void LSMS_LNP_013_RX_Screen_Not_valid_SPID_State_California_Agree_W(){
 	    try {	
-		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
+	    Thread.sleep(2000);
 	    funs.Enter_TN("9996012301");
 	    Thread.sleep(3000);
 		
@@ -706,8 +700,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_014_RX_Screen_Not_valid_SPID_Local_Service_Provider_MW(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9991172306");
 	    Thread.sleep(3000);
 		
@@ -919,8 +911,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_018_No_MR_report_RX_Screen_SO_Billing_ZBU(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9961002327");
 	    Thread.sleep(3000);
 		
@@ -959,8 +949,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_019_MR_report_RX_Screen_SO_Billing_ZBU_CS_SW(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9961002327");
 	    Thread.sleep(3000);
 		
@@ -1035,8 +1023,6 @@ public class WFA_LSMS_LNP_1 {
 	public void LSMS_LNP_020_MR_report_RX_Screen_SO_Billing_ZBU_CS_SW(){
 	    try {	
 		    Thread.sleep(2000);
-		 ChooseBox chooseBox;
-		 chooseBox = new ChooseBox(driver);
 	    funs.Enter_TN("9961002326");
 	    Thread.sleep(3000);
 		
@@ -1080,17 +1066,553 @@ public class WFA_LSMS_LNP_1 {
            functions.softassert.assertAll();  	    	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	@Test
+	public void LSMS_LNP_021_RX_Screen_NO_PSTAT_LRN_not_Equal_to_TN_SW(){
+	    try {	
+        Thread.sleep(2000);
+        ChooseBox chooseBox;
+        chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9998002307");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Please_verify_the_customer$s_name_and_address$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_Yes(driver).click();
 
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_MainMenu_SW);
+		chooseBox.ChooseBoxBtn("Dial Tone").click();
+		
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_DialTone);
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		chooseBox.ChooseBoxBtn("No Dial Tone At Times").click();
+	    
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE);
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","NDTAT"); 
+		chooseBox.ChooseBoxBtn("Some Phones (SP)").click();
+	    
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Has_customer_checked_CPE_and$or_NID$());
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","NDTAT SP/AC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Information_MSG_JTextPane(driver), "innerText",
+		CheckPoints.Information_I_would_like_to_assist_you_in_determining());
+		Browser_GUI.MainPage.Information_OK(driver).click();
+		
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_Willing_To_Check);
+		chooseBox.ChooseBoxBtn("Willing to check").click();
+		
+		Browser_GUI.MainPage.information_CLOSE(driver).click();
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","NDTAT SP/AC WL CK CPE-NID"); 
+		Browser_GUI.MainPage.information_CLOSE(driver).click();
+
+		funs.Check_ChooseBoxList(QTP_CheckList.ChooseBox_CPE_Isolation_Cats);
+		chooseBox.ChooseBoxBtn("Verbal CPE/NID Isolation").click();
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Inform_the_customer_that_the_report_will_be_held_for_24hours$$$ICATS_process_withcustomer$());
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","ICATS"); 
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","CRA NDTAT SP/AC WL CK CPE-NID VRBL CPE/NID ISO"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","ICATS"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","NDT"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value",""); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCTEXAPOTS");
+		Browser_GUI.MainPage.Tree_value(driver, "ACCOUNT STATUS:IN EFFECT");
+		Browser_GUI.MainPage.Tree_value(driver, "STATUS WKG");
+		Browser_GUI.MainPage.Tree_value(driver, "LOC (SF)");
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+		Browser_GUI.MainPage.Tree_value(driver, "CONSUMER SERVICE");
+		Browser_GUI.MainPage.Tree_value(driver, "CUSTOMER'S ADDRESS IS CORRECT.");
+
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReachNumber(driver).sendKeys("888888888888");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_AgMsg_Yes(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
 	}
+	
+	@Test
+	public void LSMS_LNP_022_RX_Screen_COS(){
+	    try {	
+        Thread.sleep(2000);
+        ChooseBox chooseBox;
+        chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9991172355");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_EB_at_800_480_8088$_Educate_the_customer_at_800_480_8088_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+
+	@Test
+	public void LSMS_LNP_023_RX_Screen_COS_II_ZBU_II_XZBU2_ZULS_NO_ServiceCode_Not_Agree_MW(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9991172356");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_II_at_800_924_3666$_Educate_the_customer_at_877_728_1200_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_024_RX_Screen_COS_RVJII_ZBU_RVJII_NO_ServiceCode_Not_Agree_MW(){
+	    try {	
+        Thread.sleep(2000);
+        ChooseBox chooseBox;
+        chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9991172357");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_CS_at_800_206_4102$_Educate_the_customer_at_800_288_2020_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_025_RX_Screen_NO_ZBU_ServiceCode_COINW_Not_Agree_MW(){
+	    try {	
+        Thread.sleep(2000);
+        ChooseBox chooseBox;
+        chooseBox = new ChooseBox(driver);
+	    funs.Enter_TN("9991172358");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_CS_at_800_206_4102$_Educate_the_customer_at_800_288_2020_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}	
+	
+	@Test
+	public void LSMS_LNP_026_RX_Screen_COS_RVJII_ZBU_RVJII_ServiceCodeSpecialValue_Not_Agree_MW(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9991172372");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_CS_at_800_206_4102$_Educate_the_customer_at_800_288_2020_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_027_RX_Screen_COS_ZBU_RVJII_ServiceCodeSpecialValue_Customer_Not_Agree_Billing_MW(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9991172371");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_CS_at_800_206_4102$_Educate_the_customer_at_800_288_2020_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+
+	@Test
+	public void LSMS_LNP_028_RX_Screen_COS_RVJII_ZBU_RVJII_ServiceCode_976_Customer_Not_Agree_Billing_Record_MW(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9991172359");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_IN_EB_at_800_480_8088$_Educate_the_customer_at_800_480_8088_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCINDIPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+
+	@Test
+	public void LSMS_LNP_029_RX_Screen_COS_LWU_ServiceCode_BUS_Customer_Not_Agree_Billing_Record_W(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9996002386");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_CA_EB_at_800_750_2355$_Educate_the_customer_at_800_750_2355_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCCANOPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_030_RX_Screen_ServiceCode_RUR_Do_not_agree_Billing_data_W(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9996002387");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_CA_CS$$$866_346_1168$$$800_750_2355$$$800_288_2020$$$800_750_2355());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCCANOPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_031_SO_No_Billing_ZBU_EB_SW(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9961002311");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Check_service_code$s$_to_determine_if_the_service_should_be_working$_Do_you_want_to_enter_a_MR_report$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_AR_EB_at_800_499_7928$_Educate_the_customer_at_800_499_7928_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent","SVC ORD"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCMOKAPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_032_RX_Screen_COS_1FR_IN_S24_Do_not_agree_Billing_data_W(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9996002388");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_CA_CS_at_800_310_2355$$$_800_750_2355$$$800_288_2020$$$800_750_2355_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCCANOPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+	
+	@Test
+	public void LSMS_LNP_033_RX_Screen_COS_SVROP_IN_S24_Customer_Not_Agree_Billing_Record_W(){
+	    try {	
+        Thread.sleep(2000);
+	    funs.Enter_TN("9996002389");
+	    Thread.sleep(3000);
+		
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_JTextPane(driver), "innerText",
+		CheckPoints.Ask_Do_the_billing_records_and_customers_information_agree$());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_Yes(driver), "innerText",CheckPoints.Ask_Yes());
+		funs.CheckPorperty(Browser_GUI.MainPage.Ask_No(driver), "innerText",CheckPoints.Ask_No());
+		Browser_GUI.MainPage.Ask_No(driver).click();
+	
+		funs.CheckPorperty(Browser_GUI.MainPage.AM_JTextPane(driver), "innerText",
+		CheckPoints.AM_Online_transfer_to_CA_EB_at_800_750_2355$_Educate_the_customer_at_800_750_2355_for_future_reporting$());
+		Browser_GUI.MainPage.AM_OK(driver).click();
+
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_Report(driver), "textContent",""); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ACTION(driver), "value","TXCLOSE"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_TYPE(driver), "value","MISC"); 
+		funs.CheckPorperty(Browser_GUI.MainPage.WebEdit_ReachNumber(driver), "value","0000000000"); 
+
+		Browser_GUI.MainPage.Tree_value(driver, "WFA CTR SBCCANOPOTS");
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).clear();
+		Browser_GUI.MainPage.WebEdit_ReportBy(driver).sendKeys("COC-LEO"); 
+		
+		Browser_GUI.MainPage.BTN_Submit(driver).click(); 
+		Browser_GUI.MainPage.Submit_APRO_OK(driver).click(); 
+		funs.CheckPorperty(Browser_GUI.MainPage.Submit_TankYou_OK(driver), "innerText",CheckPoints.Submit_TankYou_OK()); 
+		Browser_GUI.MainPage.Submit_TankYou_OK(driver).click();	
+		   }
+	    catch (Exception e) {
+			funs.ClearNtel(driver);
+			 functions.GetExcptionMessageFromExcptionRejector(e, declaringClassNameReg); 
+	       }
+           functions.softassert.assertAll();  	    	
+	}
+
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }

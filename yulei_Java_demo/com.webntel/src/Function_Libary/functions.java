@@ -1334,6 +1334,23 @@ public class functions {
 		return strDate;
 	} 
 	
+	public Boolean Check_Commitment_CATS() {	
+		try {
+			String commitment = get_commitment_time();
+			String LocalDate = get_localtime_Cal_dt(Calendar.DAY_OF_YEAR, 4);
+			String Commitment_CATS = LocalDate.substring(0, 9).concat("0818P");
+			if (commitment.equals(Commitment_CATS)) {
+			    return true;
+			}else {
+			    functions.softassert.fail(ExceptionMessageFormat(new Exception() ,  Commitment_CATS   , commitment));
+	 			return false;
+			}	
+		} catch (Exception e) {
+			functions.softassert.fail(ExceptionMessageFormat(e ,  ""   , "null"));
+			return false;
+		}
+	} 
+
 	/**
 	 * 模拟鼠标操作 - 鼠标右击
 	 */

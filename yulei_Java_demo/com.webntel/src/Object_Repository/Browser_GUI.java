@@ -1097,12 +1097,17 @@ public class Browser_GUI {
 			}
 
 		 public static WebElement Webtable_right_html_section2(WebDriver driver){
-			 element = driver.findElement(By.xpath("//table[@align='	//table[@align='center'][2]']"));
+			 element = driver.findElement(By.xpath("//table[@align='center'][2]"));
 			 return element;
 			}
 
 		 public static WebElement Webtable_Right_section_FEATURE_COMPARISON_html(WebDriver driver){
 			 element = driver.findElement(By.xpath("//div[@id='upperLayer1']/table"));
+			 return element;
+			}
+		 
+		 public static WebElement Webtable_Right_section_HOST(WebDriver driver){
+			 element = driver.findElement(By.xpath("//table[@class='myTable']"));
 			 return element;
 			}
 		 
